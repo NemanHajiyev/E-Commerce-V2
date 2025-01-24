@@ -4,6 +4,9 @@ import { Categories } from '../MockData/mockData';
 import HeroImage from '../Assets/Images-main/hero-page.png';
 import InfoSection from "../Components/InfoSection";
 import CategorySection from '../Components/CategorySection';
+import ProductList from '../Components/ProductList';
+
+
 
 const Home = () => {
     return (
@@ -31,6 +34,7 @@ const Home = () => {
             <div>
                 <InfoSection />
                 <CategorySection />
+                <ProductList />
             </div>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
 

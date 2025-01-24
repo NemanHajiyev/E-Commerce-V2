@@ -5,12 +5,12 @@ const initialState = {
 }
 
 export const productSlice = createSlice({
-    name: 'counter',
+    name: 'product',
     initialState,
     reducers: {
         setProducts: (state, action) => {
-            state.products = action.payload
-        }
+            state.products = action.payload;
+        },
     }
 })
 
