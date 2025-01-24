@@ -1,9 +1,9 @@
 .navbar {
     border-bottom: 3px solid lightgrey;
+    margin-top: 20px;
 }
 
 .navbar-div {
-    border: 1px solid red;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -12,13 +12,12 @@
 
 .navbar-logo {
     font-size: 30px;
+
 }
 
 .navbar-form {
     display: flex;
     align-items: center;
-    width: 500px;
-    border: 1px solid red;
 }
 
 .navbar-form input {
@@ -26,9 +25,35 @@
     height: 30px;
     border: none;
     outline: none;
+    padding: 20px;
 }
 
 .navbar-right {
-    border: 1px solid red;
     width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+}
+
+.navbar-right button {
+    border: none;
+    padding: 10px;
+    background: transparent;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.Pages-link {
+    display: flex;
+    justify-content: center;
+}
+
+.Link {
+    padding: 20px 20px;
+    color: rgb(60, 7, 7);
+}
+
+.Link:hover {
+    text-decoration: underline;
 }
