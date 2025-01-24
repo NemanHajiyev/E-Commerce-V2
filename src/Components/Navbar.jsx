@@ -17,7 +17,7 @@ const Navbar = () => {
                     </form>
                 </div>
                 <div className='navbar-right'>
-                    <Link to="/">
+                    <Link to="/cart">
                         <FaShoppingCart />
                     </Link>
                     <button>

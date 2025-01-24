@@ -4,6 +4,7 @@ import Footer from "./Components/Footer"
 import Home from "./Pages/Home"
 import Shop from "./Pages/Shop"
 import './index.css';
+import Cart from "./Pages/Cart"
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
         <Footer />

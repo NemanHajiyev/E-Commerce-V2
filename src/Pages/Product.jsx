@@ -1,9 +1,20 @@
 import React from 'react'
 import '../Styles/Products.css'
 import { FaMinus, FaPlus, FaStar } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToBaket } from '../Redux/cartSlice';
 
 const Product = ({ getData }) => {
     const { id, image, name, price } = getData;
+
+    const dispatch = useDispatch()
+    const { products } = useSelector((store) => store.cart)
+
+    const AddToBasket = () => {
+        dispatch(addToBaket(products))
+        console.log(products)
+    }
+
     return (
         <div className="product-detail">
             <img src={image} alt={name} />
@@ -21,7 +32,7 @@ const Product = ({ getData }) => {
                         <FaStar />
                     </div>
                     <div>
-                        <span>+</span>
+                        <span onClick={AddToBasket}>+</span>
                     </div>
                 </div>
             </div>
