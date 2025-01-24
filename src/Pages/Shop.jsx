@@ -6,7 +6,7 @@ import Product from '../Pages/Product';
 import '../Styles/Products.css'
 
 
-const ProductList = () => {
+const Shop = () => {
     const dispatch = useDispatch();
     const products = useSelector(state => state.product.products)
 
@@ -16,11 +16,11 @@ const ProductList = () => {
 
     return (
         <div className='products'>
-            {products?.slice(0, 5).map((product, index) => (
+            {products?.map((product, index) => (
                 <Product getData={product} key={index} />
             ))}
         </div>
     )
 }
 
-export default ProductList
+export default Shop

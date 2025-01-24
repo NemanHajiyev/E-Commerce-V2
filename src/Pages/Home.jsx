@@ -5,6 +5,7 @@ import HeroImage from '../Assets/Images-main/hero-page.png';
 import InfoSection from "../Components/InfoSection";
 import CategorySection from '../Components/CategorySection';
 import ProductList from '../Components/ProductList';
+import Shop from './Shop';
 
 
 
@@ -36,6 +37,8 @@ const Home = () => {
                 <CategorySection />
                 <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Top Products</h1>
                 <ProductList />
+                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Shop</h1>
+                <Shop />
             </div>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />
 

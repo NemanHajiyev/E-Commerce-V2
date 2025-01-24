@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
             <div className='Pages-link'>
                 <Link to="/" className='Link'>Home</Link>
-                <Link to="/" className='Link'>Shop</Link>
+                <Link to="/shop" className='Link'>Shop</Link>
                 <Link to="/" className='Link'>Contact</Link>
                 <Link to="/" className='Link'>About</Link>
             </div>
