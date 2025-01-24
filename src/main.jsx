@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
   <div >
     <CssBaseline />
     <Provider store={store}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className='general'>
         <App />
       </Container>
     </Provider>,

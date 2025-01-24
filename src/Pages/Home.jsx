@@ -40,8 +40,6 @@ const Home = () => {
                 <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Shop</h1>
                 <Shop />
             </div>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
-
         </div>
     )
 }

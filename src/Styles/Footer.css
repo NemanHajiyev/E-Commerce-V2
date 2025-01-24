@@ -1,0 +1,145 @@
+.footer {
+    margin-top: 6rem;
+    width: 100%;
+    background-color: #2a2e49;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    width: 30%;
+}
+
+.footer-left h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.footer-left p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #b0b3c5;
+}
+
+.footer-center {
+    width: 30%;
+    text-align: center;
+}
+
+.footer-center h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-center ul {
+    list-style: none;
+}
+
+.footer-center ul li {
+    font-size: 18px;
+}
+
+.footer-center ul li a {
+    text-decoration: none;
+    color: #b0b3c5;
+    transition: color 0.3s;
+}
+
+.footer-center ul li a:hover {
+    color: white;
+    text-decoration: underline
+}
+
+.footer-right {
+    width: 30%;
+}
+
+.footer-right h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-right .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.footer-right .social-icons svg {
+    font-size: 34px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-right .social-icons svg:hover {
+    color: #ff5e57;
+    transform: scale(1.2);
+}
+
+.footer-right .subscribe {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-right .subscribe input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #b0b3c5;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.footer-right .subscribe button {
+    padding: 10px 20px;
+    background-color: #ff5e57;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-right .subscribe button:hover {
+    background-color: #ed2a2a;
+}
+
+.footer-bottom {
+    text-align: left;
+    border-top: 1px solid #b0b3c5;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-right .subscribe {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
