@@ -111,5 +111,4 @@ export const mockData = [
     name: "Product 10",
     price: 49.99,
   },
-
 ];
