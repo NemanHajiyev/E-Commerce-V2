@@ -9,6 +9,9 @@
 // import Image9 from "./Images/wwatch.jpg";
 // import Image10 from "./Images/shirt.jpg";
 
+import { FaHeadset, FaLock, FaShippingFast, FaTag } from "react-icons/fa";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
+
 export const Categories = [
   "Electronics",
   "Fashion",
@@ -17,6 +20,34 @@ export const Categories = [
   "Sports",
   "Automotive",
 ];
+
+export const infoSectionData = [
+  {
+    icon: <FaShippingFast />,
+    title: "Free Shipping",
+    description: "Get your orders delivered with no extra const"
+  },
+  {
+    icon: <FaHeadset />,
+    title: "Support 24/7",
+    description: "We are here to assist you anytime"
+  },
+  {
+    icon: <FaMoneyBill1Wave />,
+    title: "100% Money back",
+    description: "Get Your Orders delivered with no extra const"
+  },
+  {
+    icon: <FaLock />,
+    title: "Payment secure",
+    description: "Your payment information is safe with us"
+  },
+  {
+    icon: <FaTag />,
+    title: "Discount",
+    description: "Enjoy the best prices on our products"
+  }
+]
 
 
 // export const mockData = [

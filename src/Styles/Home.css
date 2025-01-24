@@ -3,12 +3,15 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .home-category {
     width: 29%;
     background-color: rgb(238, 237, 237);
     height: 380px;
+    transition: transform 0.9s ease, box-shadow 0.9s ease;
+
 }
 
 .home-banner {
@@ -16,7 +19,6 @@
     position: relative;
     overflow: visible;
 }
-
 
 .banner-detail {
     position: absolute;
@@ -49,7 +51,9 @@
 .list:hover {
     cursor: pointer;
     color: white;
-    background-color: rgb(191, 58, 58);
+    background-color: brown;
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px rgb(0, 0, 0);
 }
 
 .ul-list {
