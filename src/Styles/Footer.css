@@ -77,6 +77,10 @@
     margin-bottom: 35px;
 }
 
+.social-icons a {
+    color: white;
+}
+
 .footer-right .social-icons svg {
     font-size: 34px;
     cursor: pointer;

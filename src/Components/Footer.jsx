@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Styles/Footer.css'
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
@@ -25,10 +25,9 @@ const Footer = () => {
                 <div className="footer-right">
                     <h1>Follow Us</h1>
                     <div className="social-icons">
-                        <FaFacebook />
-                        <FaTwitter />
-                        <FaInstagram />
-                        <FaLinkedin />
+                        <a href="https://github.com/NemanHajiyev"><FaGithub /></a>
+                        <a href="https://www.instagram.com/neman.hv?igsh=MTRoZXViNXp1bmYxNQ=="><FaInstagram /></a>
+                        <a href="https://www.linkedin.com/in/neman-haciyev"><FaLinkedin /></a>
                     </div>
                     <div className="subscribe">
                         <input type="text" placeholder="Your Email..." />
