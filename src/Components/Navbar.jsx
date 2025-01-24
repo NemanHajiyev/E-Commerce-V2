@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav className='navbar'>
             <div className='navbar-div'>
                 <div className='navbar-logo'>
-                    <Link to="/" style={{ color: "black" }}>E-Shop</Link>
+                    <Link to="/" style={{ color: "black" }}>e-Shop</Link>
                 </div>
                 <div style={{ width: "60%" }}>
                     <form className='navbar-form'>
