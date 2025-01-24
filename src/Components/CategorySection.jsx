@@ -22,14 +22,18 @@ const CategorySection = () => {
     ];
 
     return (
-        <div className='category-section'>
-            {data?.map((data, index) => (
-                <div className='category-info'>
-                    <img src={data.image} alt="" />
-                    <p>{data.title}</p>
+        <div className="category-section">
+            {data?.map((item, index) => (
+                <div className="category-info" key={index}>
+                    <img src={item.image} alt={item.title} />
+                    <div className="category-detail">
+                        <p>{item.title}</p>
+                        <button>View All</button>
+                    </div>
                 </div>
             ))}
         </div>
+
     )
 }
 
