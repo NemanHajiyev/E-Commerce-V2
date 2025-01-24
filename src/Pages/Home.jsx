@@ -34,6 +34,7 @@ const Home = () => {
             <div>
                 <InfoSection />
                 <CategorySection />
+                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Top Products</h1>
                 <ProductList />
             </div>
             <br /><br /><br /><br /><br /><br /><br /><br /><br />

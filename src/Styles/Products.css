@@ -1,6 +1,6 @@
 /* Ürünler ana kapsayıcısı */
 .products {
-    margin-top: 100px;
+    margin-top: 50px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@
 .product-detail {
     border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     width: 24%;
@@ -18,7 +18,7 @@
 
 .product-detail:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgb(0, 0, 0);
 }
 
 .product-detail img {
@@ -28,7 +28,10 @@
 }
 
 .product-info {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .product-info h3 {
@@ -39,7 +42,22 @@
 }
 
 .product-info p {
-    font-size: 16px;
+    font-size: 20px;
     color: #ff5e57;
     font-weight: bold;
+}
+
+.star {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: yellow;
+}
+
+.star span {
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    padding: 7px;
 }
