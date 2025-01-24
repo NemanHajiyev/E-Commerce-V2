@@ -1,13 +1,13 @@
-import Image1 from "./Assets/Images-main/bag.jpg";
-import Image2 from "./Assets/Images-main/sandle.jpg";
-import Image3 from "./Assets/Images-main/watch.jpg";
-import Image4 from "./Assets/Images-main/cap.jpg";
-import Image5 from "./Assets/Images-main/boot1.jpg";
-import Image6 from "./Assets/Images-main/dove.jpg";
-import Image7 from "./Assets/Images-main/headphone.jpg";
-import Image8 from "./Assets/Images-main/robot.jpg";
-import Image9 from "./Assets/Images-main/wwatch.jpg";
-import Image10 from "./Assets/Images-main/shirt.jpg";
+import Image1 from "../Assets/Images-main/bag.jpg";
+import Image2 from "../Assets/Images-main/sandle.jpg";
+import Image3 from "../Assets/Images-main/watch.jpg";
+import Image4 from "../Assets/Images-main/cap.jpg";
+import Image5 from "../Assets/Images-main/boot1.jpg";
+import Image6 from "../Assets/Images-main/dove.jpg";
+import Image7 from "../Assets/Images-main/headphone.jpg";
+import Image8 from "../Assets/Images-main/robot.jpg";
+import Image9 from "../Assets/Images-main/wwatch.jpg";
+import Image10 from "../Assets/Images-main/shirt.jpg";
 
 import { FaHeadset, FaLock, FaShippingFast, FaTag } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
