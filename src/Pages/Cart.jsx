@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../Styles/Basket.css'
 import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 
 const Cart = () => {
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [shipping, setShipping] = useState("Azerbaijan , Baku")
     const [modal, setModal] = useState(false)
@@ -104,6 +105,13 @@ const Cart = () => {
                 </div>
                 <div className='cart-section'>
                     <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
+                </div>
+                <div>
+                    <button
+                        onClick={() => navigate("/checkout-page")}
+                        className='checkout-btn'>
+                        Procced Checkout
+                    </button>
                 </div>
             </div>
 

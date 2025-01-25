@@ -7,6 +7,7 @@ import './index.css';
 import Cart from "./Pages/Cart"
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import CheckoutPage from "./Pages/CheckoutPage"
 
 
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout-page" element={<CheckoutPage />} />
           </Routes>
         </Container>
         <Footer />
