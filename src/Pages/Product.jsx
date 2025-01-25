@@ -1,19 +1,17 @@
-import React from 'react'
-import '../Styles/Products.css'
-import { FaMinus, FaPlus, FaStar } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import '../Styles/Products.css';
+import { FaStar } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
 
 const Product = ({ getData }) => {
-    const { id, image, name, price } = getData;
+    const { id, image, name, price, quantity } = getData;
 
-    const dispatch = useDispatch()
-    const { products } = useSelector((store) => store.cart)
+    const dispatch = useDispatch();
 
     const AddToBasket = () => {
-        dispatch(addToBaket(products))
-        console.log(products)
-    }
+        dispatch(addToBaket(getData));
+    };
 
     return (
         <div className="product-detail">
@@ -23,7 +21,7 @@ const Product = ({ getData }) => {
                     <h3>{name}</h3>
                     <p>${price}</p>
                 </div>
-                <div className='star'>
+                <div className="star">
                     <div>
                         <FaStar />
                         <FaStar />
@@ -37,7 +35,7 @@ const Product = ({ getData }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Product
+export default Product;

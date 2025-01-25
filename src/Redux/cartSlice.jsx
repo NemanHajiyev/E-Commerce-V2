@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     products: [],
     totalQnty: 0,
-    totoalPrice: 0
-}
+    totalPrice: 0,
+};
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -12,27 +12,18 @@ export const cartSlice = createSlice({
     reducers: {
         addToBaket: (state, action) => {
             const newItem = action.payload;
-            const findProduct = state.products.find((item) => item.id === newItem.id)
+            const findProduct = state.products.find((item) => item.id === newItem.id);
+
             if (findProduct) {
-                findProduct.quantity++
-                findProduct.totalPrice += newItem.price
+                findProduct.quantity += 1;
+            } else {
+                state.products = [...state.products, newItem]
             }
-            else {
-                state.products.push({
-                    id: newItem.id,
-                    name: newItem.name,
-                    price: newItem.price,
-                    quantity: 1,
-                    totalPrice: newItem.price,
-                    image: newItem.image
-                })
-            }
-            state.totoalPrice += newItem.price
-            state.totalQnty++
-        }
-    }
-})
+            state.totalQnty += 1;
+            state.totalPrice += newItem.price;
+        },
+    },
+});
 
-
-export const { addToBaket } = cartSlice.actions
-export default cartSlice.reducer
+export const { addToBaket } = cartSlice.actions;
+export default cartSlice.reducer;
