@@ -24,8 +24,14 @@ export const cartSlice = createSlice({
         },
 
         removeBasketItem: (state, action) => {
-            const filteredProduct = state.products.filter((product) => product.id !== action.payload.id)
-            state.products = filteredProduct
+            const itemId = action.payload.id;
+            const itemToRemove = state.products.find((item) => item.id === itemId);
+
+            if (itemToRemove) {
+                state.products = state.products.filter((product) => product.id !== itemId);
+                state.totalQnty -= itemToRemove.quantity;
+                state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
+            }
         }
     },
 });

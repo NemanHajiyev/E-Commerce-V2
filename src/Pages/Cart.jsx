@@ -79,21 +79,20 @@ const Cart = () => {
                         />
                     </div>
                 ))}
-                <h1>{totalPrice}</h1>
             </div>
 
             <div className='cart-right'>
-                <div>
-                    <h1>Cart Totals</h1>
-                    <h3>Totoal Items : </h3>
+                <div className='cart-section'>
+                    <h3>Cart Totals</h3>
+                    <p>Totoal Items : {totalQnty}</p>
                 </div>
-                <div>
-                    <h1>Shipping:</h1>
-                    <p>Shipping to :{shipping}</p>
+                <div className='cart-section'>
+                    <h3>Shipping</h3>
+                    <p>Shipping to : {shipping}</p>
                     <button onClick={openModal}>Change Shipping Adress</button>
                 </div>
-                <div>
-                    <h1>Total Price:</h1>
+                <div className='cart-section'>
+                    <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
                 </div>
             </div>
 
@@ -102,11 +101,11 @@ const Cart = () => {
                     <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
                     <div className='buttons'>
                         <button onClick={closeModal}>Cancel</button>
-                        <button onClick={saveAdress}>Save Adress</button>
+                        <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
                     </div>
                 </div> : null
             }
-        </div>
+        </div >
     );
 }
 
