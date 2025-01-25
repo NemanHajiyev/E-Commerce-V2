@@ -22,16 +22,26 @@ const Cart = () => {
     return (
         <div className='cart'>
             <div className='cart-left'>
+                <div className='cart-title'>
+                    <div style={{ width: "10%" }}>Product</div>
+                    <div className='cart-title-detail'>
+                        <p>Name</p>
+                        <p>Price</p>
+                        <p>Quantity</p>
+                        <p>Remove</p>
+                    </div>
+                </div>
                 {products?.map((product) => (
                     <div className="cart-detail">
                         <img src={product.image} />
                         <h2>{product.name}</h2>
                         <h1>${product.price}</h1>
                         <h4>{product.quantity}</h4>
-                        <FaDeleteLeft />
+                        <FaDeleteLeft className='delete-icon' />
                     </div>
                 ))}
             </div>
+
             <div className='cart-right'>
 
             </div>

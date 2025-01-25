@@ -11,7 +11,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cart-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.cart-title-detail {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-title-detail p {
+    font-size: 20px;
+}
+
+.cart-detail h1 {
+    color: rgb(238, 71, 71);
 }
 
 .cart-detail img {
@@ -73,4 +94,9 @@
 .emptyCart button:hover {
     background-color: rgb(253, 0, 0);
     color: white;
+}
+
+.delete-icon {
+    font-size: 30px;
+    color: rgb(238, 71, 71);
 }
