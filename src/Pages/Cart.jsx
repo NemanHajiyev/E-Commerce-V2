@@ -4,7 +4,7 @@ import '../Styles/Basket.css'
 import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { removeBasketItem } from '../Redux/cartSlice';
+import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 
 const Cart = () => {
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
@@ -13,8 +13,6 @@ const Cart = () => {
     const [shipping, setShipping] = useState("Azerbaijan , Baku")
     const [modal, setModal] = useState(false)
     const [newAdress, setNewAdress] = useState(shipping)
-
-
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
@@ -39,6 +37,19 @@ const Cart = () => {
             alert("Please enter an address!")
         }
     }
+
+    const inc = (product) => {
+        dispatch(increment({ id: product.id }))
+    }
+
+
+    const dec = (product) => {
+        if (product.quantity > 1) {
+            dispatch(decrement({ id: product.id }))
+        }
+    }
+
+
 
     if (products.length === 0) {
         return (
@@ -70,8 +81,8 @@ const Cart = () => {
                         <h1>${product.price}</h1>
                         <h4>{product.quantity}</h4>
                         <div>
-                            <FaPlus />
-                            <FaMinus />
+                            <FaPlus onClick={() => inc(product)} />
+                            <FaMinus onClick={() => dec(product)} />
                         </div>
                         <FaDeleteLeft
                             onClick={() => removeItem(product.id)}

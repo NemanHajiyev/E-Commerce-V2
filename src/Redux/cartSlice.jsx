@@ -32,9 +32,32 @@ export const cartSlice = createSlice({
                 state.totalQnty -= itemToRemove.quantity;
                 state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
             }
-        }
+        },
+
+        increment: (state, action) => {
+            const itemId = action.payload.id;
+            const product = state.products.find((item) => item.id === itemId);
+            if (product) {
+                product.quantity += 1;
+                state.totalQnty += 1;
+                state.totalPrice += product.price
+            }
+
+        },
+
+        decrement: (state, action) => {
+            const itemId = action.payload.id;
+            const product = state.products.find((item) => item.id === itemId);
+            if (product && product.quantity > 1) {
+                product.quantity -= 1;
+                state.totalQnty -= 1;
+                state.totalPrice -= product.price
+            }
+
+        },
+
     },
 });
 
-export const { addToBaket, removeBasketItem } = cartSlice.actions;
+export const { addToBaket, removeBasketItem, increment, decrement } = cartSlice.actions;
 export default cartSlice.reducer;
