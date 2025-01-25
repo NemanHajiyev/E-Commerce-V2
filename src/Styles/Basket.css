@@ -1,0 +1,76 @@
+.cart {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 0px 0px;
+}
+
+.cart-detail {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.cart-detail img {
+    width: 90px;
+    height: 110px;
+}
+
+.cart-left {
+    width: 71%;
+}
+
+.cart-right {
+    width: 28%;
+    border: 1px solid rgb(0, 255, 55);
+    height: 400px !important;
+}
+
+.emptyCart {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.empty-icon {
+    font-size: 21rem;
+    color: rgb(238, 71, 71);
+    cursor: pointer;
+}
+
+.empty-icon:hover {
+    color: red;
+}
+
+.emptyCart h1 {
+    color: rgb(238, 71, 71);
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.emptyCart h1:hover {
+    color: red;
+}
+
+.emptyCart button {
+    margin-top: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(238, 71, 71);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.emptyCart button:hover {
+    background-color: rgb(253, 0, 0);
+    color: white;
+}
