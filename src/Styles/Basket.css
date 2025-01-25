@@ -99,4 +99,5 @@
 .delete-icon {
     font-size: 30px;
     color: rgb(238, 71, 71);
+    cursor: pointer;
 }

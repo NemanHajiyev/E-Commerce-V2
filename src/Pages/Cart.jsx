@@ -1,13 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../Styles/Basket.css'
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-
+import { removeBasketItem } from '../Redux/cartSlice';
 
 const Cart = () => {
-    const { products, totalQnty, totalPrice } = useSelector((store) => store.cart)
+    const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
+    const dispatch = useDispatch();
+
+    const removeItem = (id) => {
+        dispatch(removeBasketItem({ id }));
+    };
 
     if (products.length === 0) {
         return (
@@ -16,7 +21,8 @@ const Cart = () => {
                 <h1>Your cart is empty</h1>
                 <h4>Add something to make me happy</h4>
                 <Link to='/shop'><button>Go To Shopping</button></Link>
-            </div>)
+            </div>
+        );
     }
 
     return (
@@ -32,21 +38,24 @@ const Cart = () => {
                     </div>
                 </div>
                 {products?.map((product) => (
-                    <div className="cart-detail">
-                        <img src={product.image} />
+                    <div className="cart-detail" key={product.id}>
+                        <img src={product.image} alt={product.name} />
                         <h2>{product.name}</h2>
                         <h1>${product.price}</h1>
                         <h4>{product.quantity}</h4>
-                        <FaDeleteLeft className='delete-icon' />
+                        <FaDeleteLeft
+                            onClick={() => removeItem(product.id)}
+                            className='delete-icon'
+                        />
                     </div>
                 ))}
             </div>
 
             <div className='cart-right'>
-
+                {/* Diğer içerikler buraya gelebilir */}
             </div>
         </div>
-    )
+    );
 }
 
-export default Cart
+export default Cart;

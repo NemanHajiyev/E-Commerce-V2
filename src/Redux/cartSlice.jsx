@@ -22,8 +22,13 @@ export const cartSlice = createSlice({
             state.totalQnty += 1;
             state.totalPrice += newItem.price;
         },
+
+        removeBasketItem: (state, action) => {
+            const filteredProduct = state.products.filter((product) => product.id !== action.payload.id)
+            state.products = filteredProduct
+        }
     },
 });
 
-export const { addToBaket } = cartSlice.actions;
+export const { addToBaket, removeBasketItem } = cartSlice.actions;
 export default cartSlice.reducer;
