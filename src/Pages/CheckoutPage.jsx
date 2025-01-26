@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Styles/Checkout.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaDeleteLeft } from 'react-icons/fa6';
@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CheckoutPage = () => {
     const { products, totalPrice } = useSelector((store) => store.cart);
+    const [cartModal, setCartModal] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -28,8 +29,8 @@ const CheckoutPage = () => {
                     <div className='shipping-info'>
                         <h2>Shipping Information</h2>
                         <div className='button-group'>
-                            <button className='btn'>Cart</button>
-                            <button className='btn'>Cash</button>
+                            <button className='btn' onClick={() => setCartModal(true)}>Cart</button>
+                            <button className='btn' onClick={() => setCartModal(false)}>Cash</button>
                         </div>
                     </div>
 
@@ -63,6 +64,31 @@ const CheckoutPage = () => {
                             <input type='number' placeholder='Enter your zip code' />
                         </div>
                     </div>
+
+                    {cartModal ? (
+                        <div className='debit-cart'>
+                            <div className='cart-container'>
+                                <div className='cart-info'>
+                                    <p>Card Holder Name</p>
+                                    <input type="text" />
+                                    <p>Card Number</p>
+                                    <input type="text" />
+                                </div>
+
+                                <div className='cart-date'>
+                                    <div>
+                                        <p>Expiry (MM/YY)</p>
+                                        <input type="month" />
+                                    </div>
+                                    <div>
+                                        <p>CVC</p>
+                                        <input type="password" maxLength={3} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (null)}
+
                 </div>
 
                 <div className='checkout-right'>
