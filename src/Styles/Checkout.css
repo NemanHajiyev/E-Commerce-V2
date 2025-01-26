@@ -1,3 +1,126 @@
 .checkout {
-    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9f9f9;
+}
+
+.checkout-header h1 {
+    text-align: left;
+    color: #333;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.checkout-left {
+    width: 60%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shipping-info {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.user-info label,
+.user-address label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.user-info input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.user-info input:hover {
+    border: 1px solid #007bff;
+
+}
+
+.user-address input:hover {
+    border: 1px solid #007bff;
+}
+
+.user-address {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-address input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* --Checkout right--*/
+
+.checkout-right {
+    width: 35%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-right h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-details p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
 }
