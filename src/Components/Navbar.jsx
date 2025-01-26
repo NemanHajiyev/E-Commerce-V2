@@ -1,9 +1,11 @@
-import React from 'react'
 import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import '../Styles/Navbar.css'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+    const { products } = useSelector((store) => store.cart);
+
     return (
         <nav className='navbar'>
             <div className='navbar-div'>
@@ -17,8 +19,9 @@ const Navbar = () => {
                     </form>
                 </div>
                 <div className='navbar-right'>
-                    <Link to="/cart">
+                    <Link to="/cart" className='shopping-icon'>
                         <FaShoppingCart />
+                        <div className='basket-count'>{products.length}</div>
                     </Link>
                     <button>
                         Login | Register

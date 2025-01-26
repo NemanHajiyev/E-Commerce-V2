@@ -6,11 +6,33 @@ import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ setOrderData }) => {
     const { products, totalPrice } = useSelector((store) => store.cart);
     const [cartModal, setCartModal] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const [shippingInfo, setShippingInfo] = useState({
+        fullName: "",
+        email: "",
+        phoneNumber: '',
+        country: "",
+        city: '',
+        state: ''
+    });
+
+    const OrderSummary = () => {
+        if (shippingInfo.fullName.length > 0 &&
+            shippingInfo.email.length > 0 &&
+            shippingInfo.phoneNumber.length > 0 &&
+            shippingInfo.country.length > 0 &&
+            shippingInfo.city.length > 0 &&
+            shippingInfo.state.length > 0
+        ) {
+            setOrderData(shippingInfo)
+            navigate('/order-info')
+        }
+    }
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
@@ -37,27 +59,44 @@ const CheckoutPage = () => {
                     <div className='user-info'>
                         <form>
                             <label>Full Name</label>
-                            <input type='text' placeholder='Enter your full name' />
+                            <input type='text' placeholder='Enter your full name'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, fullName: e.target.value })}
+                                value={shippingInfo.fullName} />
 
                             <label>Email Address</label>
-                            <input type='email' placeholder='Enter your email' />
+                            <input type='email'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, email: e.target.value })}
+                                value={shippingInfo.email}
+                                placeholder='Enter your email' />
 
                             <label>Phone Number</label>
-                            <input type='number' placeholder='Enter your phone number' />
+                            <input type='number'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, phoneNumber: e.target.value })}
+                                value={shippingInfo.phoneNumber}
+                                placeholder='Enter your phone number' />
 
                             <label>Country</label>
-                            <input type='text' placeholder='Enter your country' />
+                            <input type='text'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, country: e.target.value })}
+                                value={shippingInfo.country}
+                                placeholder='Enter your country' />
                         </form>
                     </div>
 
                     <div className='user-address'>
                         <div>
                             <label>City</label>
-                            <input type='text' placeholder='Enter your city' />
+                            <input type='text'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, city: e.target.value })}
+                                value={shippingInfo.city}
+                                placeholder='Enter your city' />
                         </div>
                         <div>
                             <label>State</label>
-                            <input type='text' placeholder='Enter your state' />
+                            <input type='text'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, state: e.target.value })}
+                                value={shippingInfo.state}
+                                placeholder='Enter your state' />
                         </div>
                         <div>
                             <label>Zip Code</label>
@@ -135,7 +174,7 @@ const CheckoutPage = () => {
                                         Total Price: ${(totalPrice).toFixed(2)}
                                     </h2>
                                 </div>
-                                <button className='btn btn-primary'>Place Order</button>
+                                <button className='btn btn-primary' onClick={OrderSummary}>Place Order</button>
                             </>
                         )
                     }

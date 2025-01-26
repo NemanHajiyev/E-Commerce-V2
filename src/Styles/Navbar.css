@@ -59,3 +59,25 @@
 .Link:hover {
     text-decoration: underline;
 }
+
+.shopping-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.basket-count {
+    position: absolute;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -5px;
+    right: 9px;
+}

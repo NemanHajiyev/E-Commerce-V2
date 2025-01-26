@@ -8,10 +8,14 @@ import Cart from "./Pages/Cart"
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import CheckoutPage from "./Pages/CheckoutPage"
+import OrderInfo from "./Pages/OrderInfo"
+import { useState } from "react"
 
 
 
 function App() {
+
+  const [orderData, setOrderData] = useState();
 
   return (
     <div style={{ height: '100vh' }}>
@@ -23,7 +27,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout-page" element={<CheckoutPage />} />
+            <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} />} />
+            <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
           </Routes>
         </Container>
         <Footer />
