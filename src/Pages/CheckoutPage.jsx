@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const CheckoutPage = () => {
     const { products } = useSelector((store) => store.cart);
-    console.log(products)
 
     return (
         <div className='checkout'>
@@ -55,19 +54,32 @@ const CheckoutPage = () => {
 
                 <div className='checkout-right'>
                     <h2>Order Summary</h2>
-                    {
-                        products?.map((product) => (
-                            <>
-                                <div className='order-details'>
-                                    <p>Item 1: $20</p>
-                                    <p>Item 2: $15</p>
-                                    <p>Total: $35</p>
-                                </div>
-                                <button className='btn btn-primary'>Place Order</button>
-                            </>
-                        ))
-                    }
+                    <div className='order-details'>
+                        {
+                            products?.map((product, index) => (
+                                <div key={index} className='order-item'>
+                                    <div className='order-item-left'>
+                                        <img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className='order-item-image'
+                                        />
+                                        <div>
+                                            <h3>{product.name}</h3>
+                                            <p>x{product.quantity}</p>
+                                            <p>${product.price}</p>
+                                        </div>
+                                    </div>
 
+                                    <div>
+                                        <h2>${(product.quantity) * (product.price)}</h2>
+                                    </div>
+
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <button className='btn btn-primary'>Place Order</button>
                 </div>
             </div>
         </div>
