@@ -19,6 +19,7 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
         country: "",
         city: '',
         state: '',
+        zipcode: '',
         shippingadress: orderData.shippingadress
     });
 
@@ -28,20 +29,21 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
             shippingInfo.phoneNumber.length > 0 &&
             shippingInfo.country.length > 0 &&
             shippingInfo.city.length > 0 &&
-            shippingInfo.state.length > 0
+            shippingInfo.state.length > 0 &&
+            shippingInfo.state.length > 0 &&
+            shippingInfo.shippingadress.length > 0
         ) {
             setOrderData(shippingInfo)
             navigate('/order-info')
             console.log(shippingInfo)
+        } else {
+            alert("Please information ")
         }
     }
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
     };
-
-
-
 
     return (
         <div className='checkout'>
@@ -108,7 +110,10 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
                         </div>
                         <div>
                             <label>Zip Code</label>
-                            <input type='number' placeholder='Enter your zip code' />
+                            <input type='number'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, zipcode: e.target.value })}
+                                value={shippingInfo.zipcode}
+                                placeholder='Enter your zip code' />
                         </div>
                     </div>
 
