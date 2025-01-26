@@ -1,9 +1,22 @@
 import React from 'react';
 import '../Styles/Checkout.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { FaDeleteLeft } from 'react-icons/fa6';
+import { removeBasketItem } from '../Redux/cartSlice';
+import { MdErrorOutline } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutPage = () => {
-    const { products } = useSelector((store) => store.cart);
+    const { products, totalPrice } = useSelector((store) => store.cart);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const removeItem = (id) => {
+        dispatch(removeBasketItem({ id }));
+    };
+
+
+
 
     return (
         <div className='checkout'>
@@ -53,33 +66,53 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className='checkout-right'>
-                    <h2>Order Summary</h2>
-                    <div className='order-details'>
-                        {
-                            products?.map((product, index) => (
-                                <div key={index} className='order-item'>
-                                    <div className='order-item-left'>
-                                        <img
-                                            src={product.image}
-                                            alt={product.name}
-                                            className='order-item-image'
-                                        />
-                                        <div>
-                                            <h3>{product.name}</h3>
-                                            <p>x{product.quantity}</p>
-                                            <p>${product.price}</p>
-                                        </div>
-                                    </div>
+                    {
+                        products.length === 0 ? (
+                            <div className='empty-summary'>
+                                <MdErrorOutline className='empty-summary-icon' />
+                                <h3>Your cart is empty. Please add some products to proceed.</h3>
+                                <button className='btn-primary' onClick={() => navigate('/shop')}>
+                                    Go To Shopping
+                                </button>
+                            </div>
+                        ) : (
+                            <>
+                                <h2>Order Summary</h2>
+                                <div className='order-details'>
+                                    {
+                                        products.map((product, index) => (
+                                            <div key={index} className='order-item'>
+                                                <div className='order-item-left'>
+                                                    <img
+                                                        src={product.image}
+                                                        alt={product.name}
+                                                        className='order-item-image'
+                                                    />
+                                                    <div>
+                                                        <h3>{product.name}</h3>
+                                                        <p>x{product.quantity}</p>
+                                                        <p>${product.price}</p>
+                                                    </div>
+                                                </div>
 
-                                    <div>
-                                        <h2>${(product.quantity) * (product.price)}</h2>
-                                    </div>
-
+                                                <div>
+                                                    <h2>${(product.quantity * product.price).toFixed(2)}</h2>
+                                                    <FaDeleteLeft
+                                                        onClick={() => removeItem(product.id)}
+                                                        className='delete-icon'
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                    <h2 style={{ marginTop: "25px" }}>
+                                        Total Price: ${(totalPrice).toFixed(2)}
+                                    </h2>
                                 </div>
-                            ))
-                        }
-                    </div>
-                    <button className='btn btn-primary'>Place Order</button>
+                                <button className='btn btn-primary'>Place Order</button>
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </div>

@@ -143,8 +143,26 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .btn-primary:hover {
     background-color: #218838;
+}
+
+.empty-summary {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-summary h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.empty-summary-icon {
+    color: brown;
+    font-size: 15rem;
 }
