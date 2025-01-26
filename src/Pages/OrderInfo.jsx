@@ -2,15 +2,21 @@ import React from 'react';
 import '../Styles/OrderInfo.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+// import { useWindowSize } from 'react-use';
+import Confetti from 'react-confetti';
 
 const OrderInfo = ({ orderData }) => {
-    const { products, totalPrice, totalQnty } = useSelector((store) => store.cart)
-    const navigate = useNavigate()
+    const { products, totalPrice, totalQnty } = useSelector((store) => store.cart);
+    const navigate = useNavigate();
+    // const { width, height } = useWindowSize();
+
     console.log(products)
 
 
     return (
+
         <div className="order-info-container">
+            <Confetti width={1500} height={1000} />
             <h1 className="order-summary-title">Order Summary</h1>
 
             <div className="order-summary-card">
@@ -37,7 +43,7 @@ const OrderInfo = ({ orderData }) => {
                         </div>
                     ))}
                     <hr />
-                    <h1>Total Price : {(totalPrice).toFixed(2)}</h1>
+                    <h1>Total Price : ${(totalPrice).toFixed(2)}</h1>
                     <button
                         onClick={() => navigate('/shop')}
                         className='Continue-Shopping'>Continue Shopping</button>
