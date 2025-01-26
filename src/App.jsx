@@ -26,8 +26,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} />} />
+            <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
+            <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
             <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
           </Routes>
         </Container>

@@ -6,7 +6,7 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 
-const Cart = () => {
+const Cart = ({ setOrderData, orderData }) => {
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -29,6 +29,10 @@ const Cart = () => {
         setNewAdress(shipping)
     }
 
+    const toOrderPage = () => {
+        setOrderData({ ...orderData, shippingadress: newAdress })
+        navigate("/checkout-page")
+    }
 
     const saveAdress = () => {
         if (newAdress.trim().length > 0) {
@@ -108,7 +112,7 @@ const Cart = () => {
                 </div>
                 <div>
                     <button
-                        onClick={() => navigate("/checkout-page")}
+                        onClick={toOrderPage}
                         className='checkout-btn'>
                         Procced Checkout
                     </button>

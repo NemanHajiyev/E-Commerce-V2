@@ -1,7 +1,7 @@
 import React from 'react'
 
 const OrderInfo = ({ orderData }) => {
-    console.log(orderData)
+    // console.log(orderData)
 
     return (
         <div>

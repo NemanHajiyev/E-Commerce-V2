@@ -6,7 +6,7 @@ import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-const CheckoutPage = ({ setOrderData }) => {
+const CheckoutPage = ({ setOrderData, orderData }) => {
     const { products, totalPrice } = useSelector((store) => store.cart);
     const [cartModal, setCartModal] = useState(false);
     const dispatch = useDispatch()
@@ -18,7 +18,8 @@ const CheckoutPage = ({ setOrderData }) => {
         phoneNumber: '',
         country: "",
         city: '',
-        state: ''
+        state: '',
+        shippingadress: orderData.shippingadress
     });
 
     const OrderSummary = () => {
@@ -31,6 +32,7 @@ const CheckoutPage = ({ setOrderData }) => {
         ) {
             setOrderData(shippingInfo)
             navigate('/order-info')
+            console.log(shippingInfo)
         }
     }
 
@@ -79,6 +81,12 @@ const CheckoutPage = ({ setOrderData }) => {
                             <input type='text'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, country: e.target.value })}
                                 value={shippingInfo.country}
+                                placeholder='Enter your country' />
+
+                            <label>Shipping Adress</label>
+                            <input type='text'
+                                onChange={(e) => setShippingInfo({ ...shippingInfo, shippingadress: e.target.value })}
+                                value={shippingInfo.shippingadress}
                                 placeholder='Enter your country' />
                         </form>
                     </div>
