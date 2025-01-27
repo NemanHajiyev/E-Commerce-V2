@@ -32,6 +32,16 @@ export const productAddToasty = () => toast.success("Product added to cart !", {
     theme: "light",
 });
 
+export const favorieDelete = () => toast.success("Product removed", {
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+});
+
 export const removeItemCart = () => toast.success("The product was deleted from the basket !", {
     position: "top-right",
     autoClose: 1000,

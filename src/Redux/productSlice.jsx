@@ -14,23 +14,24 @@ export const productSlice = createSlice({
             state.products = action.payload;
 
         },
+
         addToFavorie: (state, action) => {
             const newItem = action.payload;
             const isAlreadyFavorite = state.favProducts.some(item => item.id === newItem.id);
             if (!isAlreadyFavorite) {
-                state.favProducts.push(newItem);
+                state.favProducts = [...state.favProducts, newItem];
                 notifySuccess()
             }
             else {
                 notifyError()
             }
         },
-        removeFavorieItem: (state, action) => {
-            const newItem = action.payload;
-            const filtered = state.favProducts.filter((product) => product.id !== newItem.id)
-            state.favProducts = filtered
 
+        removeFavorieItem: (state, action) => {
+            const filtered = state.favProducts.filter((product) => product.id !== action.payload.id);
+            state.favProducts = filtered;
         }
+
     }
 })
 

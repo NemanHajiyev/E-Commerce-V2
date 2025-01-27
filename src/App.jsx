@@ -21,24 +21,26 @@ function App() {
   const [orderData, setOrderData] = useState();
 
   return (
-    <div style={{ height: '100vh' }}>
+    <>
       <ToastContainer />
-      <BrowserRouter>
-        <Navbar />
-        <CssBaseline />
-        <Container Container maxWidth="lg" >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
-            <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
-            <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
-            <Route path="/favorie" element={<FavorieProducts />} />
-          </Routes>
-        </Container>
-        <Footer />
-      </BrowserRouter>
-    </div>
+      <div style={{ height: '100vh' }}>
+        <BrowserRouter>
+          <Navbar />
+          <CssBaseline />
+          <Container Container maxWidth="lg" >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
+              <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
+              <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
+              <Route path="/favorie" element={<FavorieProducts />} />
+            </Routes>
+          </Container>
+          <Footer />
+        </BrowserRouter>
+      </div>
+    </>
   )
 }
 

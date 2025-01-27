@@ -6,7 +6,7 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 import { ToastContainer } from 'react-toastify';
-import { removeItemCart } from '../React-Toastify/Toastify';
+import { favorieDelete } from '../React-Toastify/Toastify';
 
 const Cart = ({ setOrderData, orderData }) => {
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
@@ -19,7 +19,7 @@ const Cart = ({ setOrderData, orderData }) => {
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
-        removeItemCart()
+        favorieDelete()
     };
 
     const openModal = () => {

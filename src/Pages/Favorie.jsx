@@ -3,8 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import { addToBaket, } from '../Redux/cartSlice';
-import { ToastContainer } from 'react-toastify';
-import { productAddToasty, notifyError } from '../React-Toastify/Toastify';
+import { favorieDelete, productAddToasty } from '../React-Toastify/Toastify';
 import { removeFavorieItem } from '../Redux/productSlice';
 
 
@@ -14,8 +13,8 @@ const Favorie = ({ favProduct }) => {
     const dispatch = useDispatch();
 
     const removeItem = () => {
+        favorieDelete()
         dispatch(removeFavorieItem(favProduct))
-        notifyError()
     }
 
     const AddToBasket = () => {
@@ -25,7 +24,6 @@ const Favorie = ({ favProduct }) => {
 
     return (
         <>
-            <ToastContainer />
             <div className="product-detail">
                 <span className='fav-icon' onClick={removeItem}><FcLike /></span>
                 <img src={image} alt={name} />

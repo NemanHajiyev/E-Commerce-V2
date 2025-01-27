@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
 import { addToFavorie } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
-import { ToastContainer } from 'react-toastify';
 import { productAddToasty } from '../React-Toastify/Toastify';
 
 const Product = ({ getData }) => {
@@ -24,7 +23,6 @@ const Product = ({ getData }) => {
 
     return (
         <>
-            <ToastContainer />
             <div className="product-detail">
                 <span className='fav-icon' onClick={addFavoire}>
                     <FcLike />
