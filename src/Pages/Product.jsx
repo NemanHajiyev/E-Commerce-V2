@@ -1,35 +1,25 @@
 import React from 'react';
 import '../Styles/Products.css';
 import { FaStar } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
 import { addToFavorie } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
-import { ToastContainer, toast } from 'react-toastify';
-import { notifySuccess, notifyError } from '../React-Toastify/Toastify';
-
+import { ToastContainer } from 'react-toastify';
+import { productAddToasty } from '../React-Toastify/Toastify';
 
 const Product = ({ getData }) => {
     const { id, image, name, price, quantity } = getData;
 
     const dispatch = useDispatch();
-    const { favProducts } = useSelector((store) => store.product)
 
     const addFavoire = () => {
-        const isAlreadyFavorite = favProducts.some((item) => item.id === getData.id);
-        if (!isAlreadyFavorite) {
-            dispatch(addToFavorie(getData));
-            setTimeout(() => {
-                notifySuccess()
-            }, 0)
-        } else {
-            notifyError()
-        }
+        dispatch(addToFavorie(getData));
     };
-
 
     const AddToBasket = () => {
         dispatch(addToBaket(getData));
+        productAddToasty()
     };
 
     return (
