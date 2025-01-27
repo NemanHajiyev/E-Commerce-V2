@@ -10,7 +10,9 @@ import Container from '@mui/material/Container';
 import CheckoutPage from "./Pages/CheckoutPage"
 import OrderInfo from "./Pages/OrderInfo"
 import { useState } from "react"
-import FavorieProducts from "./Components/FavorieProducts"
+import FavorieProducts from "./Components/FavorieProducts";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -20,6 +22,7 @@ function App() {
 
   return (
     <div style={{ height: '100vh' }}>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <CssBaseline />

@@ -5,6 +5,8 @@ import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
+import { ToastContainer } from 'react-toastify';
+import { removeItemCart } from '../React-Toastify/Toastify';
 
 const Cart = ({ setOrderData, orderData }) => {
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
@@ -17,6 +19,7 @@ const Cart = ({ setOrderData, orderData }) => {
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
+        removeItemCart()
     };
 
     const openModal = () => {
@@ -68,67 +71,70 @@ const Cart = ({ setOrderData, orderData }) => {
     }
 
     return (
-        <div className='cart'>
-            <div className='cart-left'>
-                <div className='cart-title'>
-                    <div style={{ width: "10%" }}>Product</div>
-                    <div className='cart-title-detail'>
-                        <p>Name</p>
-                        <p>Price</p>
-                        <p>Quantity</p>
-                        <p>Remove</p>
-                    </div>
-                </div>
-                {products?.map((product) => (
-                    <div className="cart-detail" key={product.id}>
-                        <img src={product.image} alt={product.name} />
-                        <h2>{product.name}</h2>
-                        <h1>${product.price}</h1>
-                        <h4>{product.quantity}</h4>
-                        <div>
-                            <FaPlus onClick={() => inc(product)} />
-                            <FaMinus onClick={() => dec(product)} />
+        <>
+            <ToastContainer />
+            <div className='cart'>
+                <div className='cart-left'>
+                    <div className='cart-title'>
+                        <div style={{ width: "10%" }}>Product</div>
+                        <div className='cart-title-detail'>
+                            <p>Name</p>
+                            <p>Price</p>
+                            <p>Quantity</p>
+                            <p>Remove</p>
                         </div>
-                        <FaDeleteLeft
-                            onClick={() => removeItem(product.id)}
-                            className='delete-icon'
-                        />
                     </div>
-                ))}
-            </div>
+                    {products?.map((product) => (
+                        <div className="cart-detail" key={product.id}>
+                            <img src={product.image} alt={product.name} />
+                            <h2>{product.name}</h2>
+                            <h1>${product.price}</h1>
+                            <h4>{product.quantity}</h4>
+                            <div>
+                                <FaPlus onClick={() => inc(product)} />
+                                <FaMinus onClick={() => dec(product)} />
+                            </div>
+                            <FaDeleteLeft
+                                onClick={() => removeItem(product.id)}
+                                className='delete-icon'
+                            />
+                        </div>
+                    ))}
+                </div>
 
-            <div className='cart-right'>
-                <div className='cart-section'>
-                    <h3>Cart Totals</h3>
-                    <p>Totoal Items : {totalQnty}</p>
-                </div>
-                <div className='cart-section'>
-                    <h3>Shipping</h3>
-                    <p>Shipping to : {shipping}</p>
-                    <button onClick={openModal}>Change Shipping Adress</button>
-                </div>
-                <div className='cart-section'>
-                    <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
-                </div>
-                <div>
-                    <button
-                        onClick={toOrderPage}
-                        className='checkout-btn'>
-                        Procced Checkout
-                    </button>
-                </div>
-            </div>
-
-            {
-                modal ? <div className='modal'>
-                    <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
-                    <div className='buttons'>
-                        <button onClick={closeModal}>Cancel</button>
-                        <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
+                <div className='cart-right'>
+                    <div className='cart-section'>
+                        <h3>Cart Totals</h3>
+                        <p>Totoal Items : {totalQnty}</p>
                     </div>
-                </div> : null
-            }
-        </div >
+                    <div className='cart-section'>
+                        <h3>Shipping</h3>
+                        <p>Shipping to : {shipping}</p>
+                        <button onClick={openModal}>Change Shipping Adress</button>
+                    </div>
+                    <div className='cart-section'>
+                        <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
+                    </div>
+                    <div>
+                        <button
+                            onClick={toOrderPage}
+                            className='checkout-btn'>
+                            Procced Checkout
+                        </button>
+                    </div>
+                </div>
+
+                {
+                    modal ? <div className='modal'>
+                        <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
+                        <div className='buttons'>
+                            <button onClick={closeModal}>Cancel</button>
+                            <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
+                        </div>
+                    </div> : null
+                }
+            </div >
+        </>
     );
 }
 
