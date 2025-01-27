@@ -1,4 +1,4 @@
-import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaSearch, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import '../Styles/Navbar.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,8 +17,6 @@ const Navbar = () => {
         dispatch(filteredProducts(search))
         navigate('/filtered-product')
     }
-
-
 
     return (
         <nav className='navbar'>
