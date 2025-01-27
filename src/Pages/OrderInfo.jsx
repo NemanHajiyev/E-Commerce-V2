@@ -2,17 +2,11 @@ import React from 'react';
 import '../Styles/OrderInfo.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 
 const OrderInfo = ({ orderData }) => {
     const { products, totalPrice, totalQnty } = useSelector((store) => store.cart);
     const navigate = useNavigate();
-    // const { width, height } = useWindowSize();
-
-    console.log(products)
-
-
     return (
 
         <div className="order-info-container">

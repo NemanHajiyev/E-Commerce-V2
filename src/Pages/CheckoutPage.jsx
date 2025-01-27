@@ -5,6 +5,9 @@ import { FaDeleteLeft } from 'react-icons/fa6';
 import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { notifyError2 } from '../React-Toastify/Toastify'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const CheckoutPage = ({ setOrderData, orderData }) => {
     const { products, totalPrice } = useSelector((store) => store.cart);
@@ -20,33 +23,45 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
         city: '',
         state: '',
         zipcode: '',
-        shippingadress: orderData.shippingadress
+        shippingadress: orderData.shippingadress,
+        cardHolder: "",
+        cardNumber: "",
+        expiry: "",
+        cvc: ""
     });
 
     const OrderSummary = () => {
-        if (shippingInfo.fullName.length > 0 &&
-            shippingInfo.email.length > 0 &&
-            shippingInfo.phoneNumber.length > 0 &&
-            shippingInfo.country.length > 0 &&
-            shippingInfo.city.length > 0 &&
-            shippingInfo.state.length > 0 &&
-            shippingInfo.state.length > 0 &&
-            shippingInfo.shippingadress.length > 0
-        ) {
-            setOrderData(shippingInfo)
-            navigate('/order-info')
-            console.log(shippingInfo)
-        } else {
-            alert("Please information ")
+        const shipValue = Object.values(shippingInfo);
+        if (!cartModal) {
+            const filteredValue = shipValue.slice(0, 8);
+            const filtered = filteredValue.some(item => item.length === 0);
+            if (!filtered) {
+                navigate('/order-info');
+            } else {
+                notifyError2();
+            }
         }
-    }
+        else {
+            const isAnyFieldEmpty = shipValue.some(item => item.length === 0);
+            if (!isAnyFieldEmpty) {
+                setOrderData(shippingInfo);
+                navigate('/order-info');
+            } else {
+                notifyError2();
+            }
+        }
+    };
+
+
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
     };
 
     return (
+
         <div className='checkout'>
+            <ToastContainer />
             <div className='checkout-header'>
                 <h1>Checkout</h1>
             </div>
@@ -122,19 +137,34 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
                             <div className='cart-container'>
                                 <div className='cart-info'>
                                     <p>Card Holder Name</p>
-                                    <input type="text" />
+                                    <input
+                                        onChange={(e) => setShippingInfo({ ...shippingInfo, cardHolder: e.target.value })}
+                                        value={shippingInfo.cardHolder}
+                                        type="text" />
+
                                     <p>Card Number</p>
-                                    <input type="text" />
+                                    <input
+                                        onChange={(e) => setShippingInfo({ ...shippingInfo, cardNumber: e.target.value })}
+                                        value={shippingInfo.cardNumber}
+                                        type="text" />
                                 </div>
 
                                 <div className='cart-date'>
+
                                     <div>
                                         <p>Expiry (MM/YY)</p>
-                                        <input type="month" />
+                                        <input
+                                            onChange={(e) => setShippingInfo({ ...shippingInfo, expiry: e.target.value })}
+                                            value={shippingInfo.expiry}
+                                            type="month" />
                                     </div>
+
                                     <div>
                                         <p>CVC</p>
-                                        <input type="password" maxLength={3} />
+                                        <input
+                                            onChange={(e) => setShippingInfo({ ...shippingInfo, cvc: e.target.value })}
+                                            value={shippingInfo.cvc}
+                                            type="password" maxLength={3} />
                                     </div>
                                 </div>
                             </div>

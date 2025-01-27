@@ -22,6 +22,16 @@ export const notifyError = () => toast.error("This product has been added before
     theme: "light",
 });
 
+export const notifyError2 = () => toast.error("Please fill in all the information !", {
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+});
+
 export const productAddToasty = () => toast.success("Product added to cart !", {
     position: "top-right",
     autoClose: 1000,

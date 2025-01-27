@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar"
 import Footer from "./Components/Footer"
 import Home from "./Pages/Home"
 import Shop from "./Pages/Shop"
+import FilteredProduct from './Pages/FIlteredProduct'
 import './index.css';
 import Cart from "./Pages/Cart"
 import CssBaseline from '@mui/material/CssBaseline';
@@ -35,6 +36,7 @@ function App() {
               <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
               <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
               <Route path="/favorie" element={<FavorieProducts />} />
+              <Route path="/filtered-product" element={<FilteredProduct />} />
             </Routes>
           </Container>
           <Footer />

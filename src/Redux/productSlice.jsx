@@ -4,6 +4,8 @@ import { notifySuccess, notifyError } from '../React-Toastify/Toastify'
 const initialState = {
     products: [],
     favProducts: [],
+    searchTerm: '',
+    filterProduct: []
 }
 
 export const productSlice = createSlice({
@@ -28,13 +30,19 @@ export const productSlice = createSlice({
         },
 
         removeFavorieItem: (state, action) => {
-            const filtered = state.favProducts.filter((product) => product.id !== action.payload.id);
-            state.favProducts = filtered;
-        }
+            const favorieFiltered = state.favProducts.filter((product) => product.id !== action.payload.id);
+            state.favProducts = favorieFiltered;
+        },
 
+        filteredProducts: (state, action) => {
+            state.searchTerm = action.payload;
+            state.filterProduct = state.products.filter((product) =>
+                product.name.toLowerCase().includes(state.searchTerm.toLocaleLowerCase())
+            )
+        }
     }
 })
 
-export const { setProducts, addToFavorie, removeFavorieItem } = productSlice.actions
+export const { setProducts, addToFavorie, removeFavorieItem, filteredProducts } = productSlice.actions
 
 export default productSlice.reducer
