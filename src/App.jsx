@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import CheckoutPage from "./Pages/CheckoutPage"
 import OrderInfo from "./Pages/OrderInfo"
 import { useState } from "react"
+import FavorieProducts from "./Components/FavorieProducts"
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
             <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
             <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
+            <Route path="/favorie" element={<FavorieProducts />} />
           </Routes>
         </Container>
         <Footer />

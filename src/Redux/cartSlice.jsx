@@ -54,9 +54,8 @@ export const cartSlice = createSlice({
                 state.totalPrice -= product.price
             }
 
-        },
-
-    },
+        }
+    }
 });
 
 export const { addToBaket, removeBasketItem, increment, decrement } = cartSlice.actions;

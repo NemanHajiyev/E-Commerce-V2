@@ -2,6 +2,8 @@ import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import '../Styles/Navbar.css'
 import { useSelector } from 'react-redux'
+import { FcLike } from 'react-icons/fc'
+import { FaBasketShopping } from 'react-icons/fa6'
 
 const Navbar = () => {
     const { products } = useSelector((store) => store.cart);
@@ -19,13 +21,19 @@ const Navbar = () => {
                     </form>
                 </div>
                 <div className='navbar-right'>
+                    <Link to='/favorie'>
+                        <FcLike style={{ marginTop: "10px" }} />
+                    </Link>
+
                     <Link to="/cart" className='shopping-icon'>
-                        <FaShoppingCart />
+                        <FaBasketShopping />
                         <div className='basket-count'>{products.length}</div>
                     </Link>
+
                     <button>
                         Login | Register
                     </button>
+
                     <button>
                         <FaUser />
                     </button>
