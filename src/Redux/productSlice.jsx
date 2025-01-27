@@ -24,10 +24,16 @@ export const productSlice = createSlice({
             else {
                 notifyError()
             }
+        },
+        removeFavorieItem: (state, action) => {
+            const newItem = action.payload;
+            const filtered = state.favProducts.filter((product) => product.id !== newItem.id)
+            state.favProducts = filtered
+
         }
     }
 })
 
-export const { setProducts, addToFavorie } = productSlice.actions
+export const { setProducts, addToFavorie, removeFavorieItem } = productSlice.actions
 
 export default productSlice.reducer
