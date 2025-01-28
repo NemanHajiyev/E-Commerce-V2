@@ -15,6 +15,7 @@ import FavorieProducts from "./Components/FavorieProducts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductDTL from "./Components/ProductDTL"
+import About from './Pages/About'
 
 
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/favorie" element={<FavorieProducts />} />
               <Route path="/filtered-product" element={<FilteredProduct />} />
               <Route path="/product-detail/:id" element={<ProductDTL />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </Container>
           <Footer />
