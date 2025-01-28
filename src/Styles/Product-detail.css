@@ -1,4 +1,95 @@
 .detail {
-    border: 1px solid red;
     width: 100%;
+}
+
+.detail-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+.detail-img {
+    width: 39%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.detail-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.detail-img img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 15px;
+}
+
+.detail-info {
+    width: 59%;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.detail-info h1 {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.detail-info p {
+    color: rgb(113, 112, 112);
+    margin-top: 20px;
+}
+
+.star-icon {
+    width: 30%;
+    color: yellow;
+    font-size: 25px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-icon {
+    margin-top: 40px;
+    font-size: 40px;
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.detail-count {
+    margin-top: 50px;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.detail-count button {
+    border: none;
+    padding: 10px;
+    width: 35px;
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.detail-price {
+    color: brown;
+    margin-top: 30px;
 }

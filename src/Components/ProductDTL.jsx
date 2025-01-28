@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/Product-detail.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FaStar } from 'react-icons/fa';
+import { FaBasketShopping } from 'react-icons/fa6';
+import { FcLike } from 'react-icons/fc';
+import { BsEmojiNeutral } from 'react-icons/bs';
 
 const ProductDTL = () => {
     const { id } = useParams();
@@ -14,24 +18,51 @@ const ProductDTL = () => {
             setProduct(newProduct);
         }
 
-    }, [id, product]);
+    }, []);
 
     return (
         <div className='detail'>
             {
                 product ? (
+                    <div className='detail-container'>
+                        <div className='detail-img'>
+                            <img src={product.image} />
+                        </div>
 
+                        <div className='detail-info'>
+                            <h1>{product.name}</h1>
+                            <p>Lorem ipsum dolor sit amet.</p>
 
-                    <>
-                        <h1>{product.name}</h1>
-                        <img src={product.image} alt={product.name} />
-                    </>
+                            <div className='star-icon'>
+                                <FaStar />
+                                <FaStar />
+                                <FaStar />
+                                <FaStar />
+                                <FaStar />
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quidem quisquam tempora iste dignissimos mollitia impedit odit accusantium ea cumque, asperiores laborum, necessitatibus possimus delectus quis deleniti nobis eligendi culpa!
+                            </p>
+                            <div className='shop-icon'>
+                                <FcLike />
+                                <FaBasketShopping />
+                            </div>
+                            <div className='detail-count'>
+                                <button>-</button>
+                                <span>0</span>
+                                <button>+</button>
+                            </div>
+                            <h1 className='detail-price'>Price : ${product.price}</h1>
+                        </div>
 
-
-
+                    </div>
 
                 ) : (
-                    <p>Loading ....</p>
+                    <div className='emptyCart'>
+                        <BsEmojiNeutral className='empty-icon' />
+                        <h1>Your Favorie page is empty</h1>
+                        <h4>No product added to favorites</h4>
+                        <Link to='/shop'><button>Go To Shopping</button></Link>
+                    </div>
                 )
             }
         </div>

@@ -28,12 +28,13 @@ const Product = ({ getData }) => {
 
     return (
         <div
-            onClick={productDetail}
             className="product-detail">
             <span className='fav-icon' onClick={addFavoire}>
                 <FcLike />
             </span>
-            <img src={image} alt={name} />
+            <img
+                onClick={productDetail}
+                src={image} alt={name} />
             <div className="product-info">
                 <div>
                     <h3>{name}</h3>
