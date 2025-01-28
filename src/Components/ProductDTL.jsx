@@ -25,7 +25,6 @@ const ProductDTL = () => {
         if (newProduct) {
             setProduct(newProduct);
         }
-
     }, []);
 
     const inc = () => {
