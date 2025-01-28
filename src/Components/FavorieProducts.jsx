@@ -4,7 +4,6 @@ import Favorie from '../Pages/Favorie';
 import '../Styles/Favorie.css'
 import { Link } from 'react-router-dom';
 import { FaHeartBroken } from 'react-icons/fa';
-import { ToastContainer } from 'react-toastify';
 
 
 const FavorieProducts = () => {
