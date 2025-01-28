@@ -83,6 +83,7 @@
 .cart-detail img {
     width: 90px;
     height: 110px;
+    cursor: pointer;
 }
 
 .cart-left {

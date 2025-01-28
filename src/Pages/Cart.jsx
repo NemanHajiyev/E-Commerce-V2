@@ -57,6 +57,11 @@ const Cart = ({ setOrderData, orderData }) => {
         }
     }
 
+    const getProductDetail = (id) => {
+        navigate(`/product-detail/${id}`)
+    }
+
+
 
 
     if (products.length === 0) {
@@ -86,7 +91,9 @@ const Cart = ({ setOrderData, orderData }) => {
                     </div>
                     {products?.map((product) => (
                         <div className="cart-detail" key={product.id}>
-                            <img src={product.image} alt={product.name} />
+                            <img
+                                onClick={() => getProductDetail(product.id)}
+                                src={product.image} />
                             <h2>{product.name}</h2>
                             <h1>${product.price}</h1>
                             <h4>{product.quantity}</h4>
