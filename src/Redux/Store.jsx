@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import sessionStorage from 'redux-persist/lib/storage/session'; // sessionStorage için import
-import rootReducer from '../Redux/CombineReducers';
+import sessionStorage from 'redux-persist/lib/storage/session';
+import rootReducer from './CombineReducers';
 
 const persistConfig = {
     key: 'root',
     storage: sessionStorage,
 };
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

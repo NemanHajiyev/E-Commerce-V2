@@ -57,12 +57,7 @@ const ProductDTL = () => {
                     </div>
 
                 ) : (
-                    <div className='emptyCart'>
-                        <BsEmojiNeutral className='empty-icon' />
-                        <h1>Your Favorie page is empty</h1>
-                        <h4>No product added to favorites</h4>
-                        <Link to='/shop'><button>Go To Shopping</button></Link>
-                    </div>
+                    null
                 )
             }
         </div>
