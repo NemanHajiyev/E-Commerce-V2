@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductDTL from "./Components/ProductDTL"
 import About from './Pages/About'
+import Contact from "./Pages/Contact"
 
 
 
@@ -41,6 +42,7 @@ function App() {
               <Route path="/filtered-product" element={<FilteredProduct />} />
               <Route path="/product-detail/:id" element={<ProductDTL />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Container>
           <Footer />
