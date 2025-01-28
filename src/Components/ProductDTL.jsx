@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/Product-detail.css';
-import { Link, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaStar } from 'react-icons/fa';
 import { FaBasketShopping } from 'react-icons/fa6';
 import { FcLike } from 'react-icons/fc';
-import { BsEmojiNeutral } from 'react-icons/bs';
+import { addToFavorie } from '../Redux/productSlice';
+import { addToBaket, decrement, increment } from '../Redux/cartSlice';
+import { productAddToasty } from '../React-Toastify/Toastify';
+
+
 
 const ProductDTL = () => {
     const { id } = useParams();
     const { products } = useSelector((store) => store.product);
     const [product, setProduct] = useState();
+    const [count, setCount] = useState(1)
+
+    const dispatch = useDispatch()
+
 
     useEffect(() => {
         const newProduct = products.find((product) => product.id === parseInt(id));
@@ -19,6 +27,29 @@ const ProductDTL = () => {
         }
 
     }, []);
+
+    const inc = () => {
+        setCount(count + 1)
+    }
+
+    const dec = () => {
+        if (count > 1) {
+            setCount(count - 1)
+        }
+    }
+
+    const addtoFavorie = () => {
+        dispatch(addToFavorie(product));
+    }
+
+    const addtoBasket = () => {
+        for (let i = 1; i <= count; i++) {
+            dispatch(addToBaket(product));
+        }
+        productAddToasty()
+    };
+
+
 
     return (
         <div className='detail'>
@@ -43,13 +74,13 @@ const ProductDTL = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quidem quisquam tempora iste dignissimos mollitia impedit odit accusantium ea cumque, asperiores laborum, necessitatibus possimus delectus quis deleniti nobis eligendi culpa!
                             </p>
                             <div className='shop-icon'>
-                                <FcLike />
-                                <FaBasketShopping />
+                                <FcLike onClick={addtoFavorie} />
+                                <FaBasketShopping onClick={addtoBasket} />
                             </div>
                             <div className='detail-count'>
-                                <button>-</button>
-                                <span>0</span>
-                                <button>+</button>
+                                <button onClick={() => inc()}>+</button>
+                                <span>{count}</span>
+                                <button onClick={() => dec()}>-</button>
                             </div>
                             <h1 className='detail-price'>Price : ${product.price}</h1>
                         </div>

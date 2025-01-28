@@ -47,13 +47,13 @@ const Cart = ({ setOrderData, orderData }) => {
     }
 
     const inc = (product) => {
-        dispatch(increment({ id: product.id }))
+        dispatch(increment(product))
     }
 
 
     const dec = (product) => {
         if (product.quantity > 1) {
-            dispatch(decrement({ id: product.id }))
+            dispatch(decrement(product))
         }
     }
 
