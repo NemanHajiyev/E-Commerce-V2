@@ -21,6 +21,7 @@ import Login from './Pages/Login';
 
 function App() {
   const [orderData, setOrderData] = useState();
+  const [registerInfo, setRegisterInfo] = useState({})
 
   const Layout = ({ children }) => {
     const location = useLocation();
@@ -28,7 +29,7 @@ function App() {
 
     return (
       <>
-        {!isLoginPage && <Navbar />}
+        {!isLoginPage && <Navbar registerInfo={registerInfo} />}
         <CssBaseline />
         <Container maxWidth="lg">{children}</Container>
         {!isLoginPage && <Footer />}
@@ -53,7 +54,7 @@ function App() {
               <Route path="/product-detail/:id" element={<ProductDTL />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />} />
             </Routes>
           </Layout>
         </BrowserRouter>

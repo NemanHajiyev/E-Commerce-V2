@@ -7,7 +7,7 @@ import { FaBasketShopping } from 'react-icons/fa6'
 import { useState } from 'react'
 import { filteredProducts } from '../Redux/productSlice'
 
-const Navbar = () => {
+const Navbar = ({ registerInfo }) => {
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState()
     const dispatch = useDispatch()
@@ -17,6 +17,8 @@ const Navbar = () => {
         dispatch(filteredProducts(search))
         navigate('/filtered-product')
     }
+
+    const registerInfoLenght = Object.values(registerInfo)
 
     return (
         <nav className='navbar'>
@@ -45,9 +47,18 @@ const Navbar = () => {
                     </Link>
 
                     <div className='register-login'>
-                        <Link to='/login'>Login</Link>
-                        |
-                        <Link >Register</Link>
+                        {registerInfoLenght.length === 0 ? (
+                            <>
+                                <Link to='/login'>Login</Link>
+                                |
+                                <Link >Register</Link>
+                            </>
+
+                        ) : (
+                            <p>{registerInfo.username}</p>
+                        )
+                        }
+
                     </div>
 
                     <button>
