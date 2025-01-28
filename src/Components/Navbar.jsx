@@ -44,9 +44,11 @@ const Navbar = () => {
                         <div className='basket-count'>{products.length}</div>
                     </Link>
 
-                    <button>
-                        Login | Register
-                    </button>
+                    <div className='register-login'>
+                        <Link to='/login'>Login</Link>
+                        |
+                        <Link >Register</Link>
+                    </div>
 
                     <button>
                         <FaUser />
