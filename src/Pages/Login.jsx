@@ -7,10 +7,12 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
     const [img, setImg] = useState()
     const navigate = useNavigate()
 
+
     const [data, setData] = useState({
         username: "",
         email: "",
-        password: ""
+        password: "",
+        image: img
     })
 
     const getUserData = () => {
@@ -38,14 +40,14 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
                         <form className="login-form">
                             <input
                                 value={registerInfo.username}
-                                onChange={(e) => setRegisterInfo({ ...registerInfo, username: e.target.value })}
+                                onChange={(e) => setData({ ...data, username: e.target.value })}
                                 type="text"
                                 placeholder="Username"
                                 className="login-input" />
 
                             <input
                                 value={registerInfo.password}
-                                onChange={(e) => setRegisterInfo({ ...registerInfo, password: e.target.value })}
+                                onChange={(e) => setData({ ...data, password: e.target.value })}
                                 type="password"
                                 placeholder="Password"
                                 className="login-input"
@@ -94,26 +96,33 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
                                 />
                             </form>
                             <div className="upload-file">
-                                <input
-                                    type="file"
-                                    className="select-input"
-                                    accept="image/*"
-                                    onChange={(e) => {
-                                        const file = e.target.files?.[0];
-                                        setImg(file ? URL.createObjectURL(file) : undefined)
-                                    }}
-                                />
-                                {
-                                    img && (
-                                        <img
-                                            className="profil-picture"
-                                            src={img}
+                                <form action="files">
+                                    <label htmlFor="file-upload" className="upload-btn">
+                                        Upload
+                                        <input
+                                            id="file-upload"
+                                            type="file"
+                                            className="select-input"
+                                            accept="image/*"
+                                            onChange={(e) => {
+                                                const file = e.target.files?.[0];
+                                                const imgURL = file ? URL.createObjectURL(file) : undefined;
+                                                setImg(imgURL)
+                                                setData((data) => ({
+                                                    ...data, image: imgURL
+                                                }))
+                                            }}
                                         />
-                                    )
-                                }
+                                    </label>
+                                </form>
+
+                                {img && (
+                                    <div className="image-preview">
+                                        <img className="profil-picture" src={img} alt="Preview" />
+                                    </div>
+                                )}
                             </div>
                             <button className="login-button" onClick={getUserData}>Register</button>
-
                             <p className="login-footer">
                                 Do you already have an account? <a onClick={() => setModal(true)}>Login Now</a>
                             </p>

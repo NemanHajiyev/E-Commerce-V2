@@ -10,6 +10,8 @@ import { filteredProducts } from '../Redux/productSlice'
 const Navbar = ({ registerInfo }) => {
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState()
+    const [user, setUser] = useState(true)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -17,6 +19,9 @@ const Navbar = ({ registerInfo }) => {
         dispatch(filteredProducts(search))
         navigate('/filtered-product')
     }
+
+
+    console.log(registerInfo)
 
     const registerInfoLenght = Object.values(registerInfo)
 
@@ -51,19 +56,50 @@ const Navbar = ({ registerInfo }) => {
                             <>
                                 <Link to='/login'>Login</Link>
                                 |
-                                <Link >Register</Link>
+                                <Link to='/login'>Register</Link>
                             </>
 
                         ) : (
-                            <p>{registerInfo.username}</p>
+                            <div className='PP'>
+                                <p>{registerInfo.username}</p>
+                                <img src={registerInfo.image} />
+                            </div>
+
                         )
                         }
+                    </div>
+
+
+                    <div className="user-dropdown">
+                        <button
+                            className="user-btn"
+                            onClick={() => setUser(!user)}
+                        >
+                            {user ? (
+                                <div>
+                                    <FaUser className='user-icon' />
+                                </div>
+                            ) : (
+                                <>
+                                    <FaUser className='user-icon' />
+                                    <div className="dropdown-menu">
+                                        <ul>
+                                            <li onClick={() => navigate('/login')}>
+                                                <button className="dropdown-item">Log Out</button>
+                                            </li>
+                                            <li onClick={() => navigate('/shop')}>
+                                                <button className="dropdown-item">Go to Shop</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </>
+                            )}
+                        </button>
+
 
                     </div>
 
-                    <button>
-                        <FaUser />
-                    </button>
+
                 </div>
             </div>
             <div className='Pages-link'>
