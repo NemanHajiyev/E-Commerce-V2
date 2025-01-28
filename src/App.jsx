@@ -14,6 +14,7 @@ import { useState } from "react"
 import FavorieProducts from "./Components/FavorieProducts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductDTL from "./Components/ProductDTL"
 
 
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
               <Route path="/favorie" element={<FavorieProducts />} />
               <Route path="/filtered-product" element={<FilteredProduct />} />
+              <Route path="/product-detail/:id" element={<ProductDTL />} />
             </Routes>
           </Container>
           <Footer />

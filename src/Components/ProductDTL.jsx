@@ -13,16 +13,27 @@ const ProductDTL = () => {
         if (newProduct) {
             setProduct(newProduct);
         }
-        return (
-            <div>Olmadi be abi</div>
-        )
 
-    }, [id, products]);
+    }, [id, product]);
 
     return (
         <div className='detail'>
-            <h1>{product.name}</h1>
-            <img src={product.image} alt={product.name} />
+            {
+                product ? (
+
+
+                    <>
+                        <h1>{product.name}</h1>
+                        <img src={product.image} alt={product.name} />
+                    </>
+
+
+
+
+                ) : (
+                    <p>Loading ....</p>
+                )
+            }
         </div>
     );
 };

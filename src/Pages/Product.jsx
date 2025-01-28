@@ -6,15 +6,20 @@ import { addToBaket } from '../Redux/cartSlice';
 import { addToFavorie } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
 import { productAddToasty } from '../React-Toastify/Toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ getData }) => {
     const { id, image, name, price, quantity } = getData;
-
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
     const addFavoire = () => {
         dispatch(addToFavorie(getData));
     };
+
+    const productDetail = () => {
+        navigate(`/product-detail/${id}`)
+    }
 
     const AddToBasket = () => {
         dispatch(addToBaket(getData));
@@ -22,7 +27,9 @@ const Product = ({ getData }) => {
     };
 
     return (
-        <div className="product-detail">
+        <div
+            onClick={productDetail}
+            className="product-detail">
             <span className='fav-icon' onClick={addFavoire}>
                 <FcLike />
             </span>
