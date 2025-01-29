@@ -52,8 +52,6 @@ const Navbar = ({ registerInfo }) => {
                         {registerInfoLenght.length === 0 ? (
                             <>
                                 <Link to='/login'>Login</Link>
-                                |
-                                <Link to='/login'>Register</Link>
                             </>
 
                         ) : (

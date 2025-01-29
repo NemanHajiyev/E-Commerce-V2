@@ -6,7 +6,7 @@ import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { notifyError2 } from '../React-Toastify/Toastify'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 const CheckoutPage = ({ setOrderData, orderData }) => {
@@ -228,3 +228,6 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
 }
 
 export default CheckoutPage
+
+
+
