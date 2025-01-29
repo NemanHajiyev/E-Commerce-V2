@@ -30,8 +30,8 @@ const Footer = () => {
                         <a href="https://www.linkedin.com/in/neman-haciyev"><FaLinkedin /></a>
                     </div>
                     <div className="subscribe">
-                        <input type="text" placeholder="Your Email..." />
                         <button>Subscribe</button>
+                        <input type="text" placeholder="Your Email..." />
                     </div>
                 </div>
             </div>

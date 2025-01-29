@@ -33,3 +33,17 @@
     box-shadow: 0 8px 16px rgb(0, 0, 0);
 
 }
+
+@media screen and (max-width: 768px) {
+    .infosection {
+        flex-direction: column;
+        width: 100%;
+        gap: 50px;
+        margin-top: 150px;
+
+    }
+
+    .info-div {
+        width: 100%;
+    }
+}

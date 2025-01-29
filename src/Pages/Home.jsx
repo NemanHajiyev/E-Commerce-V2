@@ -12,7 +12,7 @@ import Shop from './Shop';
 const Home = () => {
     return (
         <div className='home'>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className='home-container'>
                 <div className='home-category'>
                     <h2>Shop By Categories</h2>
                     <ul className='ul-list'>
@@ -32,7 +32,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='home-sections'>
                 <InfoSection />
                 <CategorySection />
                 <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Top Products</h1>

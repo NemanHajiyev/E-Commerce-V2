@@ -153,3 +153,24 @@
 .profil-picture:hover {
     transform: scale(5);
 }
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left {
+        width: 100%;
+    }
+
+    .login-right {
+        margin-top: -10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .upload-file {
+        width: 100%;
+    }
+
+}

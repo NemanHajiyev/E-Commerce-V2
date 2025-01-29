@@ -55,3 +55,16 @@
   .category-detail button:hover {
       background-color: #f8271c;
   }
+
+  @media screen and (max-width: 768px) {
+      .category-section {
+          flex-direction: column;
+          width: 100%;
+          gap: 50px;
+
+      }
+
+      .category-info {
+          width: 100%;
+      }
+  }

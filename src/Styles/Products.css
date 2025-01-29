@@ -93,3 +93,14 @@
 .add-basket:hover {
     transform: scale(1.3);
 }
+
+@media screen and (max-width: 768px) {
+    .products {
+        display: flex;
+        justify-content: center;
+    }
+
+    .product-detail {
+        width: 70%;
+    }
+}

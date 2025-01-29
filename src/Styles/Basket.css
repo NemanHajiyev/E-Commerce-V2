@@ -189,3 +189,38 @@
     color: rgb(238, 71, 71);
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .cart {
+        flex-direction: column;
+    }
+
+    .cart-title {
+        display: none;
+    }
+
+    .cart-left {
+        font-size: 15px;
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .cart-detail {
+        width: 70%;
+        flex-direction: column;
+        margin: 0 auto;
+
+    }
+
+    .cart-detail img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cart-right {
+        width: 100%;
+    }
+}

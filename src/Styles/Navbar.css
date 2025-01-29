@@ -1,8 +1,9 @@
+/* Desktop Navbar Styles */
 .navbar {
     border-bottom: 3px solid lightgrey;
     margin-top: 20px;
     padding: 0 30px;
-
+    position: relative;
 }
 
 .navbar-div {
@@ -14,7 +15,6 @@
 
 .navbar-logo {
     font-size: 30px;
-
 }
 
 .register-login {
@@ -34,7 +34,7 @@
     height: 30px;
     border: none;
     outline: none;
-    padding: 20px;
+    padding: 10px;
 }
 
 .navbar-right {
@@ -66,7 +66,6 @@
 .Link:hover {
     text-decoration: underline;
 }
-
 
 .shopping-icon {
     position: relative;
@@ -107,7 +106,6 @@
     border-radius: 50%;
 }
 
-/* /////////////////// */
 .user-icon {
     font-size: 25px;
     color: blue;
@@ -136,6 +134,7 @@
     padding: 10px;
     width: 130px;
     z-index: 100;
+    display: none;
 }
 
 .dropdown-menu ul {
@@ -160,4 +159,54 @@
 .dropdown-item:hover {
     background-color: brown;
     color: white;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .navbar-div {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar-right {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hamburger-menu div {
+        width: 25px;
+        height: 3px;
+        background-color: black;
+        margin: 5px 0;
+    }
+
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
 }
