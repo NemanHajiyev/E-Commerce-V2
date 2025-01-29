@@ -185,6 +185,11 @@
 @media screen and (max-width: 768px) {
     .navbar {
         padding: 3px 10px;
+        font-size: 12px;
+    }
+
+    .navbar-logo {
+        font-size: 25px
     }
 
     .navbar-div {

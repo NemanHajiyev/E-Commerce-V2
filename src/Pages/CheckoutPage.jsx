@@ -35,8 +35,8 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
     const OrderSummary = () => {
         const shipValue = Object.values(shippingInfo);
         if (registerInfoLenght.length === 0) {
-            alert("Please Login")
             navigate('/login');
+            alert("Please Login")
         }
 
         if (!cartModal) {
