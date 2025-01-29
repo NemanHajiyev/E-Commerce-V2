@@ -76,17 +76,25 @@ const Navbar = ({ registerInfo }) => {
                                 </div>
                             ) : (
                                 <>
-                                    <FaUser className='user-icon' />
-                                    <div className="dropdown-menu">
-                                        <ul>
-                                            <li onClick={() => navigate('/login')}>
-                                                <button className="dropdown-item">Log Out</button>
-                                            </li>
-                                            <li onClick={() => navigate('/shop')}>
-                                                <button className="dropdown-item">Go to Shop</button>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    {registerInfoLenght.length === 0 ? (
+                                        <FaUser className='user-icon' />
+                                    ) : (
+                                        <>
+                                            <FaUser className='user-icon' />
+                                            <div className="dropdown-menu">
+                                                <ul>
+                                                    <li onClick={() => navigate('/login')}>
+                                                        <button className="dropdown-item">Log Out
+
+                                                        </button>
+                                                    </li>
+                                                    <li onClick={() => navigate('/shop')}>
+                                                        <button className="dropdown-item">Go to Shop</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </>
+                                    )}
                                 </>
                             )}
                         </button>

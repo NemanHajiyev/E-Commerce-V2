@@ -9,11 +9,13 @@ import { notifyError2 } from '../React-Toastify/Toastify'
 import { ToastContainer } from 'react-toastify';
 
 
-const CheckoutPage = ({ setOrderData, orderData }) => {
+const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
     const { products, totalPrice } = useSelector((store) => store.cart);
     const [cartModal, setCartModal] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const registerInfoLenght = Object.values(registerInfo)
 
     const [shippingInfo, setShippingInfo] = useState({
         fullName: "",
@@ -32,6 +34,11 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
 
     const OrderSummary = () => {
         const shipValue = Object.values(shippingInfo);
+        if (registerInfoLenght.length === 0) {
+            alert("Please Login")
+            navigate('/login');
+        }
+
         if (!cartModal) {
             const filteredValue = shipValue.slice(0, 8);
             const filtered = filteredValue.some(item => item.length === 0);
@@ -41,6 +48,7 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
                 notifyError2();
             }
         }
+
         else {
             const isAnyFieldEmpty = shipValue.some(item => item.length === 0);
             if (!isAnyFieldEmpty) {
@@ -228,6 +236,4 @@ const CheckoutPage = ({ setOrderData, orderData }) => {
 }
 
 export default CheckoutPage
-
-
 

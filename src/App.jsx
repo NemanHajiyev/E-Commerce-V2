@@ -47,7 +47,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
-              <Route path="/checkout-page" element={<CheckoutPage setOrderData={setOrderData} orderData={orderData} />} />
+              <Route path="/checkout-page" element={<CheckoutPage registerInfo={registerInfo} setOrderData={setOrderData} orderData={orderData} />} />
               <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
               <Route path="/favorie" element={<FavorieProducts />} />
               <Route path="/filtered-product" element={<FilteredProduct />} />
