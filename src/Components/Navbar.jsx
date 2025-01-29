@@ -12,7 +12,7 @@ const Navbar = ({ registerInfo }) => {
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState();
     const [user, setUser] = useState(true);
-    const [hamburger, setHamburger] = useState(false);  // Başlangıçta hamburger menüsü kapalı
+    const [hamburger, setHamburger] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -86,7 +86,7 @@ const Navbar = ({ registerInfo }) => {
                                     ) : (
                                         <>
                                             <FaUser className='user-icon' />
-                                            <div className="dropdown-menu">
+                                            <div className="dropdown-menu-user">
                                                 <ul>
                                                     <li onClick={() => navigate('/login')}>
                                                         <button className="dropdown-item">Log Out</button>

@@ -133,13 +133,15 @@
     padding: 10px;
     width: 130px;
     z-index: 100;
-    display: none;
 }
 
-.dropdown-menu ul {
+.dropdown-menu-user ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+}
+
+.dropdown-menu-user {
+    position: absolute;
+    width: 100px;
 }
 
 .dropdown-item {
