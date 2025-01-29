@@ -6,10 +6,12 @@ import InfoSection from "../Components/InfoSection";
 import CategorySection from '../Components/CategorySection';
 import ProductList from '../Components/ProductList';
 import Shop from './Shop';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Home = () => {
+    const navigate = useNavigate()
     return (
         <div className='home'>
             <div className='home-container'>
@@ -28,7 +30,7 @@ const Home = () => {
                         <p>Code With Neman :)</p>
                         <h2>Welcome To E-Shop </h2>
                         <p>Millions + Products</p>
-                        <button>Shop Now</button>
+                        <button onClick={() => navigate('/shop')}>Shop Now</button>
                     </div>
                 </div>
             </div>

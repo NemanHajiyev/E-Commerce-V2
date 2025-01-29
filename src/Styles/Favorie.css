@@ -1,9 +1,14 @@
 .favorie-div {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-wrap: wrap;
     gap: 50px;
     height: auto;
     min-height: 70vh;
+}
+
+@media screen and (max-width: 768px) {
+    .favorie-div {
+        gap: 10px;
+    }
 }

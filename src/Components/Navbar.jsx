@@ -1,26 +1,35 @@
-import { FaSearch, FaUser } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import '../Styles/Navbar.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { FcLike } from 'react-icons/fc'
-import { FaBasketShopping } from 'react-icons/fa6'
-import { useState } from 'react'
-import { filteredProducts } from '../Redux/productSlice'
+import { FaSearch, FaUser } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../Styles/Navbar.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { FcLike } from 'react-icons/fc';
+import { FaBasketShopping } from 'react-icons/fa6';
+import { useEffect, useState } from 'react';
+import { filteredProducts } from '../Redux/productSlice';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = ({ registerInfo }) => {
     const { products } = useSelector((store) => store.cart);
-    const [search, setSearch] = useState()
-    const [user, setUser] = useState(true)
+    const [search, setSearch] = useState();
+    const [user, setUser] = useState(true);
+    const [hamburger, setHamburger] = useState(false);  // Başlangıçta hamburger menüsü kapalı
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSearch = () => {
-        dispatch(filteredProducts(search))
-        navigate('/filtered-product')
-    }
+        dispatch(filteredProducts(search));
+        navigate('/filtered-product');
+    };
 
-    const registerInfoLenght = Object.values(registerInfo)
+
+    const location = useLocation();
+    useEffect(() => {
+        setHamburger(false);
+    }, [location]);
+
+
+    const registerInfoLength = Object.values(registerInfo);
 
     return (
         <nav className='navbar'>
@@ -49,21 +58,17 @@ const Navbar = ({ registerInfo }) => {
                     </Link>
 
                     <div className='register-login'>
-                        {registerInfoLenght.length === 0 ? (
+                        {registerInfoLength.length === 0 ? (
                             <>
                                 <Link to='/login'>Login</Link>
                             </>
-
                         ) : (
                             <div className='PP'>
                                 <p>{registerInfo.username}</p>
                                 <img src={registerInfo.image} />
                             </div>
-
-                        )
-                        }
+                        )}
                     </div>
-
 
                     <div className="user-dropdown">
                         <button
@@ -76,7 +81,7 @@ const Navbar = ({ registerInfo }) => {
                                 </div>
                             ) : (
                                 <>
-                                    {registerInfoLenght.length === 0 ? (
+                                    {registerInfoLength.length === 0 ? (
                                         <FaUser className='user-icon' />
                                     ) : (
                                         <>
@@ -84,9 +89,7 @@ const Navbar = ({ registerInfo }) => {
                                             <div className="dropdown-menu">
                                                 <ul>
                                                     <li onClick={() => navigate('/login')}>
-                                                        <button className="dropdown-item">Log Out
-
-                                                        </button>
+                                                        <button className="dropdown-item">Log Out</button>
                                                     </li>
                                                     <li onClick={() => navigate('/shop')}>
                                                         <button className="dropdown-item">Go to Shop</button>
@@ -98,11 +101,24 @@ const Navbar = ({ registerInfo }) => {
                                 </>
                             )}
                         </button>
-
-
                     </div>
+                </div>
 
-
+                <div className="hamburger-container">
+                    <GiHamburgerMenu
+                        onClick={() => setHamburger(!hamburger)}
+                        className={`hamburger-menu ${hamburger ? 'active' : ''}`}
+                    />
+                    {hamburger && (
+                        <div className="dropdown-menu active">
+                            <ul>
+                                <button className="dropdown-item" onClick={() => navigate('/login')}>Login</button>
+                                <button className="dropdown-item" onClick={() => navigate('/shop')}>Go to Shop</button>
+                                <button className="dropdown-item" onClick={() => navigate('/cart')}>Basket</button>
+                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>Favorie</button>
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className='Pages-link'>
@@ -112,7 +128,7 @@ const Navbar = ({ registerInfo }) => {
                 <Link to="/about" className='Link'>About</Link>
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

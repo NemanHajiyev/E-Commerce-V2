@@ -200,24 +200,21 @@
     }
 
     .cart-left {
-        font-size: 15px;
         width: 100%;
         flex-direction: column;
         display: flex;
         justify-content: center;
-        gap: 50px;
+        gap: 20px;
     }
 
     .cart-detail {
-        width: 70%;
-        flex-direction: column;
-        margin: 0 auto;
-
+        width: 100%;
+        font-size: 12px;
     }
 
     .cart-detail img {
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 60px;
     }
 
     .cart-right {
