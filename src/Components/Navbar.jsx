@@ -20,9 +20,6 @@ const Navbar = ({ registerInfo }) => {
         navigate('/filtered-product')
     }
 
-
-    console.log(registerInfo)
-
     const registerInfoLenght = Object.values(registerInfo)
 
     return (

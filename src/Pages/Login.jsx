@@ -15,7 +15,11 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
         image: img
     })
 
+    const dataValue = Object.values(data)
+
+
     const getUserData = () => {
+
         setRegisterInfo(data)
     }
 
