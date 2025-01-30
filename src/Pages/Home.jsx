@@ -7,11 +7,20 @@ import CategorySection from '../Components/CategorySection';
 import ProductList from '../Components/ProductList';
 import Shop from './Shop';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { categoryProducts } from '../Redux/productSlice';
 
 
 
 const Home = () => {
+    const dispatch = useDispatch()
+
+    const getCategorie = (category) => {
+        dispatch(categoryProducts(category))
+        navigate('/category-product')
+    }
     const navigate = useNavigate()
+
     return (
         <div className='home'>
             <div className='home-container'>
@@ -19,7 +28,7 @@ const Home = () => {
                     <h2>Shop By Categories</h2>
                     <ul className='ul-list'>
                         {Categories?.map((category, index) => (
-                            <li className='list' key={index}>{category}</li>
+                            <li className='list' key={index} onClick={() => getCategorie(category)}>{category}</li>
                         ))}
                     </ul>
 

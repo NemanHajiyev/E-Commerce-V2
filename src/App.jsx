@@ -18,6 +18,7 @@ import ProductDTL from "./Components/ProductDTL";
 import About from './Pages/About';
 import Contact from "./Pages/Contact";
 import Login from './Pages/Login';
+import CategoryProduct from "./Components/CategoryProduct";
 
 function App() {
   const [orderData, setOrderData] = useState();
@@ -40,7 +41,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <div style={{ height: '100vh' }}>
+      <div>
         <BrowserRouter>
           <Layout>
             <Routes>
@@ -55,6 +56,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />} />
+              <Route path="/category-product" element={<CategoryProduct />} />
             </Routes>
           </Layout>
         </BrowserRouter>

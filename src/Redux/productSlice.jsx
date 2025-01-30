@@ -5,7 +5,8 @@ const initialState = {
     products: [],
     favProducts: [],
     searchTerm: '',
-    filterProduct: []
+    filterProduct: [],
+    categoryProduct: []
 }
 
 export const productSlice = createSlice({
@@ -39,10 +40,14 @@ export const productSlice = createSlice({
             state.filterProduct = state.products.filter((product) =>
                 product.name.toLowerCase().includes(state.searchTerm.toLocaleLowerCase())
             )
+        },
+        categoryProducts: (state, action) => {
+            const filterCategory = state.products.filter((product) => product.category === action.payload)
+            state.categoryProduct = filterCategory;
         }
     }
 })
 
-export const { setProducts, addToFavorie, removeFavorieItem, filteredProducts } = productSlice.actions
+export const { setProducts, addToFavorie, removeFavorieItem, filteredProducts, categoryProducts } = productSlice.actions
 
 export default productSlice.reducer

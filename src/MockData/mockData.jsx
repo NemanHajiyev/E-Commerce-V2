@@ -13,12 +13,11 @@ import { FaHeadset, FaLock, FaShippingFast, FaTag } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
 export const Categories = [
-  "Electronics",
-  "Fashion",
-  "Home & Kitchen",
-  "Beauty",
-  "Sports",
-  "Automotive",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
 ];
 
 export const infoSectionData = [
@@ -56,21 +55,26 @@ export const mockData = [
     image: Image9,
     name: "Product 1",
     price: 29.99,
-    quantity: 1
+    quantity: 1,
+    category: "1"
   },
   {
     id: 2,
     image: Image8,
     name: "Product 2",
     price: 15,
-    quantity: 1
+    quantity: 1,
+    category: "1"
+
   },
   {
     id: 3,
     image: Image7,
     name: "Product 3",
     price: 19.99,
-    quantity: 1
+    quantity: 1,
+    category: "2"
+
   },
   {
     id: 4,
@@ -78,47 +82,60 @@ export const mockData = [
     name: "Product 4",
     price: 49.99,
     quantity: 1,
+    category: "2"
+
   },
   {
     id: 5,
     image: Image10,
     name: "Product 5",
     price: 49.99,
-    quantity: 1
+    quantity: 1,
+    category: "3"
+
   },
   {
     id: 6,
     image: Image4,
     name: "Product 6",
     price: 10,
-    quantity: 1
+    quantity: 1,
+    category: "3"
+
   },
   {
     id: 7,
     image: Image5,
     name: "Product 7",
     price: 49.99,
-    quantity: 1
+    quantity: 1,
+    category: "4"
+
   },
   {
     id: 8,
     image: Image3,
     name: "Product 8",
     price: 49.99,
-    quantity: 1
+    quantity: 1,
+    category: "4"
+
   },
   {
     id: 9,
     image: Image2,
     name: "Product 9",
     price: 49.99,
-    quantity: 1
+    quantity: 1,
+    category: "5"
   },
   {
     id: 10,
     image: Image1,
     name: "Product 10",
     price: 49.99,
-    quantity: 1
+    quantity: 1,
+    category: "5"
+
   },
 ];
