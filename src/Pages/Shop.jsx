@@ -4,8 +4,6 @@ import { setProducts } from '../Redux/productSlice';
 import { mockData } from '../MockData/mockData';
 import Product from '../Pages/Product';
 import '../Styles/Products.css'
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 
 const Shop = () => {
