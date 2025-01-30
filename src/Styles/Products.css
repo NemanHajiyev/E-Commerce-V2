@@ -17,6 +17,26 @@
     margin-top: 50px;
 }
 
+.paginaton-div {
+    display: flex;
+    justify-content: center;
+}
+
+.paginate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-top: 60px;
+    font-size: 20px;
+    list-style: none;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 10px;
+    color: brown;
+    cursor: pointer;
+}
+
 .fav-icon {
     font-size: 30px;
     margin-left: 5px;
