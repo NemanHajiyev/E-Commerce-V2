@@ -37,7 +37,7 @@ const Product = ({ getData }) => {
                 src={image} alt={name} />
             <div className="product-info">
                 <div>
-                    <h3>{name}</h3>
+                    <h4>{name}</h4>
                     <p>${price}</p>
                 </div>
                 <div className="star">

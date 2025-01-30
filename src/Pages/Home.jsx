@@ -1,7 +1,7 @@
 import React from 'react';
 import "../Styles/Home.css";
 import { Categories } from '../MockData/mockData';
-import HeroImage from '../Assets/Images-main/hero-page.png';
+import banner from '../Assets/images/banner.jpg';
 import InfoSection from "../Components/InfoSection";
 import CategorySection from '../Components/CategorySection';
 import ProductList from '../Components/ProductList';
@@ -18,6 +18,7 @@ const Home = () => {
     const getCategorie = (category) => {
         dispatch(categoryProducts(category))
         navigate('/category-product')
+        console.log("kateqoriyasi - ", category)
     }
     const navigate = useNavigate()
 
@@ -34,11 +35,8 @@ const Home = () => {
 
                 </div>
                 <div className='home-banner'>
-                    <img src={HeroImage} className='image' />
+                    <img src={banner} className='image' />
                     <div className='banner-detail'>
-                        <p>Code With Neman :)</p>
-                        <h2>Welcome To E-Shop </h2>
-                        <p>Millions + Products</p>
                         <button onClick={() => navigate('/shop')}>Shop Now</button>
                     </div>
                 </div>

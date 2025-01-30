@@ -1,15 +1,15 @@
 import React from 'react'
-import MensCtgry from '../Assets/Images-main/man.png';
-import WomensCtgry from '../Assets/Images-main/woman.png';
-import kidsCtgry from '../Assets/Images-main/kid.png';
+import auto from '../Assets/images/auto-7.webp';
+import WomensCtgry from '../Assets/images/auto-3.webp';
+import kidsCtgry from '../Assets/images/auto-3.webp';
 import '../Styles/CategorySection.css';
 
 
 const CategorySection = () => {
     const data = [
         {
-            title: "Mens",
-            image: MensCtgry
+            title: "auto",
+            image: auto
         },
         {
             title: "Womens",
