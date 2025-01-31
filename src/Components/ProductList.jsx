@@ -16,7 +16,7 @@ const ProductList = () => {
 
     return (
         <div className='products'>
-            {products?.slice(0, 5).map((product, index) => (
+            {products?.slice(0, 6).map((product, index) => (
                 <Product getData={product} key={index} />
             ))}
         </div>

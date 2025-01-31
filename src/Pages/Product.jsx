@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Styles/Products.css';
 import { FaStar } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
 import { addToFavorie } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
-import { productAddToasty } from '../React-Toastify/Toastify';
+import { notifySuccess, productAddToasty } from '../React-Toastify/Toastify';
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ getData }) => {
@@ -23,36 +23,33 @@ const Product = ({ getData }) => {
 
     const AddToBasket = () => {
         dispatch(addToBaket(getData));
-        productAddToasty()
     };
 
+    // useEffect(() => {
+    //     productAddToasty()
+    // }, [addToBaket])
+
+    // useEffect(() => {
+    //     notifySuccess()
+    // }, [addFavoire])
+
+
     return (
-        <div
-            className="product-detail">
-            <span className='fav-icon' onClick={addFavoire}>
+        <div className="product-card">
+            <span className="fav-icon" onClick={addFavoire}>
                 <FcLike />
             </span>
-            <img
-                onClick={productDetail}
-                src={image} alt={name} />
+            <img onClick={productDetail} src={image} alt={name} className="product-image" />
             <div className="product-info">
-                <div>
-                    <h4>{name}</h4>
-                    <p>${price}</p>
-                </div>
-                <div className="star">
-                    <div>
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                    </div>
+                <h4>{name}</h4>
+                <p className="price">${price}</p>
+                <div className="star-rating">
+                    {[...Array(5)].map((_, index) => (
+                        <FaStar key={index} className="star" />
+                    ))}
                 </div>
             </div>
-            <div className='add-basket'>
-                <span onClick={AddToBasket}>+</span>
-            </div>
+            <button className="add-to-basket" onClick={AddToBasket}>+</button>
         </div>
     );
 };

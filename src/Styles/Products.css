@@ -3,131 +3,137 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-card {
+    position: relative;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
 
-.product-detail {
-    position: relative;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fav-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 24px;
     cursor: pointer;
-    width: 19%;
-    height: 400px;
-    margin-top: 50px;
+    transition: transform 0.3s;
+}
+
+.fav-icon:hover {
+    transform: scale(1.6);
+}
+
+.product-image {
+    width: 80%;
+    height: 200px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-info {
+    margin-top: 12px;
+    width: 100%;
+}
+
+.product-info h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    word-break: break-word;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    color: gold;
+}
+
+.add-to-basket {
+    background: #007bff;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.add-to-basket:hover {
+    background: #0026ff;
+    transform: scale(1.2);
 }
 
 .paginaton-div {
     display: flex;
     justify-content: center;
-}
-
-.paginate {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 50%;
-    margin-top: 60px;
-    font-size: 20px;
-    list-style: none;
-    font-family: monospace;
-    font-weight: bold;
-    padding: 10px;
-    color: brown;
-    cursor: pointer;
-}
-
-.fav-icon {
-    font-size: 30px;
-    margin-left: 5px;
-    position: absolute;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.fav-icon:hover {
-    transform: scale(1.3);
-    transition: all 0.3s ease;
-}
-
-
-.product-detail:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgb(0, 0, 0);
-}
-
-.product-detail img {
-    width: 100%;
-    height: 70%;
-    padding: 30px;
-}
-
-.product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5px;
-}
-
-.product-info h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-    text-transform: capitalize;
-}
-
-.product-info p {
-    font-size: 20px;
-    color: #ff5e57;
-    font-weight: bold;
-}
-
-.star {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
-    color: yellow;
-}
-
-.add-basket span {
-    background-color: red;
-    border-radius: 50%;
-    color: white;
-    padding: 7px;
-}
-
-.add-basket {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: red;
-    border-radius: 50%;
-    color: white;
-    padding: 7px;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    cursor: pointer;
-}
-
-.add-basket:hover {
-    transform: scale(1.3);
+    margin-top: 50px;
 }
 
 @media screen and (max-width: 768px) {
     .products {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
-        padding: 5px;
     }
 
-    .product-detail {
-        width: 45%;
-        height: 50%;
+    .product-card {
+        width: 44%;
+        height: 300px;
     }
 
-    .product-detail img {
+    .product-image {
         width: 100%;
-        height: 200px;
+        height: 150px;
+    }
+
+    .product-info h4 {
+        font-size: 10px;
+    }
+
+    .price {
+        font-size: 15px;
+    }
+
+    .add-to-basket {
+        width: 30px;
+        height: 30px;
+    }
+
+    .paginaton-div {
+        padding: 10px;
+
     }
 }
