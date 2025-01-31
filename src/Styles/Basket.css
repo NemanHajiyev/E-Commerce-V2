@@ -52,38 +52,64 @@
 }
 
 .cart-detail {
-    padding: 15px;
+    padding: 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
 }
 
-.cart-title {
+.cart-detail1 {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    width: 60%;
 }
 
-.cart-title-detail {
-    width: 70%;
+.cart-detail1 h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    word-break: break-word;
+}
+
+.cart-detail1 img {
+    width: 90px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.cart-detail2 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    padding: 0px 5px;
+}
+
+.count-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    font-size: 20px;
+}
+
+.count-div button {
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    background-color: brown;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .cart-title-detail p {
     font-size: 20px;
-}
-
-.cart-detail h1 {
-    color: rgb(238, 71, 71);
-}
-
-.cart-detail img {
-    width: 90px;
-    height: 110px;
-    cursor: pointer;
 }
 
 .cart-left {
@@ -136,7 +162,6 @@
     border-radius: 10px;
     cursor: pointer;
 }
-
 
 .emptyCart {
     margin-top: 30px;
@@ -195,29 +220,43 @@
         flex-direction: column;
     }
 
-    .cart-title {
-        display: none;
-    }
-
     .cart-left {
         width: 100%;
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
     }
 
     .cart-detail {
         width: 100%;
-        font-size: 12px;
+        flex-direction: column;
+        font-size: 18px;
+    }
+
+    .cart-detail1,
+    .cart-detail2 {
+        width: 100%;
+    }
+
+    .count-div {
+        width: 30%;
+        font-size: 20px;
+    }
+
+    .count-div button {
+        font-size: 10px;
     }
 
     .cart-detail img {
-        width: 50px;
-        height: 60px;
+        width: 60px;
+        height: 70px;
     }
 
     .cart-right {
         width: 100%;
+        margin-top: 40px;
+    }
+
+    .delete-icon,
+    h2 {
+        font-size: 25px;
+        margin-top: 5px;
     }
 }

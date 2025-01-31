@@ -26,7 +26,6 @@ const Cart = ({ setOrderData, orderData }) => {
         setModal(true)
 
     }
-
     const closeModal = () => {
         setModal(!modal)
         setNewAdress(shipping)
@@ -80,31 +79,28 @@ const Cart = ({ setOrderData, orderData }) => {
             <ToastContainer />
             <div className='cart'>
                 <div className='cart-left'>
-                    <div className='cart-title'>
-                        <div style={{ width: "10%" }}>Product</div>
-                        <div className='cart-title-detail'>
-                            <p>Name</p>
-                            <p>Price</p>
-                            <p>Quantity</p>
-                            <p>Remove</p>
-                        </div>
-                    </div>
+
                     {products?.map((product) => (
                         <div className="cart-detail" key={product.id}>
-                            <img
-                                onClick={() => getProductDetail(product.id)}
-                                src={product.image} />
-                            <h2>{product.name}</h2>
-                            <h1>${product.price}</h1>
-                            <h4>{product.quantity}</h4>
-                            <div>
-                                <FaPlus onClick={() => inc(product)} />
-                                <FaMinus onClick={() => dec(product)} />
+                            <div className='cart-detail1'>
+                                <img
+                                    onClick={() => getProductDetail(product.id)}
+                                    src={product.image} />
+                                <h3 style={{ marginLeft: "20px" }}>{product.name}</h3>
                             </div>
-                            <FaDeleteLeft
-                                onClick={() => removeItem(product.id)}
-                                className='delete-icon'
-                            />
+                            <div className='cart-detail2'>
+                                <h2>${product.price}</h2>
+                                <div className='count-div'>
+                                    <button onClick={() => inc(product)}>+</button>
+                                    <h4>{product.quantity}</h4>
+                                    <button onClick={() => dec(product)}>-</button>
+                                </div>
+                                <FaDeleteLeft
+                                    onClick={() => removeItem(product.id)}
+                                    className='delete-icon'
+                                />
+                            </div>
+
                         </div>
                     ))}
                 </div>

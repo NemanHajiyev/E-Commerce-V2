@@ -7,9 +7,15 @@ import Confetti from 'react-confetti';
 const OrderInfo = ({ orderData }) => {
     const { products, totalPrice, totalQnty } = useSelector((store) => store.cart);
     const navigate = useNavigate();
+    console.log(orderData)
+
+
+
+
     return (
 
         <div className="order-info-container">
+
             <Confetti width={1500} height={1000} />
             <h1 className="order-summary-title">Order Summary</h1>
 

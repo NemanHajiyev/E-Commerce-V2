@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "../Styles/Login.css";
 import { useNavigate } from "react-router-dom";
-import { notifyError2 } from "../React-Toastify/Toastify";
 
-const Login = ({ registerInfo, setRegisterInfo }) => {
+const Login = ({ setRegisterInfo }) => {
     const [img, setImg] = useState()
     const navigate = useNavigate()
 
@@ -15,14 +14,14 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
     })
 
     const toHomePage = () => {
-        if (data.image === undefined) {
-            alert("Choose a photo")
+        if (!data.image) {
+            alert("Choose a photo");
         } else {
-            navigate('/')
-            setRegisterInfo(data)
+            localStorage.setItem("registerInfo", JSON.stringify(data));
+            setRegisterInfo(data);
+            navigate("/");
         }
-
-    }
+    };
 
     return (
         <div className="login">
@@ -83,6 +82,8 @@ const Login = ({ registerInfo, setRegisterInfo }) => {
                         )}
                     </div>
                     <button className="login-button" onClick={toHomePage}>Login</button>
+                    <button className="guest-button" onClick={() => navigate('/')}>Continue as a guest</button>
+
                 </div>
             </div>
         </div >

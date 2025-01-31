@@ -38,6 +38,13 @@
     padding: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-info:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .detail-info h1 {

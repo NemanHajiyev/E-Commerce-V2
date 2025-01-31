@@ -40,9 +40,10 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
         }
 
         if (!cartModal) {
-            const filteredValue = shipValue.slice(0, 8);
+            const filteredValue = shipValue.slice(0, 7);
             const filtered = filteredValue.some(item => item.length === 0);
             if (!filtered) {
+                setOrderData(shippingInfo);
                 navigate('/order-info');
             } else {
                 notifyError2();
@@ -59,6 +60,7 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
             }
         }
     };
+
 
 
 

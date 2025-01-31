@@ -29,32 +29,22 @@ const Favorie = ({ favProduct }) => {
     }
 
     return (
-        <>
-            <div className="product-detail">
-                <span className='fav-icon' onClick={removeItem}><FcLike /></span>
-                <img
-                    onClick={getProductDetail}
-                    src={image} alt={name} />
-                <div className="product-info">
-                    <div>
-                        <h3>{name}</h3>
-                        <p>${price}</p>
-                    </div>
-                    <div className="star">
-                        <div>
-                            <FaStar />
-                            <FaStar />
-                            <FaStar />
-                            <FaStar />
-                            <FaStar />
-                        </div>
-                    </div>
-                </div>
-                <div className='add-basket'>
-                    <span onClick={AddToBasket}>+</span>
+        <div className="product-card">
+            <span className="fav-icon" onClick={removeItem}>
+                <FcLike />
+            </span>
+            <img onClick={getProductDetail} src={image} alt={name} className="product-image" />
+            <div className="product-info">
+                <h4>{name}</h4>
+                <p className="price">${price}</p>
+                <div className="star-rating">
+                    {[...Array(5)].map((_, index) => (
+                        <FaStar key={index} className="star" />
+                    ))}
                 </div>
             </div>
-        </>
+            <button className="add-to-basket" onClick={AddToBasket}>+</button>
+        </div>
     )
 }
 

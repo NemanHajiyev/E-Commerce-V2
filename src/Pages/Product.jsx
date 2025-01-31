@@ -15,6 +15,8 @@ const Product = ({ getData }) => {
 
     const addFavoire = () => {
         dispatch(addToFavorie(getData));
+        notifySuccess()
+
     };
 
     const productDetail = () => {
@@ -23,16 +25,9 @@ const Product = ({ getData }) => {
 
     const AddToBasket = () => {
         dispatch(addToBaket(getData));
+        productAddToasty()
+
     };
-
-    // useEffect(() => {
-    //     productAddToasty()
-    // }, [addToBaket])
-
-    // useEffect(() => {
-    //     notifySuccess()
-    // }, [addFavoire])
-
 
     return (
         <div className="product-card">

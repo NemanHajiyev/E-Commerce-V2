@@ -11,12 +11,10 @@ const Shop = () => {
     const dispatch = useDispatch();
     const { products } = useSelector(state => state.product)
 
-
-
-
     useEffect(() => {
         dispatch(setProducts(mockData))
     }, [])
+
 
     ///Paginate
     const [page, setPage] = useState(1);
@@ -28,6 +26,7 @@ const Shop = () => {
     const endOffset = startOffset + itemsPerPage;
     const currentItems = products.slice(startOffset, endOffset);
     const pageCount = Math.ceil(products.length / itemsPerPage);
+    ////////
 
     return (
         <div>

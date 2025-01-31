@@ -154,6 +154,22 @@
     transform: scale(5);
 }
 
+.guest-button {
+    border: none;
+    background-color: #fb5858;
+    padding: 10px;
+    color: white;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: 40%;
+    cursor: pointer;
+}
+
+.guest-button:hover {
+    background-color: #ff0000;
+
+}
+
 @media screen and (max-width: 768px) {
     .login-container {
         flex-direction: column;

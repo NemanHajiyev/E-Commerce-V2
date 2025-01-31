@@ -10,7 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import CheckoutPage from "./Pages/CheckoutPage";
 import OrderInfo from "./Pages/OrderInfo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FavorieProducts from "./Components/FavorieProducts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,19 +24,28 @@ function App() {
   const [orderData, setOrderData] = useState();
   const [registerInfo, setRegisterInfo] = useState({})
 
+  console.log(orderData)
+
   const Layout = ({ children }) => {
     const location = useLocation();
     const isLoginPage = location.pathname === "/login";
 
     return (
       <>
-        {!isLoginPage && <Navbar registerInfo={registerInfo} />}
+        {!isLoginPage && <Navbar registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />}
         <CssBaseline />
         <Container maxWidth="lg">{children}</Container>
         {!isLoginPage && <Footer />}
       </>
     );
   };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("registerInfo");
+    if (storedUser) {
+      setRegisterInfo(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <>

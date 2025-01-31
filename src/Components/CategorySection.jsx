@@ -1,23 +1,34 @@
 import React from 'react'
-import auto from '../Assets/images/auto-7.webp';
-import WomensCtgry from '../Assets/images/auto-3.webp';
-import kidsCtgry from '../Assets/images/auto-3.webp';
+import beauty from '../Assets/images/beauty-category.webp';
+import sports from '../Assets/images/sports-category.jpg';
+import fashion from '../Assets/images/fashion-category.jpeg';
 import '../Styles/CategorySection.css';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { categoryProducts } from '../Redux/productSlice';
 
 
 const CategorySection = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const getCategorie = (category) => {
+        dispatch(categoryProducts(category))
+        navigate('/category-product')
+    }
+
     const data = [
         {
-            title: "auto",
-            image: auto
+            title: "Beauty",
+            image: beauty
         },
         {
-            title: "Womens",
-            image: WomensCtgry
+            title: "Sports",
+            image: sports
         },
         {
-            title: "Kids",
-            image: kidsCtgry
+            title: "Fashion",
+            image: fashion
         }
     ];
 
@@ -28,7 +39,7 @@ const CategorySection = () => {
                     <img src={item.image} alt={item.title} />
                     <div className="category-detail">
                         <p>{item.title}</p>
-                        <button>View All</button>
+                        <button onClick={() => getCategorie(item.title)}>View All</button>
                     </div>
                 </div>
             ))}

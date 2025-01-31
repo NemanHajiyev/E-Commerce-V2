@@ -33,8 +33,8 @@ const CategoryProduct = () => {
     /////////
 
     return (
-        <div>
-            <div style={{ marginTop: "10px" }}>
+        <div style={{ marginTop: "30px" }}>
+            <div className='category-div'>
                 <Button
                     id="basic-button"
                     onClick={handleClick}
@@ -53,8 +53,8 @@ const CategoryProduct = () => {
                     <MenuItem onClick={() => getCategorie("Beauty")}>Beauty</MenuItem>
                     <MenuItem onClick={() => getCategorie("Sports")}>Sports</MenuItem>
                     <MenuItem onClick={() => getCategorie("Automotive")}>Automotive</MenuItem>
-                    <button className='back-btn' onClick={() => navigate('/')}>Back</button>
                 </Menu>
+                <button className='back-btn' onClick={() => navigate('/')}>⬅Back</button>
             </div>
             <div className='products'>
                 {categoryProduct?.map((product) => (

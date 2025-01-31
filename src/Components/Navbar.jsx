@@ -7,8 +7,9 @@ import { FaBasketShopping } from 'react-icons/fa6';
 import { useEffect, useState } from 'react';
 import { filteredProducts } from '../Redux/productSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import logo from '../Assets/images/logo.webp'
 
-const Navbar = ({ registerInfo }) => {
+const Navbar = ({ registerInfo, setRegisterInfo }) => {
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState();
     const [user, setUser] = useState(true);
@@ -20,6 +21,12 @@ const Navbar = ({ registerInfo }) => {
     const handleSearch = () => {
         dispatch(filteredProducts(search));
         navigate('/filtered-product');
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("registerInfo");
+        setRegisterInfo({});
+        navigate("/login");
     };
 
 
@@ -34,9 +41,10 @@ const Navbar = ({ registerInfo }) => {
     return (
         <nav className='navbar'>
             <div className='navbar-div'>
-                <div className='navbar-logo'>
-                    <Link to="/" style={{ color: "black" }}>e-Shop</Link>
-                </div>
+                <Link to='/' className='navbar-logo'>
+                    <img className='logo-img' src={logo} />
+                    <p style={{ color: "black" }}>nova<span>Shop</span></p>
+                </Link>
                 <div style={{ width: "60%" }}>
                     <form className='navbar-form'>
                         <input
@@ -88,11 +96,14 @@ const Navbar = ({ registerInfo }) => {
                                             <FaUser className='user-icon' />
                                             <div className="dropdown-menu-user">
                                                 <ul>
-                                                    <li onClick={() => navigate('/login')}>
+                                                    <li onClick={handleLogout}>
                                                         <button className="dropdown-item">Log Out</button>
                                                     </li>
                                                     <li onClick={() => navigate('/shop')}>
                                                         <button className="dropdown-item">Go to Shop</button>
+                                                    </li>
+                                                    <li onClick={() => navigate('/order-info')}>
+                                                        <button className="dropdown-item">Order Summary</button>
                                                     </li>
                                                 </ul>
                                             </div>
