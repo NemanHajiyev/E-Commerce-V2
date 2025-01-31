@@ -49,6 +49,7 @@ const ProductDTL = () => {
 
     return (
         <div className='detail'>
+
             {
                 product ? (
                     <div className='detail-container'>

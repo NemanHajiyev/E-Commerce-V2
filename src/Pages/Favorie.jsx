@@ -15,8 +15,9 @@ const Favorie = ({ favProduct }) => {
     const navigate = useNavigate()
 
     const removeItem = () => {
-        favorieDelete()
         dispatch(removeFavorieItem(favProduct))
+        favorieDelete()
+
     }
 
     const AddToBasket = () => {
@@ -29,6 +30,7 @@ const Favorie = ({ favProduct }) => {
     }
 
     return (
+
         <div className="product-card">
             <span className="fav-icon" onClick={removeItem}>
                 <FcLike />
@@ -45,6 +47,8 @@ const Favorie = ({ favProduct }) => {
             </div>
             <button className="add-to-basket" onClick={AddToBasket}>+</button>
         </div>
+
+
     )
 }
 

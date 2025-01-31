@@ -29,6 +29,7 @@ const Shop = () => {
     ////////
 
     return (
+
         <div>
             <div className='products'>
                 {currentItems?.map((product, index) => (
@@ -47,6 +48,7 @@ const Shop = () => {
                 </Stack>
             </div>
         </div>
+
     )
 }
 

@@ -29,6 +29,9 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
         navigate("/login");
     };
 
+    const openOrderSummary = () => {
+        navigate('/404');
+    };
 
     const location = useLocation();
     useEffect(() => {
@@ -102,7 +105,7 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                                                     <li onClick={() => navigate('/shop')}>
                                                         <button className="dropdown-item">Go to Shop</button>
                                                     </li>
-                                                    <li onClick={() => navigate('/order-info')}>
+                                                    <li onClick={openOrderSummary}>
                                                         <button className="dropdown-item">Order Summary</button>
                                                     </li>
                                                 </ul>

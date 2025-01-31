@@ -19,13 +19,11 @@ import About from './Pages/About';
 import Contact from "./Pages/Contact";
 import Login from './Pages/Login';
 import CategoryProduct from "./Components/CategoryProduct";
+import NotFound from "./Pages/404NotFound";
 
 function App() {
   const [orderData, setOrderData] = useState();
   const [registerInfo, setRegisterInfo] = useState({})
-
-  console.log(orderData)
-
   const Layout = ({ children }) => {
     const location = useLocation();
     const isLoginPage = location.pathname === "/login";
@@ -47,30 +45,30 @@ function App() {
     }
   }, []);
 
+
   return (
-    <>
-      <ToastContainer />
-      <div>
-        <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
-              <Route path="/checkout-page" element={<CheckoutPage registerInfo={registerInfo} setOrderData={setOrderData} orderData={orderData} />} />
-              <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
-              <Route path="/favorie" element={<FavorieProducts />} />
-              <Route path="/filtered-product" element={<FilteredProduct />} />
-              <Route path="/product-detail/:id" element={<ProductDTL />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />} />
-              <Route path="/category-product" element={<CategoryProduct />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
-      </div>
-    </>
+    <div>
+      <BrowserRouter>
+        <Layout>
+          <ToastContainer />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/cart" element={<Cart setOrderData={setOrderData} orderData={orderData} />} />
+            <Route path="/checkout-page" element={<CheckoutPage registerInfo={registerInfo} setOrderData={setOrderData} orderData={orderData} />} />
+            <Route path="/order-info" element={<OrderInfo orderData={orderData} />} />
+            <Route path="/favorie" element={<FavorieProducts />} />
+            <Route path="/filtered-product" element={<FilteredProduct />} />
+            <Route path="/product-detail/:id" element={<ProductDTL />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />} />
+            <Route path="/category-product" element={<CategoryProduct />} />
+            <Route path="/404" element={<NotFound orderData={orderData} />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </div>
   );
 }
 

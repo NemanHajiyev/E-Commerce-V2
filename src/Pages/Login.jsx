@@ -25,7 +25,6 @@ const Login = ({ setRegisterInfo }) => {
 
     return (
         <div className="login">
-
             <div className="login-container">
                 <div className="login-left">
                     <img

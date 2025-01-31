@@ -9,9 +9,6 @@ const OrderInfo = ({ orderData }) => {
     const navigate = useNavigate();
     console.log(orderData)
 
-
-
-
     return (
 
         <div className="order-info-container">
@@ -38,7 +35,7 @@ const OrderInfo = ({ orderData }) => {
                 <div>
                     {products?.map((product) => (
                         <div className='order-info'>
-                            <p>{product.name} x {product.quantity}</p>
+                            <p>Product Name : {product.name} x {product.quantity}</p>
                             <h3>${(product.quantity) * (product.price)}</h3>
                         </div>
                     ))}

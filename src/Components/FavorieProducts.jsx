@@ -22,6 +22,7 @@ const FavorieProducts = () => {
 
     return (
         <div className='favorie-div'>
+
             {
                 favProducts?.map((favProduct) => (
                     <Favorie key={favProduct.id} favProduct={favProduct} />

@@ -15,8 +15,6 @@ const Product = ({ getData }) => {
 
     const addFavoire = () => {
         dispatch(addToFavorie(getData));
-        notifySuccess()
-
     };
 
     const productDetail = () => {

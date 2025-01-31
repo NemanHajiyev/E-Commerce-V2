@@ -10,5 +10,4 @@ export const Schemas = yup.object().shape({
     confirmPassword: yup.string().required("Sifre tekrari yazmaq lazimdir")
         .oneOf([yup.ref("password", yup.password)], "Sifreler uygun gelmir"),
 
-    // term: yup.boolean().required("Razilasmani qebul et")
 })

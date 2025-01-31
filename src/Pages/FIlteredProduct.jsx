@@ -23,11 +23,6 @@ const FIlteredProduct = () => {
                     ))
                 )
             }
-
-
-
-
-
         </div>
     )
 }

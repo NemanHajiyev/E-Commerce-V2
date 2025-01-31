@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../Styles/Basket.css'
-import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
+import { FaDeleteLeft } from 'react-icons/fa6';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
-import { ToastContainer } from 'react-toastify';
 import { favorieDelete } from '../React-Toastify/Toastify';
 
 const Cart = ({ setOrderData, orderData }) => {
@@ -75,69 +74,66 @@ const Cart = ({ setOrderData, orderData }) => {
     }
 
     return (
-        <>
-            <ToastContainer />
-            <div className='cart'>
-                <div className='cart-left'>
+        <div className='cart'>
+            <div className='cart-left'>
 
-                    {products?.map((product) => (
-                        <div className="cart-detail" key={product.id}>
-                            <div className='cart-detail1'>
-                                <img
-                                    onClick={() => getProductDetail(product.id)}
-                                    src={product.image} />
-                                <h3 style={{ marginLeft: "20px" }}>{product.name}</h3>
-                            </div>
-                            <div className='cart-detail2'>
-                                <h2>${product.price}</h2>
-                                <div className='count-div'>
-                                    <button onClick={() => inc(product)}>+</button>
-                                    <h4>{product.quantity}</h4>
-                                    <button onClick={() => dec(product)}>-</button>
-                                </div>
-                                <FaDeleteLeft
-                                    onClick={() => removeItem(product.id)}
-                                    className='delete-icon'
-                                />
-                            </div>
-
+                {products?.map((product) => (
+                    <div className="cart-detail" key={product.id}>
+                        <div className='cart-detail1'>
+                            <img
+                                onClick={() => getProductDetail(product.id)}
+                                src={product.image} />
+                            <h3 style={{ marginLeft: "20px" }}>{product.name}</h3>
                         </div>
-                    ))}
-                </div>
-
-                <div className='cart-right'>
-                    <div className='cart-section'>
-                        <h3>Cart Totals</h3>
-                        <p>Totoal Items : {totalQnty}</p>
-                    </div>
-                    <div className='cart-section'>
-                        <h3>Shipping</h3>
-                        <p>Shipping to : {shipping}</p>
-                        <button onClick={openModal}>Change Shipping Adress</button>
-                    </div>
-                    <div className='cart-section'>
-                        <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
-                    </div>
-                    <div>
-                        <button
-                            onClick={toOrderPage}
-                            className='checkout-btn'>
-                            Procced Checkout
-                        </button>
-                    </div>
-                </div>
-
-                {
-                    modal ? <div className='modal'>
-                        <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
-                        <div className='buttons'>
-                            <button onClick={closeModal}>Cancel</button>
-                            <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
+                        <div className='cart-detail2'>
+                            <h2>${product.price}</h2>
+                            <div className='count-div'>
+                                <button onClick={() => inc(product)}>+</button>
+                                <h4>{product.quantity}</h4>
+                                <button onClick={() => dec(product)}>-</button>
+                            </div>
+                            <FaDeleteLeft
+                                onClick={() => removeItem(product.id)}
+                                className='delete-icon'
+                            />
                         </div>
-                    </div> : null
-                }
-            </div >
-        </>
+
+                    </div>
+                ))}
+            </div>
+
+            <div className='cart-right'>
+                <div className='cart-section'>
+                    <h3>Cart Totals</h3>
+                    <p>Totoal Items : {totalQnty}</p>
+                </div>
+                <div className='cart-section'>
+                    <h3>Shipping</h3>
+                    <p>Shipping to : {shipping}</p>
+                    <button onClick={openModal}>Change Shipping Adress</button>
+                </div>
+                <div className='cart-section'>
+                    <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
+                </div>
+                <div>
+                    <button
+                        onClick={toOrderPage}
+                        className='checkout-btn'>
+                        Procced Checkout
+                    </button>
+                </div>
+            </div>
+
+            {
+                modal ? <div className='modal'>
+                    <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
+                    <div className='buttons'>
+                        <button onClick={closeModal}>Cancel</button>
+                        <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
+                    </div>
+                </div> : null
+            }
+        </div >
     );
 }
 

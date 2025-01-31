@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { categoryProducts } from '../Redux/productSlice';
 
-
-
 const Home = () => {
     const dispatch = useDispatch()
 

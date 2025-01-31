@@ -6,7 +6,6 @@ import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { notifyError2 } from '../React-Toastify/Toastify'
-import { ToastContainer } from 'react-toastify';
 
 
 const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
@@ -35,8 +34,8 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
     const OrderSummary = () => {
         const shipValue = Object.values(shippingInfo);
         if (registerInfoLenght.length === 0) {
-            navigate('/login');
             alert("Please Login")
+            navigate('/login');
         }
 
         if (!cartModal) {
@@ -61,9 +60,6 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
         }
     };
 
-
-
-
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
     };
@@ -71,7 +67,6 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
     return (
 
         <div className='checkout'>
-            <ToastContainer />
             <div className='checkout-header'>
                 <h1>Checkout</h1>
             </div>
