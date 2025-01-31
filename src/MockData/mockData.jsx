@@ -70,7 +70,6 @@ import image58 from '../Assets/images/sports-8.webp';
 import image59 from '../Assets/images/sports-9.webp';
 import image60 from '../Assets/images/sports-10.webp';
 
-
 export const Categories = [
   "Electronics",
   "Fashion",

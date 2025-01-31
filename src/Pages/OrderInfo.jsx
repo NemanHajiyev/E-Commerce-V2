@@ -36,7 +36,7 @@ const OrderInfo = ({ orderData }) => {
                     {products?.map((product) => (
                         <div className='order-info'>
                             <p>Product Name : {product.name} x {product.quantity}</p>
-                            <h3>${(product.quantity) * (product.price)}</h3>
+                            <h3>${(product.quantity * product.price).toFixed(2)}</h3>
                         </div>
                     ))}
                     <hr />

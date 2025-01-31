@@ -7,9 +7,27 @@ import { FaBasketShopping } from 'react-icons/fa6';
 import { useEffect, useState } from 'react';
 import { filteredProducts } from '../Redux/productSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import logo from '../Assets/images/logo.webp'
+import logo from '../Assets/images/logo.webp';
+///
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import NativeSelect from '@mui/material/NativeSelect';
+
+import '../MockData/i18n'
+import { useTranslation } from 'react-i18next';
+
+
 
 const Navbar = ({ registerInfo, setRegisterInfo }) => {
+
+    const { t, i18n } = useTranslation()
+
+    const handleClick = async (lang) => {
+        await i18n.changeLanguage(lang)
+    }
+
+
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState();
     const [user, setUser] = useState(true);
@@ -54,10 +72,29 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                             type="text"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            placeholder='Search Products ...' />
+                            placeholder={t("input")} />
                         <FaSearch onClick={handleSearch} />
                     </form>
                 </div>
+
+
+
+                <div>
+                    <Box sx={{ minWidth: 70 }}>
+                        <FormControl fullWidth>
+                            <NativeSelect
+                                defaultValue={30}
+                                onChange={(e) => handleClick(e.target.value)}
+                            >
+                                <option value="az">Az</option>
+                                <option value="en">En</option>
+                            </NativeSelect>
+                        </FormControl>
+                    </Box>
+                </div>
+
+
+
                 <div className='navbar-right'>
                     <Link to='/favorie'>
                         <FcLike style={{ marginTop: "10px" }} />
@@ -71,7 +108,7 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                     <div className='register-login'>
                         {registerInfoLength.length === 0 ? (
                             <>
-                                <Link to='/login'>Login</Link>
+                                <Link to='/login'>{t("login")}</Link>
                             </>
                         ) : (
                             <div className='PP'>
@@ -100,13 +137,13 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                                             <div className="dropdown-menu-user">
                                                 <ul>
                                                     <li onClick={handleLogout}>
-                                                        <button className="dropdown-item">Log Out</button>
+                                                        <button className="dropdown-item">{t("logout")}</button>
                                                     </li>
                                                     <li onClick={() => navigate('/shop')}>
-                                                        <button className="dropdown-item">Go to Shop</button>
+                                                        <button className="dropdown-item">{t("shop")}</button>
                                                     </li>
                                                     <li onClick={openOrderSummary}>
-                                                        <button className="dropdown-item">Order Summary</button>
+                                                        <button className="dropdown-item">{t("order")}</button>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -136,10 +173,10 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                 </div>
             </div>
             <div className='Pages-link'>
-                <Link to="/" className='Link'>Home</Link>
-                <Link to="/shop" className='Link'>Shop</Link>
-                <Link to="/contact" className='Link'>Contact</Link>
-                <Link to="/about" className='Link'>About</Link>
+                <Link to="/" className='Link'>{t('home')}</Link>
+                <Link to="/shop" className='Link'>{t('shop')}</Link>
+                <Link to="/contact" className='Link'>{t('contact')}</Link>
+                <Link to="/about" className='Link'>{t('about')}</Link>
             </div>
         </nav>
     );

@@ -9,8 +9,12 @@ import Shop from './Shop';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { categoryProducts } from '../Redux/productSlice';
+//
+import { useTranslation } from 'react-i18next';
+
 
 const Home = () => {
+    const { t, i18n } = useTranslation()
     const dispatch = useDispatch()
 
     const getCategorie = (category) => {
@@ -24,7 +28,7 @@ const Home = () => {
         <div className='home'>
             <div className='home-container'>
                 <div className='home-category'>
-                    <h2>Shop By Categories</h2>
+                    <h2>{t('category')}</h2>
                     <ul className='ul-list'>
                         {Categories?.map((category, index) => (
                             <li className='list' key={index} onClick={() => getCategorie(category)}>{category}</li>
@@ -35,7 +39,7 @@ const Home = () => {
                 <div className='home-banner'>
                     <img src={banner} className='image' />
                     <div className='banner-detail'>
-                        <button onClick={() => navigate('/shop')}>Shop Now</button>
+                        <button onClick={() => navigate('/shop')}>{t('shop')}</button>
                     </div>
                 </div>
             </div>
