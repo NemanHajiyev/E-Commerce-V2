@@ -5,6 +5,7 @@ import '../Styles/Favorie.css'
 import { Link } from 'react-router-dom';
 import { FaHeartBroken } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 const FavorieProducts = () => {
@@ -14,12 +15,15 @@ const FavorieProducts = () => {
 
     if (favProducts.length === 0) {
         return (
-            <div className='emptyCart'>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 7 }}
+                className='emptyCart'>
                 <FaHeartBroken className='empty-icon' />
                 <h1>{t('favorites.emptyTitle')}</h1>
                 <h4>{t('favorites.emptyDescription')}</h4>
                 <Link to='/shop'><button>{t('cart.goToShopButton')}</button></Link>
-            </div>
+            </motion.div>
         );
     }
 

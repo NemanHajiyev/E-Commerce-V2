@@ -1,12 +1,16 @@
 import React from 'react';
 import '../Styles/Contact.css';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="contact-container">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className="contact-container">
             <div className="contact-header">
                 <h1>{t('contactpage.title')}</h1>
                 <p>{t('contactpage.intro')}</p>
@@ -40,7 +44,7 @@ const Contact = () => {
                 <p><strong>{t('contactpage.phone')}:</strong> +1 (800) 123-4567</p>
                 <p><strong>{t('contactpage.address')}:</strong> 123 E-Commerce St, Shopville, USA</p>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

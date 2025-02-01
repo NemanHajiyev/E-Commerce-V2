@@ -6,23 +6,25 @@ import { addToBaket, } from '../Redux/cartSlice';
 import { favorieDelete, productAddToasty } from '../React-Toastify/Toastify';
 import { removeFavorieItem } from '../Redux/productSlice';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 
 const Favorie = ({ favProduct }) => {
+    const { t } = useTranslation();
     const { id, image, name, price, quantity } = favProduct;
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
     const removeItem = () => {
         dispatch(removeFavorieItem(favProduct))
-        favorieDelete()
-
+        favorieDelete(t)
     }
 
     const AddToBasket = () => {
         dispatch(addToBaket(favProduct));
-        productAddToasty()
+        productAddToasty(t)
     };
 
     const getProductDetail = () => {
@@ -31,7 +33,10 @@ const Favorie = ({ favProduct }) => {
 
     return (
 
-        <div className="product-card">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className="product-card">
             <span className="fav-icon" onClick={removeItem}>
                 <FcLike />
             </span>
@@ -46,7 +51,7 @@ const Favorie = ({ favProduct }) => {
                 </div>
             </div>
             <button className="add-to-basket" onClick={AddToBasket}>+</button>
-        </div>
+        </motion.div>
 
 
     )

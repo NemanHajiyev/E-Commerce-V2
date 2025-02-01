@@ -5,8 +5,9 @@ import { FaDeleteLeft } from 'react-icons/fa6';
 import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { notifyError2 } from '../React-Toastify/Toastify'
+import { favorieDelete, notifyError2 } from '../React-Toastify/Toastify'
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
@@ -48,7 +49,7 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
                 setOrderData(shippingInfo);
                 navigate('/order-info');
             } else {
-                notifyError2();
+                notifyError2(t);
             }
         }
 
@@ -65,11 +66,15 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
+        favorieDelete(t)
     };
 
     return (
 
-        <div className='checkout'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+            className='checkout'>
             <div className='checkout-header'>
                 <h1>Checkout</h1>
             </div>
@@ -254,7 +259,7 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
                     }
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

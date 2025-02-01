@@ -1,7 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const notifySuccess = () => toast.success("Added to favorites!", {
+export const notifySuccess = (t) => toast.success(t('favorietoasty'), {
     position: "top-right",
     autoClose: 1000,
     hideProgressBar: true,
@@ -12,7 +13,7 @@ export const notifySuccess = () => toast.success("Added to favorites!", {
 });
 
 
-export const notifyError = () => toast.error("This product has been added before!", {
+export const notifyError = (t) => toast.error(t('addedbefore'), {
     position: "top-right",
     autoClose: 1000,
     hideProgressBar: true,
@@ -22,7 +23,7 @@ export const notifyError = () => toast.error("This product has been added before
     theme: "light",
 });
 
-export const notifyError2 = () => toast.error("Please fill in all the information !", {
+export const notifyError2 = (t) => toast.error(t('information'), {
     position: "top-right",
     autoClose: 1000,
     hideProgressBar: true,
@@ -32,7 +33,7 @@ export const notifyError2 = () => toast.error("Please fill in all the informatio
     theme: "light",
 });
 
-export const notifyError3 = () => toast.error("Please Login !!!", {
+export const productAddToasty = (t) => toast.success(t('addtocart'), {
     position: "top-right",
     autoClose: 1000,
     hideProgressBar: true,
@@ -42,27 +43,7 @@ export const notifyError3 = () => toast.error("Please Login !!!", {
     theme: "light",
 });
 
-export const productAddToasty = () => toast.success("Product added to cart !", {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "light",
-});
-
-export const favorieDelete = () => toast.success("Product removed", {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "light",
-});
-
-export const removeItemCart = () => toast.success("The product was deleted from the basket !", {
+export const favorieDelete = (t) => toast.success(t('removed'), {
     position: "top-right",
     autoClose: 1000,
     hideProgressBar: true,

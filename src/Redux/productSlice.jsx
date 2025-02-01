@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { notifySuccess, notifyError } from '../React-Toastify/Toastify'
+import { notifySuccess, notifyError } from '../React-Toastify/Toastify';
 
 const initialState = {
     products: [],
@@ -15,18 +15,17 @@ export const productSlice = createSlice({
     reducers: {
         setProducts: (state, action) => {
             state.products = action.payload;
-
         },
 
         addToFavorie: (state, action) => {
-            const newItem = action.payload;
+            const { newItem, t } = action.payload;
             const isAlreadyFavorite = state.favProducts.some(item => item.id === newItem.id);
             if (!isAlreadyFavorite) {
                 state.favProducts = [...state.favProducts, newItem];
-                notifySuccess()
+                notifySuccess(t);
             }
             else {
-                notifyError()
+                notifyError(t);
             }
         },
 
@@ -38,16 +37,17 @@ export const productSlice = createSlice({
         filteredProducts: (state, action) => {
             state.searchTerm = action.payload;
             state.filterProduct = state.products.filter((product) =>
-                product.name.toLowerCase().includes(state.searchTerm.toLocaleLowerCase())
-            )
+                product.name.toLowerCase().includes(state.searchTerm.toLowerCase())
+            );
         },
+
         categoryProducts: (state, action) => {
-            const filterCategory = state.products.filter((product) => product.category === action.payload)
+            const filterCategory = state.products.filter((product) => product.category === action.payload);
             state.categoryProduct = filterCategory;
         }
     }
 })
 
-export const { setProducts, addToFavorie, removeFavorieItem, filteredProducts, categoryProducts } = productSlice.actions
+export const { setProducts, addToFavorie, removeFavorieItem, filteredProducts, categoryProducts } = productSlice.actions;
 
-export default productSlice.reducer
+export default productSlice.reducer;

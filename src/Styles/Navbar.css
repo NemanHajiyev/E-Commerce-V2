@@ -7,9 +7,23 @@
 
 .logo-img {
     background: transparent;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
+
+
+.language-div select {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(250, 69, 69);
+    border-radius: 10px;
+}
+
+
 
 .navbar-div {
     height: 50px;

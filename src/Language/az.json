@@ -12,6 +12,8 @@
     "logout": "Çıxış",
     "order": "Sifarişlərim",
     "viewall": "Hamısını göstər",
+    "basket": "Səbət",
+    "favorie": "Sevimlilər",
     "infoSection": {
         "freeShipping": {
             "title": "Pulsuz Çatdırılma",
@@ -80,7 +82,7 @@
     },
     "cart": {
         "emptyTitle": "Səbətinizi doldurmaq üçün alış-veriş edin!",
-        "emptyDescription": "Məni sevindirmək üçün bir şey əlavə edin",
+        "emptyDescription": "Alış veriş üçün mağazaya keçid edin",
         "goToShopButton": "Alış-verişə gedin",
         "totalsTitle": "Səbət Cəmi",
         "totalItems": "Cəm Məhsullar: ",
@@ -121,6 +123,23 @@
     "notFound": {
         "title": "404 - Xəta",
         "message": "Heç bir sifariş tapılmadı, sifariş vermək üçün mağazaya keçid edin",
-        "button": "Mağazaya get"
+        "button": "Mağazaya get",
+        "notfoundproduct": "404 - Xəta Məhsul Tapılmadı"
+    },
+    "favorietoasty": "Sevimlilərə əlavə edildi!",
+    "addedbefore": "Bu məhsul daha əvvəl əlavə edilib!",
+    "information": "Zəhmət olmasa bütün məlumatları doldurun!",
+    "addtocart": "Məhsul səbətə əlavə edildi!",
+    "removed": "Məhsul silindi!",
+    "footer": {
+        "quickLinks": "Cəld Keçidlər",
+        "home": "Ana Səhifə",
+        "shop": "Mağaza",
+        "aboutUs": "Haqqımızda",
+        "contactUs": "Əlaqə",
+        "followUs": "Bizi İzləyin",
+        "subscribe": "Abunə Olun",
+        "enterEmail": "E-poçt ünvanınızı daxil edin...",
+        "allRightsReserved": "Bütün hüquqlar qorunur."
     }
 }

@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 import { favorieDelete } from '../React-Toastify/Toastify';
 import { useTranslation } from 'react-i18next';
-
+import { motion } from 'framer-motion';
 const Cart = ({ setOrderData, orderData }) => {
     const { t } = useTranslation();
 
@@ -21,7 +21,7 @@ const Cart = ({ setOrderData, orderData }) => {
 
     const removeItem = (id) => {
         dispatch(removeBasketItem({ id }));
-        favorieDelete()
+        favorieDelete(t)
     };
 
     const openModal = () => {
@@ -67,19 +67,25 @@ const Cart = ({ setOrderData, orderData }) => {
 
     if (products.length === 0) {
         return (
-            <div className='emptyCart'>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 7 }}
+                className='emptyCart'>
                 <HiOutlineShoppingBag className='empty-icon' />
                 <h1>{t('cart.emptyTitle')}</h1>
                 <h4>{t('cart.emptyDescription')}</h4>
                 <Link to='/shop'>
                     <button>{t('cart.goToShopButton')}</button>
                 </Link>
-            </div>
+            </motion.div>
         );
     }
 
     return (
-        <div className='cart'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className='cart'>
             <div className='cart-left'>
 
                 {products?.map((product) => (
@@ -136,7 +142,7 @@ const Cart = ({ setOrderData, orderData }) => {
                     </div>
                 </div> : null
             }
-        </div >
+        </motion.div >
     );
 }
 

@@ -12,6 +12,8 @@
     "logout": "Log Out",
     "order": "Order Summary",
     "viewall": "View All",
+    "basket": "Basket",
+    "favorie": "Favorie",
     "infoSection": {
         "freeShipping": {
             "title": "Free Shipping",
@@ -80,7 +82,7 @@
     },
     "cart": {
         "emptyTitle": "Shop to fill your cart!",
-        "emptyDescription": "Add something to make me happy",
+        "emptyDescription": "Go to the store to shop.",
         "goToShopButton": "Go To Shopping",
         "totalsTitle": "Cart Totals",
         "totalItems": "Total Items: ",
@@ -91,8 +93,7 @@
         "checkout": "Proceed Checkout",
         "cancel": "Cancel",
         "save": "Save Adress",
-        "order": "Place Order",
-        "title": "Order Summary"
+        "order": "Place Order"
     },
     "shipping": {
         "infoTitle": "User Information",
@@ -111,7 +112,8 @@
         "expiry": "Expiry (MM/YY)",
         "cvc": "CVC",
         "productname": "Product Name",
-        "shippinginfo": "Delivery Information"
+        "shippinginfo": "Delivery Information",
+        "title": "Order Summary"
     },
     "loginpage": {
         "title": "Please enter your credentials to log in.",
@@ -121,6 +123,23 @@
     "notFound": {
         "title": "404 - Not Found",
         "message": "No orders found, click to order",
-        "button": "Go to Shop"
+        "button": "Go to Shop",
+        "notfoundproduct": "404 - Product Not Found"
+    },
+    "favorietoasty": "Added to favorites!",
+    "addedbefore": "This product has been added before!",
+    "information": "Please fill in all the information!",
+    "addtocart": "Product added to cart!",
+    "removed": "Product removed!",
+    "footer": {
+        "quickLinks": "Quick Links",
+        "home": "Home",
+        "shop": "Shop",
+        "aboutUs": "About Us",
+        "contactUs": "Contact Us",
+        "followUs": "Follow Us",
+        "subscribe": "Subscribe",
+        "enterEmail": "Your Email...",
+        "allRightsReserved": "All rights reserved."
     }
 }

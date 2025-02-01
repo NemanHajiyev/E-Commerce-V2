@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Styles/Login.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 const Login = ({ setRegisterInfo }) => {
     const { t } = useTranslation();
@@ -27,7 +28,10 @@ const Login = ({ setRegisterInfo }) => {
     };
 
     return (
-        <div className="login">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className="login">
             <div className="login-container">
                 <div className="login-left">
                     <img
@@ -88,7 +92,7 @@ const Login = ({ setRegisterInfo }) => {
 
                 </div>
             </div>
-        </div >
+        </motion.div >
     );
 };
 

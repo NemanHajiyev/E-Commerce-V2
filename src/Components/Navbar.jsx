@@ -7,16 +7,12 @@ import { FaBasketShopping } from 'react-icons/fa6';
 import { useEffect, useState } from 'react';
 import { filteredProducts } from '../Redux/productSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import logo from '../Assets/images/logo.webp';
+import logo from '../Assets/images/logo.png';
 ///
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
-
 import '../Language/i18n'
 import { useTranslation } from 'react-i18next';
-
+import { Toggle } from '../DarkLightMode/Toogle'
+//
 
 
 const Navbar = ({ registerInfo, setRegisterInfo }) => {
@@ -64,7 +60,7 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
             <div className='navbar-div'>
                 <Link to='/' className='navbar-logo'>
                     <img className='logo-img' src={logo} />
-                    <p style={{ color: "black" }}>nova<span>Shop</span></p>
+                    <p style={{ color: "black" }}>Fun<span>Store</span></p>
                 </Link>
                 <div style={{ width: "60%" }}>
                     <form className='navbar-form'>
@@ -76,24 +72,17 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                         <FaSearch onClick={handleSearch} />
                     </form>
                 </div>
-
-
-
-                <div>
-                    <Box sx={{ minWidth: 70 }}>
-                        <FormControl fullWidth>
-                            <NativeSelect
-                                defaultValue={30}
-                                onChange={(e) => handleClick(e.target.value)}
-                            >
-                                <option value="az">Aze</option>
-                                <option value="en">En</option>
-                            </NativeSelect>
-                        </FormControl>
-                    </Box>
+                <Toggle />
+                <div className="language-div">
+                    <select onChange={(e) => handleClick(e.target.value)} className="language-select">
+                        <option value="az">
+                            Az
+                        </option>
+                        <option value="en">
+                            En
+                        </option>
+                    </select>
                 </div>
-
-
 
                 <div className='navbar-right'>
                     <Link to='/favorie'>
@@ -163,10 +152,10 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                     {hamburger && (
                         <div className="dropdown-menu active">
                             <ul>
-                                <button className="dropdown-item" onClick={() => navigate('/login')}>Login</button>
-                                <button className="dropdown-item" onClick={() => navigate('/shop')}>Go to Shop</button>
-                                <button className="dropdown-item" onClick={() => navigate('/cart')}>Basket</button>
-                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>Favorie</button>
+                                <button className="dropdown-item" onClick={() => navigate('/login')}>{t('login')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/shop')}>{t('shop')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/cart')}>{t('basket')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>{t('favorie')}</button>
                             </ul>
                         </div>
                     )}

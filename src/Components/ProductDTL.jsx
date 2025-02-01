@@ -7,6 +7,7 @@ import { addToFavorie } from '../Redux/productSlice';
 import { addToBaket, } from '../Redux/cartSlice';
 import { productAddToasty } from '../React-Toastify/Toastify';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 
@@ -37,20 +38,23 @@ const ProductDTL = () => {
     }
 
     const addtoFavorie = () => {
-        dispatch(addToFavorie(product));
+        dispatch(addToFavorie({ newItem: product, t }))
     }
 
     const addtoBasket = () => {
         for (let i = 1; i <= count; i++) {
             dispatch(addToBaket(product));
         }
-        productAddToasty()
+        productAddToasty(t)
     };
 
 
 
     return (
-        <div className='detail'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className='detail'>
 
             {
                 product ? (
@@ -95,7 +99,7 @@ const ProductDTL = () => {
                     null
                 )
             }
-        </div>
+        </motion.div>
     );
 };
 

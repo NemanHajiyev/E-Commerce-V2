@@ -1,12 +1,16 @@
 import React from 'react';
 import '../Styles/About.css';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const About = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="about-container">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 7 }}
+            className="about-container">
             <div className="about-header">
                 <h1>{t('aboutpage.title')}</h1>
                 <p>{t('aboutpage.intro')}</p>
@@ -30,7 +34,7 @@ const About = () => {
             <div className="about-footer">
                 <p>{t('aboutpage.footer')}</p>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

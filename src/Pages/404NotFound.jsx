@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti'
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const NotFound = ({ orderData }) => {
     const { t } = useTranslation();
@@ -11,7 +12,10 @@ const NotFound = ({ orderData }) => {
     console.log(orderData)
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+        >
             {orderData ? (
                 <div className="order-info-container">
                     <Confetti width={1500} height={1000} />
@@ -61,7 +65,7 @@ const NotFound = ({ orderData }) => {
                 </div>
             )}
 
-        </>
+        </motion.div>
     );
 };
 

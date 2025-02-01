@@ -4,16 +4,19 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const OrderInfo = ({ orderData }) => {
     const { t } = useTranslation();
     const { products, totalPrice, totalQnty } = useSelector((store) => store.cart);
     const navigate = useNavigate();
-    console.log(orderData)
 
     return (
 
-        <div className="order-info-container">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+            className="order-info-container">
             <Confetti width={1500} height={1000} />
             <h1 className="order-summary-title">{t('shipping.title')}</h1>
 
@@ -47,7 +50,7 @@ const OrderInfo = ({ orderData }) => {
                         className='Continue-Shopping'>{t('cart.goToShopButton')}</button>
                 </div>
             </div>
-        </div>
+        </motion.div>
 
     );
 };

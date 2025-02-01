@@ -1,0 +1,152 @@
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.toggle {
+    display: none;
+}
+
+.toggle-label {
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.toggle:checked+.toggle-label {
+    background: #333;
+    color: white;
+}
+
+body {
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    background: #121212;
+    color: #ffffff;
+}
+
+body.light {
+    background: #ffffff;
+    color: #000000;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.toggle {
+    display: none;
+}
+
+.toggle-label {
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.toggle:checked+.toggle-label {
+    background: #333;
+    color: white;
+}
+
+body {
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    background: #121212;
+    color: #ffffff;
+}
+
+body.light {
+    background: #ffffff;
+    color: #000000;
+}
+
+.dark a,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark ul,
+.dark li,
+.dark p,
+.dark span,
+.dark button {
+    color: #ffffff !important;
+}
+
+.light a,
+.light h1,
+.light h2,
+.light h3,
+.light p,
+.light span,
+.light button {
+    color: #000000 !important;
+}
+
+.dark div,
+.dark section,
+.dark header,
+.dark footer,
+.dark main,
+.dark article,
+.dark aside,
+.dark nav {
+    background: #121212 !important;
+    color: #ffffff !important;
+    border-color: #333 !important;
+}
+
+/* Butonlar ve diğer öğeler */
+.dark button,
+.dark input,
+.dark textarea,
+.dark select {
+    background: #222 !important;
+    color: #ffffff !important;
+    border: 1px solid #555 !important;
+}
+
+/* Light mod */
+.light div,
+.light section,
+.light header,
+.light footer,
+.light main,
+.light article,
+.light aside,
+.light nav {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.light button,
+.light input,
+.light textarea,
+.light select {
+    background: #f9f9f9 !important;
+    color: #000000 !important;
+    border: 1px solid #ffffff !important;
+}

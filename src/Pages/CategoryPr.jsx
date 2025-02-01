@@ -6,9 +6,13 @@ import { addToFavorie } from '../Redux/productSlice';
 import { useNavigate } from 'react-router-dom';
 import { addToBaket } from '../Redux/cartSlice';
 import { productAddToasty } from '../React-Toastify/Toastify';
+import { useTranslation } from 'react-i18next'
+import { motion } from 'framer-motion';
 
 const CategoryPr = ({ product }) => {
     const { id, image, name, price } = product;
+    const { t } = useTranslation();
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -22,11 +26,14 @@ const CategoryPr = ({ product }) => {
 
     const AddToBasket = () => {
         dispatch(addToBaket(product));
-        productAddToasty()
+        productAddToasty(t)
     };
 
     return (
-        <div className="product-card">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+            className="product-card">
             <span className="fav-icon" onClick={addFavoire}>
                 <FcLike />
             </span>
@@ -41,7 +48,7 @@ const CategoryPr = ({ product }) => {
                 </div>
             </div>
             <button className="add-to-basket" onClick={AddToBasket}>+</button>
-        </div>
+        </motion.div>
     )
 }
 

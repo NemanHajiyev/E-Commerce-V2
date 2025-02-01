@@ -23,14 +23,17 @@ const CategorySection = () => {
     const data = [
         {
             title: t('beauty'),
+            original: "Beauty",
             image: beauty
         },
         {
             title: t('sports'),
+            original: "Sports",
             image: sports
         },
         {
             title: t('fashion'),
+            original: "Fashion",
             image: fashion
         }
     ];
@@ -42,7 +45,7 @@ const CategorySection = () => {
                     <img src={item.image} alt={item.title} />
                     <div className="category-detail">
                         <p>{t(item.title)}</p>
-                        <button onClick={() => getCategorie(item.title)}>{t("viewall")}</button>
+                        <button onClick={() => getCategorie(item.original)}>{t("viewall")}</button>
                     </div>
                 </div>
             ))}

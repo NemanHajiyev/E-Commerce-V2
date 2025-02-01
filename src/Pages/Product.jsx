@@ -5,16 +5,19 @@ import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
 import { addToFavorie } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
-import { notifySuccess, productAddToasty } from '../React-Toastify/Toastify';
+import { productAddToasty } from '../React-Toastify/Toastify';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
-const Product = ({ getData }) => {
+const Product = ({ getData, item }) => {
     const { id, image, name, price, quantity } = getData;
+    const { t } = useTranslation();
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
     const addFavoire = () => {
-        dispatch(addToFavorie(getData));
+        dispatch(addToFavorie({ newItem: getData, t }))
     };
 
     const productDetail = () => {
@@ -23,12 +26,13 @@ const Product = ({ getData }) => {
 
     const AddToBasket = () => {
         dispatch(addToBaket(getData));
-        productAddToasty()
-
+        productAddToasty(t)
     };
 
     return (
-        <div className="product-card">
+        <motion.div
+            variants={item}
+            className="product-card">
             <span className="fav-icon" onClick={addFavoire}>
                 <FcLike />
             </span>
@@ -43,7 +47,7 @@ const Product = ({ getData }) => {
                 </div>
             </div>
             <button className="add-to-basket" onClick={AddToBasket}>+</button>
-        </div>
+        </motion.div>
     );
 };
 

@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { categoryProducts } from '../Redux/productSlice';
 //
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 
 const Home = () => {
@@ -25,7 +26,10 @@ const Home = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='home'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 2 }}
+            className='home'>
             <div className='home-container'>
                 <div className='home-category'>
                     <h2>{t('category')}</h2>
@@ -47,7 +51,7 @@ const Home = () => {
                 <h1 style={{ textAlign: 'center', marginTop: "100px" }}>{t('shop')}</h1>
                 <Shop />
             </div>
-        </div>
+        </motion.div>
     )
 }
 
