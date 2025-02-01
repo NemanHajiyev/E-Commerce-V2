@@ -8,10 +8,13 @@ import '../Styles/CategoryProducts.css'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Button } from '@mui/material'
+import { useTranslation } from 'react-i18next'
+import { Categories } from '../MockData/mockData'
+//
 
 const CategoryProduct = () => {
     const { categoryProduct } = useSelector(store => store.product)
-
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -39,22 +42,14 @@ const CategoryProduct = () => {
                     id="basic-button"
                     onClick={handleClick}
                 >
-                    Select Category
+                    {t('category')}
                 </Button>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                >
-                    <MenuItem onClick={() => getCategorie("Electronics")}>Electronics</MenuItem>
-                    <MenuItem onClick={() => getCategorie("Fashion")}>Fashion</MenuItem>
-                    <MenuItem onClick={() => getCategorie("Home&Kitchen")}>Kitchen</MenuItem>
-                    <MenuItem onClick={() => getCategorie("Beauty")}>Beauty</MenuItem>
-                    <MenuItem onClick={() => getCategorie("Sports")}>Sports</MenuItem>
-                    <MenuItem onClick={() => getCategorie("Automotive")}>Automotive</MenuItem>
+                <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
+                    {Categories?.map((category) => (
+                        <MenuItem onClick={() => getCategorie(t(category.original))}>{t(category.key)}</MenuItem>
+                    ))}
                 </Menu>
-                <button className='back-btn' onClick={() => navigate('/')}>⬅Back</button>
+                <button className='back-btn' onClick={() => navigate('/')}>⬅{t('back')}</button>
             </div>
             <div className='products'>
                 {categoryProduct?.map((product) => (

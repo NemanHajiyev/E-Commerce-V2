@@ -71,12 +71,12 @@ import image59 from '../Assets/images/sports-9.webp';
 import image60 from '../Assets/images/sports-10.webp';
 
 export const Categories = [
-  "Electronics",
-  "Fashion",
-  "Home&Kitchen",
-  "Beauty",
-  "Sports",
-  "Automotive"
+  { key: "categories.electronics", original: "Electronics" },
+  { key: "categories.fashion", original: "Fashion" },
+  { key: "categories.homeKitchen", original: "Home&Kitchen" },
+  { key: "categories.beauty", original: "Beauty" },
+  { key: "categories.sports", original: "Sports" },
+  { key: "categories.automotive", original: "Automotive" }
 ];
 
 export const mockData = [
@@ -563,33 +563,34 @@ export const mockData = [
 
 ];
 
-import { FaHeadset, FaLock, FaShippingFast, FaTag } from "react-icons/fa";
-import { FaMoneyBill1Wave } from "react-icons/fa6";
+import { FaShippingFast, FaHeadset, FaLock, FaTag } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa6";
+
 
 export const infoSectionData = [
   {
     icon: <FaShippingFast />,
-    title: "Free Shipping",
-    description: "Get your orders delivered with no extra const"
+    titleKey: "infoSection.freeShipping.title",
+    descriptionKey: "infoSection.freeShipping.description"
   },
   {
     icon: <FaHeadset />,
-    title: "Support 24/7",
-    description: "We are here to assist you anytime"
+    titleKey: "infoSection.support.title",
+    descriptionKey: "infoSection.support.description"
   },
   {
-    icon: <FaMoneyBill1Wave />,
-    title: "100% Money back",
-    description: "Get Your Orders delivered with no extra const"
+    icon: <FaMoneyBillWave />,
+    titleKey: "infoSection.moneyBack.title",
+    descriptionKey: "infoSection.moneyBack.description"
   },
   {
     icon: <FaLock />,
-    title: "Payment secure",
-    description: "Your payment information is safe with us"
+    titleKey: "infoSection.paymentSecure.title",
+    descriptionKey: "infoSection.paymentSecure.description"
   },
   {
     icon: <FaTag />,
-    title: "Discount",
-    description: "Enjoy the best prices on our products"
+    titleKey: "infoSection.discount.title",
+    descriptionKey: "infoSection.discount.description"
   }
-]
+];

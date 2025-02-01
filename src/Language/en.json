@@ -1,0 +1,126 @@
+{
+    "input": "Search product",
+    "login": "Login",
+    "home": "Home",
+    "shop": "Shop",
+    "contact": "Contact",
+    "about": "About",
+    "category": "Shop By Categories",
+    "fashion": "Fashion",
+    "beauty": "Beauty",
+    "sports": "Sports",
+    "logout": "Log Out",
+    "order": "Order Summary",
+    "viewall": "View All",
+    "infoSection": {
+        "freeShipping": {
+            "title": "Free Shipping",
+            "description": "Get your orders delivered with no extra cost"
+        },
+        "support": {
+            "title": "Support 24/7",
+            "description": "We are here to assist you anytime"
+        },
+        "moneyBack": {
+            "title": "100% Money back",
+            "description": "Guaranteed refund if you're not satisfied"
+        },
+        "paymentSecure": {
+            "title": "Payment Secure",
+            "description": "Your payment information is safe with us"
+        },
+        "discount": {
+            "title": "Discount",
+            "description": "Enjoy the best prices on our products"
+        }
+    },
+    "categories": {
+        "electronics": "Electronics",
+        "fashion": "Fashion",
+        "homeKitchen": "Home & Kitchen",
+        "beauty": "Beauty",
+        "sports": "Sports",
+        "automotive": "Automotive"
+    },
+    "toppr": "Top Products",
+    "back": "Back",
+    "addcart": "Add To Cart",
+    "addfavorie": "Add To Favorie",
+    "price": "Price",
+    "aboutpage": {
+        "title": "About Us",
+        "intro": "We bring the best shopping experience right to your doorstep.",
+        "whoWeAreTitle": "Who We Are",
+        "whoWeAreDesc": "We are a leading e-commerce platform dedicated to offering high-quality products at the best prices. Our mission is to deliver an exceptional online shopping experience that ensures customer satisfaction with every purchase.",
+        "visionTitle": "Our Vision",
+        "visionDesc": "Our vision is to become the go-to destination for all your shopping needs, with a wide range of products, excellent customer service, and unbeatable prices.",
+        "whyChooseUsTitle": "Why Choose Us?",
+        "whyChooseUsDesc": "We believe in offering a seamless shopping experience with easy navigation, secure payment methods, fast delivery, and reliable customer support.",
+        "footer": "Thank you for choosing us. Happy shopping!"
+    },
+    "contactpage": {
+        "title": "Contact Us",
+        "intro": "We're here to help! Reach out to us for any inquiries, feedback, or support.",
+        "getInTouch": "Get in Touch",
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Enter your email address",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Write your message here",
+        "sendButton": "Send Message",
+        "contactInfoTitle": "Our Contact Information",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
+    },
+    "favorites": {
+        "emptyTitle": "Your Favorite page is empty",
+        "emptyDescription": "No product added to favorites"
+    },
+    "cart": {
+        "emptyTitle": "Shop to fill your cart!",
+        "emptyDescription": "Add something to make me happy",
+        "goToShopButton": "Go To Shopping",
+        "totalsTitle": "Cart Totals",
+        "totalItems": "Total Items: ",
+        "shippingTitle": "Shipping",
+        "shippingTo": "Shipping to: ",
+        "changeShipping": "Change Shipping Address",
+        "totalPrice": "Total Price: ",
+        "checkout": "Proceed Checkout",
+        "cancel": "Cancel",
+        "save": "Save Adress",
+        "order": "Place Order",
+        "title": "Order Summary"
+    },
+    "shipping": {
+        "infoTitle": "User Information",
+        "cartButton": "Cart",
+        "cashButton": "Cash",
+        "fullName": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "country": "Country",
+        "shippingAddress": "Shipping Address",
+        "city": "City",
+        "state": "State",
+        "zipcode": "Zip Code",
+        "cardHolder": "Card Holder Name",
+        "cardNumber": "Card Number",
+        "expiry": "Expiry (MM/YY)",
+        "cvc": "CVC",
+        "productname": "Product Name",
+        "shippinginfo": "Delivery Information"
+    },
+    "loginpage": {
+        "title": "Please enter your credentials to log in.",
+        "upload": "Upload",
+        "guest": "Continue as a guest"
+    },
+    "notFound": {
+        "title": "404 - Not Found",
+        "message": "No orders found, click to order",
+        "button": "Go to Shop"
+    }
+}

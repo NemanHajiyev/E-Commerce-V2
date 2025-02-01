@@ -69,7 +69,7 @@
 .shop-icon {
     margin-top: 40px;
     font-size: 40px;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -129,7 +129,7 @@
 }
 
 .detail-bottom h2 {
-    width: 15%;
+    width: 18%;
     display: flex;
     justify-content: space-between;
     align-items: center;

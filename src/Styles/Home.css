@@ -34,28 +34,6 @@
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-.banner-detail {
-    position: absolute;
-    bottom: 1px;
-    left: 10px;
-    padding: 15px;
-}
-
-.banner-detail button {
-    border: none;
-    padding: 15px;
-    color: white;
-    background-color: brown;
-    cursor: pointer;
-    border-radius: 10px;
-    font-size: 30px;
-}
-
-.banner-detail button:hover {
-    color: white;
-    background-color: rgb(255, 0, 0);
-}
-
 .list {
     font-size: 18px;
     padding: 10px;
@@ -113,15 +91,4 @@
         width: 100%;
     }
 
-    .banner-detail {
-        font-size: 10px;
-        line-height: 30px;
-        width: 100%;
-        position: absolute;
-    }
-
-    .banner-detail button {
-        padding: 10px;
-        font-size: 10px;
-    }
 }

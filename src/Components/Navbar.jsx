@@ -14,7 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
 
-import '../MockData/i18n'
+import '../Language/i18n'
 import { useTranslation } from 'react-i18next';
 
 
@@ -86,7 +86,7 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                                 defaultValue={30}
                                 onChange={(e) => handleClick(e.target.value)}
                             >
-                                <option value="az">Az</option>
+                                <option value="az">Aze</option>
                                 <option value="en">En</option>
                             </NativeSelect>
                         </FormControl>

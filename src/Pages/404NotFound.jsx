@@ -1,10 +1,11 @@
-import React from 'react';
 import '../Styles/OrderInfo.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti'
+import { useTranslation } from 'react-i18next';
 
 const NotFound = ({ orderData }) => {
+    const { t } = useTranslation();
     const { products, totalPrice, totalQnty } = useSelector((store) => store.cart);
     const navigate = useNavigate();
     console.log(orderData)
@@ -49,13 +50,13 @@ const NotFound = ({ orderData }) => {
                 </div>
             ) : (
                 <div className="notfound-container">
-                    <h1 className="notfound-title">404 - Not Found</h1>
-                    <h3 className="notfound-message">No orders found, click to order</h3>
+                    <h1 className="notfound-title">{t('notFound.title')}</h1>
+                    <h3 className="notfound-message">{t('notFound.message')}</h3>
                     <button
                         onClick={() => navigate('/shop')}
                         className="go-to-shop-btn"
                     >
-                        Go to Shop
+                        {t('notFound.button')}
                     </button>
                 </div>
             )}

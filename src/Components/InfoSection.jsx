@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { infoSectionData } from '../MockData/mockData';
-import '../Styles/infoSection.css'
+import '../Styles/infoSection.css';
 
-const infoSection = () => {
+const InfoSection = () => {
+    const { t } = useTranslation();
+
     return (
         <div className='infosection'>
-
-            {infoSectionData?.map((data, index) => (
+            {infoSectionData.map((data, index) => (
                 <div className='info-div' key={index}>
                     <div className='icon'>{data.icon}</div>
-                    <h3>{data.title}</h3>
-                    <p>{data.description}</p>
-                </div >
+                    <h3>{t(data.titleKey)}</h3>
+                    <p>{t(data.descriptionKey)}</p>
+                </div>
             ))}
+        </div>
+    );
+};
 
-        </div >
-    )
-}
-
-export default infoSection
+export default InfoSection;

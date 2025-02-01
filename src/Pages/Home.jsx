@@ -31,24 +31,20 @@ const Home = () => {
                     <h2>{t('category')}</h2>
                     <ul className='ul-list'>
                         {Categories?.map((category, index) => (
-                            <li className='list' key={index} onClick={() => getCategorie(category)}>{category}</li>
+                            <li className='list' key={index} onClick={() => getCategorie(t(category.original))}>{t(category.key)}</li>
                         ))}
                     </ul>
-
                 </div>
                 <div className='home-banner'>
                     <img src={banner} className='image' />
-                    <div className='banner-detail'>
-                        <button onClick={() => navigate('/shop')}>{t('shop')}</button>
-                    </div>
                 </div>
             </div>
             <div className='home-sections'>
                 <InfoSection />
                 <CategorySection />
-                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Top Products</h1>
+                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>{t('toppr')}</h1>
                 <ProductList />
-                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>Shop</h1>
+                <h1 style={{ textAlign: 'center', marginTop: "100px" }}>{t('shop')}</h1>
                 <Shop />
             </div>
         </div>

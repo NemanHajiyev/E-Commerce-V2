@@ -6,10 +6,12 @@ import { FaBackward, FaStar } from 'react-icons/fa';
 import { addToFavorie } from '../Redux/productSlice';
 import { addToBaket, } from '../Redux/cartSlice';
 import { productAddToasty } from '../React-Toastify/Toastify';
+import { useTranslation } from 'react-i18next';
 
 
 
 const ProductDTL = () => {
+    const { t } = useTranslation()
     const { id } = useParams();
     const { products } = useSelector((store) => store.product);
     const [product, setProduct] = useState();
@@ -71,8 +73,8 @@ const ProductDTL = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quidem quisquam tempora iste dignissimos mollitia impedit odit accusantium ea cumque, asperiores laborum, necessitatibus possimus delectus quis deleniti nobis eligendi culpa!
                             </p>
                             <div className='shop-icon'>
-                                <button onClick={addtoFavorie}>Add To favorie</button>
-                                <button onClick={addtoBasket} style={{ backgroundColor: "brown" }}>Add To Cart</button>
+                                <button onClick={addtoFavorie}>{t('addfavorie')}</button>
+                                <button onClick={addtoBasket} style={{ backgroundColor: "brown" }}>{t('addcart')}</button>
                             </div>
                             <div className='detail-count'>
                                 <button onClick={() => inc()}>+</button>
@@ -82,8 +84,8 @@ const ProductDTL = () => {
                             <div
                                 onClick={() => navigate('/shop')}
                                 className='detail-bottom'>
-                                <h1>Price : ${(count * (product.price)).toFixed(2)}</h1>
-                                <h2>Shop<FaBackward color='brown' /> </h2>
+                                <h1>{t("price")} : ${(count * (product.price)).toFixed(2)}</h1>
+                                <h2>{t("shop")}<FaBackward color='brown' /> </h2>
                             </div>
                         </div>
 

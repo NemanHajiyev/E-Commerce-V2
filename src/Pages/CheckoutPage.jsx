@@ -6,9 +6,12 @@ import { removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { notifyError2 } from '../React-Toastify/Toastify'
+import { useTranslation } from 'react-i18next';
 
 
 const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
+    const { t } = useTranslation();
+
     const { products, totalPrice } = useSelector((store) => store.cart);
     const [cartModal, setCartModal] = useState(false);
     const dispatch = useDispatch()
@@ -73,107 +76,130 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
             <div className='checkout-container'>
                 <div className='checkout-left'>
                     <div className='shipping-info'>
-                        <h2>Shipping Information</h2>
+                        <h2>{t('shipping.infoTitle')}</h2>
                         <div className='button-group'>
-                            <button className='btn' onClick={() => setCartModal(true)}>Cart</button>
-                            <button className='btn' onClick={() => setCartModal(false)}>Cash</button>
+                            <button className='btn' onClick={() => setCartModal(true)}>{t('shipping.cartButton')}</button>
+                            <button className='btn' onClick={() => setCartModal(false)}>{t('shipping.cashButton')}</button>
                         </div>
                     </div>
 
                     <div className='user-info'>
                         <form>
-                            <label>Full Name</label>
-                            <input type='text' placeholder='Enter your full name'
+                            <label>{t('shipping.fullName')}</label>
+                            <input
+                                type='text'
+                                placeholder={t('shipping.fullName')}
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, fullName: e.target.value })}
-                                value={shippingInfo.fullName} />
+                                value={shippingInfo.fullName}
+                            />
 
-                            <label>Email Address</label>
-                            <input type='email'
+                            <label>{t('shipping.email')}</label>
+                            <input
+                                type='email'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, email: e.target.value })}
                                 value={shippingInfo.email}
-                                placeholder='Enter your email' />
+                                placeholder={t('shipping.email')}
+                            />
 
-                            <label>Phone Number</label>
-                            <input type='number'
+                            <label>{t('shipping.phone')}</label>
+                            <input
+                                type='number'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, phoneNumber: e.target.value })}
                                 value={shippingInfo.phoneNumber}
-                                placeholder='Enter your phone number' />
+                                placeholder={t('shipping.phone')}
+                            />
 
-                            <label>Country</label>
-                            <input type='text'
+                            <label>{t('shipping.country')}</label>
+                            <input
+                                type='text'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, country: e.target.value })}
                                 value={shippingInfo.country}
-                                placeholder='Enter your country' />
+                                placeholder={t('shipping.country')}
+                            />
 
-                            <label>Shipping Adress</label>
+                            <label>{t('shipping.shippingAddress')}</label>
                             <input type='text'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, shippingadress: e.target.value })}
                                 value={shippingInfo.shippingadress}
                                 placeholder='Enter your country' />
                         </form>
                     </div>
-
                     <div className='user-address'>
                         <div>
-                            <label>City</label>
-                            <input type='text'
+                            <label>{t('shipping.city')}</label>
+                            <input
+                                type='text'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, city: e.target.value })}
                                 value={shippingInfo.city}
-                                placeholder='Enter your city' />
+                                placeholder={t('shipping.city')}
+                            />
                         </div>
+
                         <div>
-                            <label>State</label>
-                            <input type='text'
+                            <label>{t('shipping.state')}</label>
+                            <input
+                                type='text'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, state: e.target.value })}
                                 value={shippingInfo.state}
-                                placeholder='Enter your state' />
+                                placeholder={t('shipping.state')}
+                            />
                         </div>
+
                         <div>
-                            <label>Zip Code</label>
-                            <input type='number'
+                            <label>{t('shipping.zipcode')}</label>
+                            <input
+                                type='number'
                                 onChange={(e) => setShippingInfo({ ...shippingInfo, zipcode: e.target.value })}
                                 value={shippingInfo.zipcode}
-                                placeholder='Enter your zip code' />
+                                placeholder={t('shipping.zipcode')}
+                            />
                         </div>
                     </div>
+
 
                     {cartModal ? (
                         <div className='debit-cart'>
                             <div className='cart-container'>
                                 <div className='cart-info'>
-                                    <p>Card Holder Name</p>
+                                    <p>{t('shipping.cardHolder')}</p>
                                     <input
                                         onChange={(e) => setShippingInfo({ ...shippingInfo, cardHolder: e.target.value })}
                                         value={shippingInfo.cardHolder}
-                                        type="text" />
+                                        type="text"
+                                    />
 
-                                    <p>Card Number</p>
+                                    <p>{t('shipping.cardNumber')}</p>
                                     <input
                                         onChange={(e) => setShippingInfo({ ...shippingInfo, cardNumber: e.target.value })}
                                         value={shippingInfo.cardNumber}
-                                        type="text" />
+                                        type="text"
+                                    />
                                 </div>
 
                                 <div className='cart-date'>
 
                                     <div>
-                                        <p>Expiry (MM/YY)</p>
+                                        <p>{t('shipping.expiry')}</p>
                                         <input
                                             onChange={(e) => setShippingInfo({ ...shippingInfo, expiry: e.target.value })}
                                             value={shippingInfo.expiry}
-                                            type="month" />
+                                            type="month"
+                                        />
                                     </div>
 
                                     <div>
-                                        <p>CVC</p>
+                                        <p>{t('shipping.cvc')}</p>
                                         <input
                                             onChange={(e) => setShippingInfo({ ...shippingInfo, cvc: e.target.value })}
                                             value={shippingInfo.cvc}
-                                            type="password" maxLength={3} />
+                                            type="password" maxLength={3}
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     ) : (null)}
 
                 </div>
@@ -183,9 +209,9 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
                         products.length === 0 ? (
                             <div className='empty-summary'>
                                 <MdErrorOutline className='empty-summary-icon' />
-                                <h3>Your cart is empty. Please add some products to proceed.</h3>
+                                <h3>{t('cart.emptyTitle')}</h3>
                                 <button className='btn-primary' onClick={() => navigate('/shop')}>
-                                    Go To Shopping
+                                    {t('cart.goToShopButton')}
                                 </button>
                             </div>
                         ) : (
@@ -219,10 +245,10 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
                                         ))
                                     }
                                     <h2 style={{ marginTop: "25px" }}>
-                                        Total Price: ${(totalPrice).toFixed(2)}
+                                        {t('cart.totalPrice')}: ${(totalPrice).toFixed(2)}
                                     </h2>
                                 </div>
-                                <button className='btn btn-primary' onClick={OrderSummary}>Place Order</button>
+                                <button className='btn btn-primary' onClick={OrderSummary}>{t('cart.order')}</button>
                             </>
                         )
                     }

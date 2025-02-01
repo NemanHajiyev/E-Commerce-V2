@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "../Styles/Login.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Login = ({ setRegisterInfo }) => {
+    const { t } = useTranslation();
+
     const [img, setImg] = useState()
     const navigate = useNavigate()
 
@@ -34,8 +37,8 @@ const Login = ({ setRegisterInfo }) => {
                 </div>
 
                 <div className="login-right">
-                    <h1>Login</h1>
-                    <p>Please enter your credentials to log in.</p>
+                    <h1>{t('login')}</h1>
+                    <p>{t('loginpage.title')}</p>
                     <form className="login-form">
                         <input
                             value={data.username}
@@ -56,7 +59,7 @@ const Login = ({ setRegisterInfo }) => {
                     <div className="upload-file">
                         <form action="files">
                             <label htmlFor="file-upload" className="upload-btn">
-                                Upload
+                                {t('loginpage.upload')}
                                 <input
                                     id="file-upload"
                                     type="file"
@@ -80,8 +83,8 @@ const Login = ({ setRegisterInfo }) => {
                             </div>
                         )}
                     </div>
-                    <button className="login-button" onClick={toHomePage}>Login</button>
-                    <button className="guest-button" onClick={() => navigate('/')}>Continue as a guest</button>
+                    <button className="login-button" onClick={toHomePage}>{t('login')}</button>
+                    <button className="guest-button" onClick={() => navigate('/')}>{t("loginpage.guest")}</button>
 
                 </div>
             </div>

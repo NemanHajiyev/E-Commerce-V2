@@ -1,0 +1,126 @@
+{
+    "input": "Məhsul axtarın...",
+    "login": "Giriş",
+    "home": "Ev",
+    "shop": "Mağaza",
+    "contact": "Əlaqə",
+    "about": "Haqqında",
+    "category": "Kateqoriyalar",
+    "fashion": "Geyim",
+    "beauty": "Gözəllik",
+    "sports": "İdman",
+    "logout": "Çıxış",
+    "order": "Sifarişlərim",
+    "viewall": "Hamısını göstər",
+    "infoSection": {
+        "freeShipping": {
+            "title": "Pulsuz Çatdırılma",
+            "description": "Sifarişlərinizi əlavə xərc olmadan alın"
+        },
+        "support": {
+            "title": "24/7 Dəstək",
+            "description": "İstənilən vaxt sizə kömək etmək üçün buradayıq"
+        },
+        "moneyBack": {
+            "title": "100% Geri Ödəniş",
+            "description": "Məhsul sizi qane etmirsə, pulunuzu qaytarın"
+        },
+        "paymentSecure": {
+            "title": "Təhlükəsiz Ödəniş",
+            "description": "Ödəniş məlumatlarınız bizimlə güvəndədir"
+        },
+        "discount": {
+            "title": "Endirimlər",
+            "description": "Məhsullarımızda ən yaxşı qiymətlərdən zövq alın"
+        }
+    },
+    "categories": {
+        "electronics": "Elektronika",
+        "fashion": "Geyim",
+        "homeKitchen": "Ev və Mətbəx",
+        "beauty": "Gözəllik",
+        "sports": "İdman",
+        "automotive": "Avtomobil"
+    },
+    "toppr": "Seçilmiş Məhsullar",
+    "back": "Geri",
+    "addcart": "Səbətə əlavə edin",
+    "addfavorie": "Sevimlilərə əlavə edin",
+    "price": "Qiymət",
+    "aboutpage": {
+        "title": "Haqqımızda",
+        "intro": "Ən yaxşı alış-veriş təcrübəsini qapınıza gətiririk.",
+        "whoWeAreTitle": "Biz Kimik?",
+        "whoWeAreDesc": "Biz müştəri məmnuniyyətini təmin edən yüksək keyfiyyətli məhsulları ən yaxşı qiymətlərlə təklif edən qabaqcıl e-ticarət platformasıyıq.",
+        "visionTitle": "Bizim Baxışımız",
+        "visionDesc": "Məqsədimiz geniş çeşidli məhsullar, mükəmməl müştəri xidməti və əlverişli qiymətlərlə alış-veriş üçün əsas seçim məkanı olmaqdır.",
+        "whyChooseUsTitle": "Niyə Bizi Seçməlisiniz?",
+        "whyChooseUsDesc": "Asan naviqasiya, təhlükəsiz ödəniş üsulları, sürətli çatdırılma və etibarlı müştəri dəstəyi ilə problemsiz alış-veriş təcrübəsi təqdim edirik.",
+        "footer": "Bizi seçdiyiniz üçün təşəkkür edirik. Xoş alış-verişlər!"
+    },
+    "contactpage": {
+        "title": "Bizimlə Əlaqə",
+        "intro": "Sizə kömək etmək üçün buradayıq! Suallarınız, rəyiniz və ya dəstək üçün bizimlə əlaqə saxlayın.",
+        "getInTouch": "Bizimlə Əlaqə",
+        "nameLabel": "Ad",
+        "namePlaceholder": "Tam adınızı daxil edin",
+        "emailLabel": "E-poçt",
+        "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+        "messageLabel": "Mesaj",
+        "messagePlaceholder": "Mesajınızı bura yazın",
+        "sendButton": "Mesaj Göndər",
+        "contactInfoTitle": "Bizimlə Əlaqə Məlumatları",
+        "email": "E-poçt",
+        "phone": "Telefon",
+        "address": "Ünvan"
+    },
+    "favorites": {
+        "emptyTitle": "Səhifəniz boşdur",
+        "emptyDescription": "Sevimlilərə heç bir məhsul əlavə edilməyib"
+    },
+    "cart": {
+        "emptyTitle": "Səbətinizi doldurmaq üçün alış-veriş edin!",
+        "emptyDescription": "Məni sevindirmək üçün bir şey əlavə edin",
+        "goToShopButton": "Alış-verişə gedin",
+        "totalsTitle": "Səbət Cəmi",
+        "totalItems": "Cəm Məhsullar: ",
+        "shippingTitle": "Çatdırılma",
+        "shippingTo": "Çatdırılma ünvanı: ",
+        "changeShipping": "Çatdırılma Ünvanını Dəyişdir",
+        "totalPrice": "Cəmi Qiymət: ",
+        "checkout": "Ödənişə Keç",
+        "cancel": "Ləğv edin",
+        "save": "Yadda saxlayın",
+        "order": "Sifariş Verin"
+    },
+    "shipping": {
+        "infoTitle": "İstifadəçi Məlumatı",
+        "cartButton": "Kart",
+        "cashButton": "Qapıda Ödəmə ",
+        "fullName": "Tam Ad",
+        "email": "Email Ünvanı",
+        "phone": "Telefon Nömrəsi",
+        "country": "Ölkə",
+        "shippingAddress": "Çatdırılma Ünvanı",
+        "city": "Şəhər",
+        "state": "Ştat",
+        "zipcode": "Poçt kodu",
+        "cardHolder": "Kart Sahibi Adı",
+        "cardNumber": "Kart Nömrəsi",
+        "expiry": "İstifadə tarixi (AY/İL)",
+        "cvc": "CVC",
+        "title": "Sifariş Xülasəsi",
+        "productname": "Məhsul adı",
+        "shippinginfo": "Çatdırılma Məlumatları"
+    },
+    "loginpage": {
+        "title": "Giriş eləmək üçün məlumatları doldurun",
+        "upload": "Şəkil Yükləyin",
+        "guest": "Qonaq kimi davam edin"
+    },
+    "notFound": {
+        "title": "404 - Xəta",
+        "message": "Heç bir sifariş tapılmadı, sifariş vermək üçün mağazaya keçid edin",
+        "button": "Mağazaya get"
+    }
+}

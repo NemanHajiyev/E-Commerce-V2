@@ -6,8 +6,11 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
 import { decrement, increment, removeBasketItem } from '../Redux/cartSlice';
 import { favorieDelete } from '../React-Toastify/Toastify';
+import { useTranslation } from 'react-i18next';
 
 const Cart = ({ setOrderData, orderData }) => {
+    const { t } = useTranslation();
+
     const { products, totalQnty, totalPrice } = useSelector((store) => store.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -66,9 +69,11 @@ const Cart = ({ setOrderData, orderData }) => {
         return (
             <div className='emptyCart'>
                 <HiOutlineShoppingBag className='empty-icon' />
-                <h1>Your cart is empty</h1>
-                <h4>Add something to make me happy</h4>
-                <Link to='/shop'><button>Go To Shopping</button></Link>
+                <h1>{t('cart.emptyTitle')}</h1>
+                <h4>{t('cart.emptyDescription')}</h4>
+                <Link to='/shop'>
+                    <button>{t('cart.goToShopButton')}</button>
+                </Link>
             </div>
         );
     }
@@ -104,22 +109,20 @@ const Cart = ({ setOrderData, orderData }) => {
 
             <div className='cart-right'>
                 <div className='cart-section'>
-                    <h3>Cart Totals</h3>
-                    <p>Totoal Items : {totalQnty}</p>
+                    <h3>{t('cart.totalsTitle')}</h3>
+                    <p>{t('cart.totalItems')} {totalQnty}</p>
                 </div>
                 <div className='cart-section'>
-                    <h3>Shipping</h3>
-                    <p>Shipping to : {shipping}</p>
-                    <button onClick={openModal}>Change Shipping Adress</button>
+                    <h3>{t('cart.shippingTitle')}</h3>
+                    <p>{t('cart.shippingTo')} {shipping}</p>
+                    <button onClick={openModal}>{t('cart.changeShipping')}</button>
                 </div>
                 <div className='cart-section'>
-                    <h2>Total Price: <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
+                    <h2>{t('cart.totalPrice')} <span style={{ color: "red" }}>${(totalPrice).toFixed(2)}</span></h2>
                 </div>
                 <div>
-                    <button
-                        onClick={toOrderPage}
-                        className='checkout-btn'>
-                        Procced Checkout
+                    <button onClick={toOrderPage} className='checkout-btn'>
+                        {t('cart.checkout')}
                     </button>
                 </div>
             </div>
@@ -128,8 +131,8 @@ const Cart = ({ setOrderData, orderData }) => {
                 modal ? <div className='modal'>
                     <input type="text" value={newAdress} onChange={(e) => setNewAdress(e.target.value)} />
                     <div className='buttons'>
-                        <button onClick={closeModal}>Cancel</button>
-                        <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>Save Adress</button>
+                        <button onClick={closeModal}>{t("cart.cancel")}</button>
+                        <button onClick={saveAdress} style={{ backgroundColor: "rgb(0, 182, 243)" }}>{t("cart.save")}</button>
                     </div>
                 </div> : null
             }

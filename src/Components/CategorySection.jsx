@@ -6,9 +6,12 @@ import '../Styles/CategorySection.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { categoryProducts } from '../Redux/productSlice';
+import { useTranslation } from 'react-i18next';
 
 
 const CategorySection = () => {
+    const { t } = useTranslation();
+
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -19,15 +22,15 @@ const CategorySection = () => {
 
     const data = [
         {
-            title: "Beauty",
+            title: t('beauty'),
             image: beauty
         },
         {
-            title: "Sports",
+            title: t('sports'),
             image: sports
         },
         {
-            title: "Fashion",
+            title: t('fashion'),
             image: fashion
         }
     ];
@@ -38,8 +41,8 @@ const CategorySection = () => {
                 <div className="category-info" key={index}>
                     <img src={item.image} alt={item.title} />
                     <div className="category-detail">
-                        <p>{item.title}</p>
-                        <button onClick={() => getCategorie(item.title)}>View All</button>
+                        <p>{t(item.title)}</p>
+                        <button onClick={() => getCategorie(item.title)}>{t("viewall")}</button>
                     </div>
                 </div>
             ))}
