@@ -15,8 +15,8 @@ import { Toggle } from '../DarkLightMode/Toogle'
 //
 
 
-const Navbar = ({ registerInfo, setRegisterInfo }) => {
 
+const Navbar = ({ registerInfo, setRegisterInfo }) => {
     const { t, i18n } = useTranslation()
 
     const handleClick = async (lang) => {

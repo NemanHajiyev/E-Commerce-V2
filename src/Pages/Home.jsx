@@ -1,7 +1,6 @@
 import React from 'react';
 import "../Styles/Home.css";
 import { Categories } from '../MockData/mockData';
-import banner from '../Assets/images/banner.jpg';
 import InfoSection from "../Components/InfoSection";
 import CategorySection from '../Components/CategorySection';
 import ProductList from '../Components/ProductList';
@@ -12,6 +11,7 @@ import { categoryProducts } from '../Redux/productSlice';
 //
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import SliderComp from '../Components/Slider';
 
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
                     </ul>
                 </div>
                 <div className='home-banner'>
-                    <img src={banner} className='image' />
+                    <SliderComp />
                 </div>
             </div>
             <div className='home-sections'>
