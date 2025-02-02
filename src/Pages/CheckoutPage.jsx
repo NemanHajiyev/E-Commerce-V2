@@ -40,6 +40,8 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
         if (registerInfoLenght.length === 0) {
             alert("Please Login")
             navigate('/login');
+        } else {
+            navigate('/order-info');
         }
 
         if (!cartModal) {
