@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/Products.css';
-import { FaStar } from 'react-icons/fa';
+import { FaRegHeart, FaStar } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { addToBaket } from '../Redux/cartSlice';
-import { addToFavorie } from '../Redux/productSlice';
+import { addToFavorie, removeFavorieItem } from '../Redux/productSlice';
 import { FcLike } from 'react-icons/fc';
-import { productAddToasty } from '../React-Toastify/Toastify';
+import { favorieDelete, productAddToasty } from '../React-Toastify/Toastify';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 const Product = ({ getData, item }) => {
+    const [heart, setHeart] = useState(true)
+
     const { id, image, name, price, quantity } = getData;
     const { t } = useTranslation();
     const navigate = useNavigate()
     const dispatch = useDispatch();
+
 
     const addFavoire = () => {
         dispatch(addToFavorie({ newItem: getData, t }))

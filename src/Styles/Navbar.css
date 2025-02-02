@@ -70,7 +70,7 @@
 }
 
 .navbar-form:hover {
-    box-shadow: 0 0 10px brown;
+    box-shadow: 0 0 10px rgb(0, 128, 255);
 
 }
 
@@ -123,7 +123,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: rgb(235, 54, 54);
+    background-color: rgb(0, 128, 255);
     color: white;
     font-size: 12px;
     font-weight: bold;

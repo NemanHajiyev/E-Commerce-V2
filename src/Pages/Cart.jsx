@@ -62,9 +62,6 @@ const Cart = ({ setOrderData, orderData }) => {
         navigate(`/product-detail/${id}`)
     }
 
-
-
-
     if (products.length === 0) {
         return (
             <motion.div

@@ -28,6 +28,10 @@ function App() {
     const location = useLocation();
     const isLoginPage = location.pathname === "/login";
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [location.pathname]);
+
     return (
       <>
         {!isLoginPage && <Navbar registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />}
@@ -37,6 +41,8 @@ function App() {
       </>
     );
   };
+
+
 
   useEffect(() => {
     const storedUser = localStorage.getItem("registerInfo");

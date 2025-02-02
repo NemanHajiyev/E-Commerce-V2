@@ -1,10 +1,10 @@
 {
     "input": "Məhsul axtarın...",
     "login": "Giriş",
-    "home": "Ev",
+    "home": "Ana Səhifə",
     "shop": "Mağaza",
     "contact": "Əlaqə",
-    "about": "Haqqında",
+    "about": "Haqqımızda",
     "category": "Kateqoriyalar",
     "fashion": "Geyim",
     "beauty": "Gözəllik",
@@ -14,6 +14,7 @@
     "viewall": "Hamısını göstər",
     "basket": "Səbət",
     "favorie": "Sevimlilər",
+    "loginpls": "Öncə Giriş edin",
     "infoSection": {
         "freeShipping": {
             "title": "Pulsuz Çatdırılma",

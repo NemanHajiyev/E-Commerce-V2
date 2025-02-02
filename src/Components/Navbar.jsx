@@ -23,7 +23,7 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
         await i18n.changeLanguage(lang)
     }
 
-
+    const { favProducts } = useSelector((store) => store.product)
     const { products } = useSelector((store) => store.cart);
     const [search, setSearch] = useState();
     const [user, setUser] = useState(true);
@@ -85,8 +85,9 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
                 </div>
 
                 <div className='navbar-right'>
-                    <Link to='/favorie'>
-                        <FcLike style={{ marginTop: "10px" }} />
+                    <Link to='/favorie' className='shopping-icon' >
+                        <FcLike />
+                        <div className='basket-count'>{favProducts.length}</div>
                     </Link>
 
                     <Link to="/cart" className='shopping-icon'>

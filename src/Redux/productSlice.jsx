@@ -25,7 +25,7 @@ export const productSlice = createSlice({
                 notifySuccess(t);
             }
             else {
-                notifyError(t);
+                notifyError(t)
             }
         },
 
