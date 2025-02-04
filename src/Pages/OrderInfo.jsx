@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/OrderInfo.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 const OrderInfo = ({ orderData }) => {
     const { t } = useTranslation();
-    const { products, totalPrice } = useSelector((store) => store.cart);
+    const { orderProducts, totalPrice } = useSelector((store) => store.order);
     const navigate = useNavigate();
 
     const [savedOrderData, setSavedOrderData] = useState(() => {
@@ -20,13 +20,14 @@ const OrderInfo = ({ orderData }) => {
             return {};
         }
     });
+    console.log(orderProducts)
 
     useEffect(() => {
         if (orderData) {
             setSavedOrderData(orderData);
-            localStorage.setItem("registerdata", JSON.stringify(orderData));
+            localStorage.setItem("registerdata", JSON.stringify({ ...savedOrderData, orderData }));
         }
-    }, [orderData]);
+    }, [savedOrderData]);
 
     return (
         <>
@@ -54,7 +55,7 @@ const OrderInfo = ({ orderData }) => {
                             <p><span>{t('shipping.shippingAddress')}</span>: {savedOrderData.shippingadress}</p>
                         </div>
                         <div>
-                            {products?.map((product) => (
+                            {orderProducts?.map((product) => (
                                 <div className='order-info' key={product.id}>
                                     <p>{t('shipping.productname')}: {product.name} x {product.quantity}</p>
                                     <h3>${(product.quantity * product.price).toFixed(2)}</h3>

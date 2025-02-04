@@ -33,6 +33,10 @@ export const cartSlice = createSlice({
                 state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
             }
         },
+        clearCart: (state) => {
+            state.products = []
+            state.totalPrice = 0
+        },
 
         increment: (state, action) => {
             const itemId = action.payload
@@ -42,7 +46,6 @@ export const cartSlice = createSlice({
                 state.totalQnty += 1;
                 state.totalPrice += product.price
             }
-
         },
 
         decrement: (state, action) => {
@@ -58,5 +61,5 @@ export const cartSlice = createSlice({
     }
 });
 
-export const { addToBaket, removeBasketItem, increment, decrement } = cartSlice.actions;
+export const { addToBaket, removeBasketItem, increment, decrement, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

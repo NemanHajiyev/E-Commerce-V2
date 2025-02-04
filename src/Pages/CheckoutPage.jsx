@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import '../Styles/Checkout.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaDeleteLeft } from 'react-icons/fa6';
-import { removeBasketItem } from '../Redux/cartSlice';
+import { clearCart, removeBasketItem } from '../Redux/cartSlice';
 import { MdErrorOutline } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { favorieDelete, notifyError2 } from '../React-Toastify/Toastify'
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-
-
+import { saveOrder } from '../Redux/orderSlice'
 const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
     const { t } = useTranslation();
 
@@ -49,7 +48,9 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
             const filtered = filteredValue.some(item => item.length === 0);
             if (!filtered) {
                 setOrderData(shippingInfo);
+                dispatch(saveOrder({ products, totalPrice }));
                 navigate('/order-info');
+                dispatch(clearCart())
             } else {
                 notifyError2(t);
             }
@@ -59,7 +60,9 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
             const isAnyFieldEmpty = shipValue.some(item => item.length === 0);
             if (!isAnyFieldEmpty) {
                 setOrderData(shippingInfo);
+                dispatch(saveOrder({ products, totalPrice }));
                 navigate('/order-info');
+                dispatch(clearCart())
             } else {
                 notifyError2();
             }
