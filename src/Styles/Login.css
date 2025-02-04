@@ -70,7 +70,7 @@
 }
 
 .login-button {
-    padding: 12px;
+    padding: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
@@ -79,7 +79,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-top: 20px;
+    width: 100%;
 }
 
 .login-button:hover {
@@ -115,13 +115,10 @@
 .upload-btn {
     background-color: #007bff;
     color: white;
-    padding: 12px 24px;
+    padding: 8px 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem;
     text-align: center;
-    position: relative;
-    display: inline-block;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -159,7 +156,7 @@
     background-color: #fb5858;
     padding: 10px;
     color: white;
-    margin-top: 100px;
+    margin-top: 20px;
     border-radius: 10px;
     width: 40%;
     cursor: pointer;
@@ -167,7 +164,27 @@
 
 .guest-button:hover {
     background-color: #ff0000;
+}
 
+.register-div {
+    width: 100%;
+    margin-top: 10px;
+    border: 2px solid black;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.login-buttons {
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {
