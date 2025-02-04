@@ -4,54 +4,75 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from '../Firebase/FireBase'
+//
+const provider = new GoogleAuthProvider();
 
 
 const Login = ({ setRegisterInfo }) => {
+    const navigate = useNavigate()
 
     const { t } = useTranslation();
     const [modal, setModal] = useState(true);
+
     const [email, SetEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const [img, setImg] = useState()
-    const navigate = useNavigate()
-
-
     const [data, setData] = useState({
-        username: email,
-        image: img
-    }
-    )
+        image: img,
+        userName: ""
+    })
 
-    const register = async () => {
+    const loginWithGoogle = async () => {
         try {
-            const response = await createUserWithEmailAndPassword(auth, email, password)
+            const response = await signInWithPopup(auth, provider)
             const user = response.user;
             if (user) {
-                alert("Olusturuldu")
-                SetEmail('');
-                setPassword('')
-                setModal(true)
-                setRegisterInfo(data)
+                navigate('/')
             }
         } catch (error) {
             alert(error)
         }
     }
 
+    const register = async () => {
+        try {
+            const response = await createUserWithEmailAndPassword(auth, email, password);
+            const user = response.user;
+            if (user) {
+                alert("Hesab Yaradildi");
+                const userData = { image: img };
+                localStorage.setItem("registerInfo", JSON.stringify(userData));
+                setRegisterInfo(userData);
+                SetEmail('');
+                setPassword('');
+                setModal(true);
+            }
+        } catch (error) {
+            alert(error);
+        }
+    };
+
+
     const login = async () => {
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
             const user = response.user;
-            if (user) {
+            if (user && data.image) {
+                const userData = {
+                    image: data.image,
+                    username: data.userName
+                };
+                localStorage.setItem("registerInfo", JSON.stringify(userData));
                 navigate("/");
-                setRegisterInfo(data)
+                setRegisterInfo(userData);
+            } else {
+                alert("Please upload an image");
             }
-
         } catch (error) {
-            alert(error)
+            alert(error);
         }
     };
 
@@ -74,10 +95,16 @@ const Login = ({ setRegisterInfo }) => {
                         <p>{t('loginpage.title')}</p>
                         <form className="login-form">
                             <input
-                                value={data.username}
-                                onChange={(e) => setData(e.target.value)}
+                                value={data.userName}
+                                onChange={(e) => setData({ userName: e.target.value })}
                                 type="text"
                                 placeholder="Username"
+                                className="login-input" />
+                            <input
+                                value={email}
+                                onChange={(e) => SetEmail(e.target.value)}
+                                type="text"
+                                placeholder="E-mail"
                                 className="login-input" />
 
                             <input
@@ -121,7 +148,7 @@ const Login = ({ setRegisterInfo }) => {
                             <div>
                                 <button className="login-button" onClick={login}>{t('login')}</button>
                             </div>
-                            <div className="register-div">
+                            <div onClick={loginWithGoogle} className="register-div">
                                 <FcGoogle size={25} />
                                 <span className="google-button">Sign in with Google</span>
                             </div>
@@ -138,12 +165,6 @@ const Login = ({ setRegisterInfo }) => {
                         <h1>Register</h1>
                         <p>Register olun</p>
                         <form className="login-form">
-                            <input
-                                value={data.username}
-                                onChange={(e) => setData(e.target.value)}
-                                type="text"
-                                placeholder="Username"
-                                className="login-input" />
                             <input
                                 value={email}
                                 onChange={(e) => SetEmail(e.target.value)}
@@ -164,10 +185,6 @@ const Login = ({ setRegisterInfo }) => {
                                 <button
                                     onClick={register}
                                     className="login-button">Register</button>
-                            </div>
-                            <div className="register-div">
-                                <FcGoogle size={25} />
-                                <span className="google-button">Sign up with Google</span>
                             </div>
                             <div style={{ marginTop: "10px" }}>
                                 <a href="#" onClick={() => setModal(!modal)}>Already have an account ?</a>

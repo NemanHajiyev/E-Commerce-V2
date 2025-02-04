@@ -43,13 +43,16 @@ function App() {
   };
 
 
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("registerInfo");
-    if (storedUser) {
-      setRegisterInfo(JSON.parse(storedUser));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUser = localStorage.getItem("registerInfo");
+  //   if (storedUser) {
+  //     try {
+  //       setRegisterInfo(JSON.parse(storedUser));
+  //     } catch (error) {
+  //       localStorage.removeItem("registerInfo");
+  //     }
+  //   }
+  // }, []);
 
 
   return (

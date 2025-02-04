@@ -13,6 +13,9 @@ import '../Language/i18n'
 import { useTranslation } from 'react-i18next';
 import { Toggle } from '../DarkLightMode/Toogle'
 //
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../Firebase/FireBase';
+
 
 
 
@@ -52,8 +55,21 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
         setHamburger(false);
     }, [location]);
 
-
     const registerInfoLength = Object.values(registerInfo);
+
+    const getUserinfo = () => {
+        onAuthStateChanged(auth, (userCredential) => {
+            if (userCredential && (!registerInfo || !registerInfo.username)) {
+                setRegisterInfo({
+                    username: userCredential.displayName || "User",
+                    image: userCredential.photoURL || registerInfo?.image
+                });
+            }
+        });
+    };
+
+    getUserinfo()
+
 
     return (
         <nav className='navbar'>
