@@ -15,6 +15,13 @@
     "basket": "Səbət",
     "favorie": "Sevimlilər",
     "loginpls": "Öncə Giriş edin",
+    "google": "Google ilə giriş",
+    "noaccount": "Hesabınız yoxdur ?",
+    "register": "Qeydiyyat",
+    "regsitertitle": "Giriş etmək üçün öncə qeydiyyatdan keçin",
+    "haveaccount": "Hesabım var",
+    "password": "Şifrə",
+    "username": "İstifadəçi adı",
     "infoSection": {
         "freeShipping": {
             "title": "Pulsuz Çatdırılma",

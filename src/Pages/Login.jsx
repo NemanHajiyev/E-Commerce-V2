@@ -69,7 +69,7 @@ const Login = ({ setRegisterInfo }) => {
                 navigate("/");
                 setRegisterInfo(userData);
             } else {
-                alert("Please upload an image");
+                alert(t('loginpage.upload'));
             }
         } catch (error) {
             alert(error);
@@ -98,20 +98,20 @@ const Login = ({ setRegisterInfo }) => {
                                 value={data.userName}
                                 onChange={(e) => setData({ userName: e.target.value })}
                                 type="text"
-                                placeholder="Username"
+                                placeholder={t("username")}
                                 className="login-input" />
                             <input
                                 value={email}
                                 onChange={(e) => SetEmail(e.target.value)}
                                 type="text"
-                                placeholder="E-mail"
+                                placeholder={t("contactpage.emailLabel")}
                                 className="login-input" />
 
                             <input
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={t('password')}
                                 className="login-input"
                             />
                         </form>
@@ -150,10 +150,10 @@ const Login = ({ setRegisterInfo }) => {
                             </div>
                             <div onClick={loginWithGoogle} className="register-div">
                                 <FcGoogle size={25} />
-                                <span className="google-button">Sign in with Google</span>
+                                <span className="google-button">{t('google')}</span>
                             </div>
                             <div style={{ marginTop: "10px" }}>
-                                <a href="#" onClick={() => setModal(!modal)}>Don't have an account ?</a>
+                                <a href="#" onClick={() => setModal(!modal)}>{t("noaccount")}</a>
                             </div>
                         </div>
                         <button className="guest-button" onClick={() => navigate('/')}>{t("loginpage.guest")}</button>
@@ -162,21 +162,21 @@ const Login = ({ setRegisterInfo }) => {
             ) : (
                 <div className="login-container">
                     <div className="login-right">
-                        <h1>Register</h1>
-                        <p>Register olun</p>
+                        <h1>{t("register")}</h1>
+                        <p>{t('regsitertitle')}</p>
                         <form className="login-form">
                             <input
                                 value={email}
                                 onChange={(e) => SetEmail(e.target.value)}
                                 type="text"
-                                placeholder="E-mail"
+                                placeholder={t("contactpage.emailLabel")}
                                 className="login-input" />
 
                             <input
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
-                                placeholder="Password"
+                                placeholder={t('password')}
                                 className="login-input"
                             />
                         </form>
@@ -184,10 +184,10 @@ const Login = ({ setRegisterInfo }) => {
                             <div>
                                 <button
                                     onClick={register}
-                                    className="login-button">Register</button>
+                                    className="login-button">{t('register')}</button>
                             </div>
                             <div style={{ marginTop: "10px" }}>
-                                <a href="#" onClick={() => setModal(!modal)}>Already have an account ?</a>
+                                <a href="#" onClick={() => setModal(!modal)}>{t('haveaccount')}</a>
                             </div>
                         </div>
                     </div>

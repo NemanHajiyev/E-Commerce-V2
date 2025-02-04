@@ -12,4 +12,14 @@
     .favorie-div {
         gap: 10px;
     }
+
+    .emptyCart {
+        /* width: 50%; */
+        /* font-size: 310px; */
+        text-align: center;
+    }
+
+    .empty-icon {
+        font-size: 15rem;
+    }
 }

@@ -15,6 +15,13 @@
     "basket": "Basket",
     "favorie": "Favorie",
     "loginpls": "Please Login",
+    "google": "Sign in with Google",
+    "noaccount": "Don't have an account?",
+    "register": "Register",
+    "regsitertitle": "Please register first to log in",
+    "haveaccount": "Already have an acoount",
+    "password": "Password",
+    "username": "Username",
     "infoSection": {
         "freeShipping": {
             "title": "Free Shipping",

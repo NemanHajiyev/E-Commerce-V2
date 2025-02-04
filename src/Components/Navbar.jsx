@@ -13,13 +13,13 @@ import '../Language/i18n'
 import { useTranslation } from 'react-i18next';
 import { Toggle } from '../DarkLightMode/Toogle'
 //
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Firebase/FireBase';
 
 
 
 
-const Navbar = ({ registerInfo, setRegisterInfo }) => {
+const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
     const { t, i18n } = useTranslation()
 
     const handleClick = async (lang) => {
@@ -40,14 +40,20 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
         navigate('/filtered-product');
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("registerInfo");
-        setRegisterInfo({});
-        navigate("/login");
+    const handleLogout = async () => {
+
+        try {
+            await signOut(auth);
+            localStorage.removeItem("registerInfo");
+            setRegisterInfo({});
+            navigate("/login");
+        } catch (error) {
+            console.error("Logout Error:", error);
+        }
     };
 
     const openOrderSummary = () => {
-        navigate('/404');
+        navigate('/order-info');
     };
 
     const location = useLocation();
@@ -61,7 +67,8 @@ const Navbar = ({ registerInfo, setRegisterInfo }) => {
         onAuthStateChanged(auth, (userCredential) => {
             if (userCredential && (!registerInfo || !registerInfo.username)) {
                 setRegisterInfo({
-                    username: userCredential.displayName || "User",
+                    username: userCredential.displayName || registerInfo?.username || " ",
+                    email: userCredential.email,
                     image: userCredential.photoURL || registerInfo?.image
                 });
             }

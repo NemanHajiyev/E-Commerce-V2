@@ -48,7 +48,7 @@ const CheckoutPage = ({ setOrderData, orderData, registerInfo }) => {
             const filteredValue = shipValue.slice(0, 7);
             const filtered = filteredValue.some(item => item.length === 0);
             if (!filtered) {
-                setOrderData({ shippingInfo });
+                setOrderData(shippingInfo);
                 navigate('/order-info');
             } else {
                 notifyError2(t);

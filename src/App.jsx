@@ -19,7 +19,6 @@ import About from './Pages/About';
 import Contact from "./Pages/Contact";
 import Login from './Pages/Login';
 import CategoryProduct from "./Components/CategoryProduct";
-import NotFound from "./Pages/404NotFound";
 
 function App() {
   const [orderData, setOrderData] = useState();
@@ -41,6 +40,7 @@ function App() {
       </>
     );
   };
+
 
 
   // useEffect(() => {
@@ -73,7 +73,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login registerInfo={registerInfo} setRegisterInfo={setRegisterInfo} />} />
             <Route path="/category-product" element={<CategoryProduct />} />
-            <Route path="/404" element={<NotFound orderData={orderData} />} />
           </Routes>
         </Layout>
       </BrowserRouter>

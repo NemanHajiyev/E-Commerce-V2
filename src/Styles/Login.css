@@ -169,7 +169,7 @@
 .register-div {
     width: 100%;
     margin-top: 10px;
-    border: 2px solid black;
+    border: 1px solid rgb(129, 127, 127);
     display: flex;
     border-radius: 10px;
     justify-content: center;
@@ -191,16 +191,20 @@
     .login-container {
         flex-direction: column;
         width: 100%;
+        height: auto;
+    }
+
+    .login-left,
+    .login-right {
+        width: 100%;
+    }
+
+    .login-left img {
         height: 100%;
     }
 
-    .login-left {
-        width: 100%;
-    }
-
     .login-right {
-        margin-top: -10px;
-        width: 100%;
+        margin-top: -20px;
         text-align: center;
     }
 
@@ -208,9 +212,8 @@
         width: 100%;
     }
 
-
-    .profil-picture:hover {
-        transform: scale(1.5);
+    .guest-button {
+        width: 100%;
     }
 
 }
