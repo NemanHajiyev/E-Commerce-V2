@@ -153,7 +153,7 @@ const Login = ({ setRegisterInfo }) => {
                                 <span className="google-button">{t('google')}</span>
                             </div>
                             <div style={{ marginTop: "10px" }}>
-                                <a href="#" onClick={() => setModal(!modal)}>{t("noaccount")}</a>
+                                <a style={{ cursor: "pointer" }} onClick={() => setModal(!modal)}>{t("noaccount")}</a>
                             </div>
                         </div>
                         <button className="guest-button" onClick={() => navigate('/')}>{t("loginpage.guest")}</button>
@@ -187,7 +187,7 @@ const Login = ({ setRegisterInfo }) => {
                                     className="login-button">{t('register')}</button>
                             </div>
                             <div style={{ marginTop: "10px" }}>
-                                <a href="#" onClick={() => setModal(!modal)}>{t('haveaccount')}</a>
+                                <a style={{ cursor: "pointer" }} onClick={() => setModal(!modal)}>{t('haveaccount')}</a>
                             </div>
                         </div>
                     </div>
