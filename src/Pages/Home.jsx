@@ -15,7 +15,7 @@ import SliderComp from '../Components/Slider';
 
 
 const Home = () => {
-    const { t, i18n } = useTranslation()
+    const { t } = useTranslation()
     const dispatch = useDispatch()
 
     const getCategorie = (category) => {

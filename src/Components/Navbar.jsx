@@ -173,16 +173,33 @@ const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
                         onClick={() => setHamburger(!hamburger)}
                         className={`hamburger-menu ${hamburger ? 'active' : ''}`}
                     />
-                    {hamburger && (
-                        <div className="dropdown-menu active">
+                    {hamburger? (
+                        <>
+                        {registerInfoLength.length > 0 ? (
+                            <div className="dropdown-menu active">
                             <ul>
-                                <button className="dropdown-item" onClick={() => navigate('/login')}>{t('login')}</button>
                                 <button className="dropdown-item" onClick={() => navigate('/shop')}>{t('shop')}</button>
                                 <button className="dropdown-item" onClick={() => navigate('/cart')}>{t('basket')}</button>
                                 <button className="dropdown-item" onClick={() => navigate('/favorie')}>{t('favorie')}</button>
                             </ul>
                         </div>
-                    )}
+                        ):(
+                            <div className="dropdown-menu active">
+                            <ul>
+                                <button className="dropdown-item" onClick={() => navigate('/login')}>{t('login')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/shop')}>{t('shop')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/cart')}>{t('basket')}</button>
+                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>{t('favorie')}</button>
+                                
+                            </ul>
+                        </div>
+                        )}
+                        </>
+                    ):(
+                        null
+                    )
+                    
+                    }
                 </div>
             </div>
             <div className='Pages-link'>
