@@ -36,7 +36,7 @@ const OrderInfo = ({ orderData }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 2 }}
                     className="order-info-container">
-                    {/* <Confetti width={1500} height={1000} /> */}
+                    <Confetti width={1500} height={1000} />
                     <h1 className="order-summary-title">{t('shipping.title')}</h1>
                     <div className="order-summary-card">
                         <div className="order-section">
