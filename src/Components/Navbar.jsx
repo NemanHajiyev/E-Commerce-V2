@@ -17,8 +17,6 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Firebase/FireBase';
 
 
-
-
 const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
     const { t, i18n } = useTranslation()
 
@@ -189,8 +187,7 @@ const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
                                 <button className="dropdown-item" onClick={() => navigate('/login')}>{t('login')}</button>
                                 <button className="dropdown-item" onClick={() => navigate('/shop')}>{t('shop')}</button>
                                 <button className="dropdown-item" onClick={() => navigate('/cart')}>{t('basket')}</button>
-                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>{t('favorie')}</button>
-                                
+                                <button className="dropdown-item" onClick={() => navigate('/favorie')}>{t('favorie')}</button>              
                             </ul>
                         </div>
                         )}

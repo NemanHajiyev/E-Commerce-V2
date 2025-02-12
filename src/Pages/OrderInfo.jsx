@@ -63,9 +63,9 @@ const OrderInfo = ({ orderData }) => {
                             ))}
                             <hr />
                             <h1>{t('cart.totalPrice')}: ${(totalPrice).toFixed(2)}</h1>
-                            <button
+                            {/* <button
                                 onClick={() => navigate('/shop')}
-                                className='Continue-Shopping'>{t('cart.goToShopButton')}</button>
+                                className='Continue-Shopping'>{t('cart.goToShopButton')}</button> */}
                         </div>
                     </div>
                 </motion.div>
