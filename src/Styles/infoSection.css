@@ -1,6 +1,7 @@
 .infosection {
     margin-top: 100px;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,8 +9,8 @@
 
 .info-div {
     width: 19%;
-    height: 100%;
     padding: 15px;
+    height: 100%;
     gap: 30px;
     display: flex;
     justify-content: center;
@@ -43,5 +44,12 @@
 
     .info-div {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .info-div {
+        padding: 0px;
+        height: 250px;
     }
 }

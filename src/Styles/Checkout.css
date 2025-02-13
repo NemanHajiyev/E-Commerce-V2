@@ -116,7 +116,7 @@
 .user-address {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 
@@ -234,5 +234,15 @@
 
     .cart-date {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .user-address input {
+        width: 90%;
+    }
+
+    .cart-date input {
+        width: 90%;
     }
 }

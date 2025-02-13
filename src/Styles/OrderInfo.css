@@ -102,3 +102,18 @@
 .go-to-shop-btn:hover {
     background-color: #0056b3;
 }
+
+@media screen and (max-width: 768px) {
+    .order-info-container {
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .order-summary-card {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px) {}

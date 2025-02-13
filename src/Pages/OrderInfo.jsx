@@ -6,10 +6,12 @@ import Confetti from 'react-confetti';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
+
 const OrderInfo = ({ orderData }) => {
     const { t } = useTranslation();
     const { orderProducts, totalPrice } = useSelector((store) => store.order);
     const navigate = useNavigate();
+
 
     const [savedOrderData, setSavedOrderData] = useState(() => {
         try {
@@ -30,13 +32,13 @@ const OrderInfo = ({ orderData }) => {
     }, [savedOrderData]);
 
     return (
-        <>
+        <div>
             {savedOrderData ? (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 2 }}
                     className="order-info-container">
-                    <Confetti width={1500} height={1000} />
+                    {/* <Confetti width={600} height={1000} /> */}
                     <h1 className="order-summary-title">{t('shipping.title')}</h1>
                     <div className="order-summary-card">
                         <div className="order-section">
@@ -80,7 +82,7 @@ const OrderInfo = ({ orderData }) => {
                     </button>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 

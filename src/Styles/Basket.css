@@ -118,7 +118,7 @@
 
 .cart-right {
     width: 28%;
-    height: 350px !important;
+    height: 390px !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -258,5 +258,11 @@
     h2 {
         font-size: 25px;
         margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cart-right {
+        height: 100%;
     }
 }

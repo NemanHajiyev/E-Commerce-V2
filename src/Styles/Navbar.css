@@ -61,6 +61,10 @@
     cursor: pointer;
 }
 
+.form-div {
+    width: 60%;
+}
+
 .navbar-form input {
     width: 100%;
     height: 30px;
@@ -256,4 +260,14 @@
         font-size: 30px;
     }
 
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-div {
+        width: 100%;
+    }
+
+    .form-div {
+        width: 40%;
+    }
 }
