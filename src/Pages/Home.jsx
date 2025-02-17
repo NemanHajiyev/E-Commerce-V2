@@ -21,7 +21,6 @@ const Home = () => {
     const getCategorie = (category) => {
         dispatch(categoryProducts(category))
         navigate('/category-product')
-        console.log("kateqoriyasi - ", category)
     }
     const navigate = useNavigate()
 
