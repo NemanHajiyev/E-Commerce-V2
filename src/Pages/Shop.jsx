@@ -70,11 +70,11 @@ const Shop = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 2 }}
         >
-            <select onChange={handleSortChange} value={sortOrder}>
-                <option value="">Sort by</option>
-                <option value="cte">Price: Cheap to Expensive</option>
-                <option value="etc">Price: From Expensive to Cheap</option>
-                <option value="az">Name: A-Z</option>
+            <select onChange={handleSortChange} value={sortOrder} className='Price-select'>
+                <option value="">{t('ChoosePrice.Sort')}</option>
+                <option value="cte">{t('ChoosePrice.CTE')}</option>
+                <option value="etc">{t('ChoosePrice.ETC')}</option>
+                <option value="az">{t('ChoosePrice.A-Z')}</option>
             </select>
 
 

@@ -149,5 +149,11 @@
         "subscribe": "Subscribe",
         "enterEmail": "Your Email...",
         "allRightsReserved": "All rights reserved."
+    },
+    "ChoosePrice": {
+        "Sort": "Sort By",
+        "CTE": "Price: Cheap to Expensive",
+        "ETC": "Price: From Expensive to Cheap",
+        "A-Z": "Name A-Z"
     }
 }

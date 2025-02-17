@@ -149,5 +149,11 @@
         "subscribe": "Abunə Olun",
         "enterEmail": "E-poçt ünvanınızı daxil edin...",
         "allRightsReserved": "Bütün hüquqlar qorunur."
+    },
+    "ChoosePrice": {
+        "Sort": "Sırala",
+        "CTE": "Qiymət: Ucuzdan Bahaya",
+        "ETC": "Qiymət: Bahadan Ucuza",
+        "A-Z": "Ad A-Z"
     }
 }
