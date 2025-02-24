@@ -33,7 +33,8 @@ const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault()
         dispatch(filteredProducts(search));
         navigate('/filtered-product');
     };
@@ -84,7 +85,7 @@ const Navbar = ({ registerInfo, setRegisterInfo, orderData }) => {
                     <p style={{ color: "black" }}>Fun<span>Store</span></p>
                 </Link>
                 <div className='form-div'>
-                    <form className='navbar-form'>
+                    <form className='navbar-form' onSubmit={handleSearch}>
                         <input
                             type="text"
                             value={search}

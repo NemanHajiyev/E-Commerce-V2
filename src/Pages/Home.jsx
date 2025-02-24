@@ -12,6 +12,7 @@ import { categoryProducts } from '../Redux/productSlice';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import SliderComp from '../Components/Slider';
+import ToTop from '../BackToTop/ToTop';
 
 
 const Home = () => {

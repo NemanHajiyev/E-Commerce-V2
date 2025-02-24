@@ -19,6 +19,7 @@ import About from './Pages/About';
 import Contact from "./Pages/Contact";
 import Login from './Pages/Login';
 import CategoryProduct from "./Components/CategoryProduct";
+import ToTop from "./BackToTop/ToTop";
 
 function App() {
   const [orderData, setOrderData] = useState();
@@ -76,6 +77,8 @@ function App() {
           </Routes>
         </Layout>
       </BrowserRouter>
+      <ToTop />
+
     </div>
   );
 }

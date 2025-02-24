@@ -9,8 +9,6 @@ import { productAddToasty } from '../React-Toastify/Toastify';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
-
-
 const ProductDTL = () => {
     const { t } = useTranslation()
     const { id } = useParams();
@@ -47,8 +45,6 @@ const ProductDTL = () => {
         }
         productAddToasty(t)
     };
-
-
 
     return (
         <motion.div
